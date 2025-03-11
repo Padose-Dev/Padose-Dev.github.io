@@ -1,0 +1,162 @@
+  .main {
+      overflow-x: hidden !important;
+
+      .header-item {
+          z-index: 1000;
+          width: 100%;
+          background-size: 100% auto;
+
+          img{
+            position: absolute;
+            z-index: 100;
+          }
+      }
+  }
+
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+  }
+
+  .logo-section {
+      display: flex;
+      flex-direction: column;
+      color: blue;
+      gap: 15px;
+      z-index: 1000;
+  }
+
+  .logo-custom {
+      position: relative;
+  }
+
+  .logo-item {
+      width: 60px;
+      height: 60px;
+      background-color: blue;
+      border-radius: 50%;
+  }
+
+  .logo-item-bottom-badge {
+      width: 15px;
+      height: 15px;
+      background-color: blue;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -12px;
+      left: -3px;
+  }
+
+  .logo {
+      height: 40px;
+      margin-right: 10px;
+  }
+
+  .brand-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 1000;
+  }
+
+  .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      z-index: 1000;
+      margin-top: -60px;
+  }
+
+  .nav-links li {
+      display: inline;
+  }
+
+  .nav-links a {
+      color: black !important;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+  }
+
+  #languageSelect {
+      background: rgb(1, 1, 87);
+      color: white;
+      border: 1px solid white;
+      padding: 10px 30px;
+      border-radius: 20px;
+      font-size: 1rem;
+  }
+
+  .banner-container {
+      margin-top: -3.2%;
+      position: relative;
+      width: 100vw;
+      object-fit: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      padding: 0 10%;
+      object-fit: cover;
+  }
+
+  .banner-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      object-fit: cover;
+      height: 100vh;
+      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      z-index: 1;
+      border-bottom-left-radius: 70%;
+      border-bottom-right-radius: 40%;
+  }
+
+  .banner-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      object-fit: cover;
+      height: 100vh;
+      z-index: 0;
+      background-repeat: no-repeat;
+      border-bottom-left-radius: 70%;
+      border-bottom-right-radius: 40%;
+  }
+
+  .banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+  }
+
+  .banner-content h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, orange, blue, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+
+  .download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #001F60;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .download-btn:hover {
+      background-color: #0036A0;
+  }
