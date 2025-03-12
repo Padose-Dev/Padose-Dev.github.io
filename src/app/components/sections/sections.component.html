@@ -1,18 +1,20 @@
-<div class="toggle">
-    <button class="btn-buyer" [class.active]="selectedCategory === 'Buyer'" (click)="selectCategory('Buyer')">Buyer</button>
-    <button class="btn-seller" [class.active]="selectedCategory === 'Seller'" (click)="selectCategory('Seller')">Seller</button>
-</div>
-
-<div class="grid-container">
-    <div class="section-images" *ngFor="let item of data[selectedCategory].slice(0, data[selectedCategory].length - 2)" class="grid-item">
-        <img [src]="item.image" alt="Category Image" />
-        <p>{{ item.description }}</p>
+<div class="main-sections">
+    <div class="toggle">
+        <button class="btn-buyer" [class.active]="selectedCategory === 'Buyer'" (click)="selectCategory('Buyer')">Buyer</button>
+        <button class="btn-seller" [class.active]="selectedCategory === 'Seller'" (click)="selectCategory('Seller')">Seller</button>
     </div>
-
-    <div class="highlight-container">
-        <div *ngFor="let item of data[selectedCategory].slice(-2)" class="grid-item">
+    
+    <div class="grid-container">
+        <div class="section-images" *ngFor="let item of data[selectedCategory].slice(0, data[selectedCategory].length - 2)" class="grid-item">
             <img [src]="item.image" alt="Category Image" />
             <p>{{ item.description }}</p>
+        </div>
+    
+        <div class="highlight-container">
+            <div *ngFor="let item of data[selectedCategory].slice(-2)" class="grid-item">
+                <img [src]="item.image" alt="Category Image" />
+                <p>{{ item.description }}</p>
+            </div>
         </div>
     </div>
 </div>

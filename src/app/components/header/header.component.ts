@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  imports: [RouterOutlet]
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   languages = [
@@ -15,4 +13,9 @@ export class HeaderComponent {
     { code: 'fr', label: 'Français' }
   ];
   selectedLanguage = 'en';
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
