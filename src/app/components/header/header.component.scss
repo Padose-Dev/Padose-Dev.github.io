@@ -222,12 +222,14 @@ body {
     color: #fff;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 6px 15px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     outline: none;
     width: 120px;
+    line-height: 1.5; 
+    font-family: 'Noto Sans', sans-serif;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
