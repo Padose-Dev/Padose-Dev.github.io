@@ -1,4 +1,4 @@
-name: Deploy Padose application to github pages
+name: Deploy Padose application to GitHub Pages
 
 on:
   push:
@@ -34,7 +34,10 @@ jobs:
         run: npm install --legacy-peer-deps
       
       - name: Build Angular App
-        run: npm run build -- --output-path=dist/padose --configuration production
+        run: npm run build -- --output-path=dist/padose --configuration production --base-href="/padose/"
+
+      - name: Disable Jekyll
+        run: touch dist/padose/.nojekyll
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
