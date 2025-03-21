@@ -54,7 +54,6 @@ body {
     .nav-links {
         display: flex;
         gap: 20px;
-        padding-right: 40px;
         list-style: none;
         align-items: center;
 
@@ -183,37 +182,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .banner-container {
-        height: 80vh;
-        padding: 0 5%;
-        align-items: center;
-        text-align: center;
-
-        img {
-            height: 100%;
-            border-radius: 0;
-        }
-
-        .overlay {
-            border-radius: 0;
-        }
-
-        .banner-content {
-            max-width: 100%;
-
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-    }
+   
 }
 
 .language-selector {
@@ -250,7 +219,38 @@ body {
     color: #004d99;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .banner-container {
+        height: 80vh;
+        padding: 0 5%;
+        align-items: center;
+        text-align: center;
+
+        img {
+            height: 100%;
+            border-radius: 0;
+        }
+
+        .overlay {
+            border-radius: 0;
+        }
+
+        .banner-content {
+            max-width: 100%;
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    }
     .language-selector {
         font-size: 14px;
         padding: 10px 12px;
