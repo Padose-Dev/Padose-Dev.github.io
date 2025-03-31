@@ -3,30 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../../environments/environment';
-import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-header',
+  selector: 'app-hero',
   standalone: true,
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  templateUrl: './hero.component.html',
+  styleUrl: './hero.component.scss',
   imports: [FormsModule, ReactiveFormsModule, CommonModule]
 })
-export class HeaderComponent implements OnInit {
-  languages = [
-    { code: 'en', label: 'English' },
-    { code: 'hi', label: 'हिन्दी' },
-    { code: 'bn', label: 'বাংলা' },
-    { code: 'ta', label: 'தமிழ்' },
-    { code: 'te', label: 'తెలుగు' },
-    { code: 'mr', label: 'मराठी' },
-    { code: 'pa', label: 'ਪੰਜਾਬੀ' },
-    { code: 'ml', label: 'മലയാളം' },
-    { code: 'kn', label: 'ಕನ್ನಡ' },
-    { code: 'or', label: 'ଓଡ଼ିଆ' },
-    { code: 'as', label: 'অসমীয়া' },
-    { code: 'ur', label: 'اردو' }
-  ];
+export class HeroComponent {
 
   selectedLanguage = 'en';
   showModal = false;
@@ -37,7 +21,8 @@ export class HeaderComponent implements OnInit {
   private formGuid = environment.hubspotFormGuiId;
   private formUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${this.portalId}/${this.formGuid}`;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
+
   ngOnInit(): void {
     this.checkScreenSize();
     console.log(this.isMobileView);
@@ -103,7 +88,7 @@ export class HeaderComponent implements OnInit {
         console.log('Navigate to Features');
         break;
       case 'get-onboarded':
-        this.router.navigate(['/seller-onboard']);
+        console.log('Navigate to Get Onboarded');
         break;
       default:
         break;

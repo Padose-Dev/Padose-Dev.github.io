@@ -1,0 +1,39 @@
+<div class="form-container">
+    <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()" class="onboarding-form">
+        <div class="form-header">
+            <h2>Seller Onboarding Form</h2>
+            <p class="form-subtitle">Please fill out the details below to get started as a seller.</p>
+        </div>
+        <hr>
+        <div class="form-row" *ngFor="let field of formFields">
+            <label [for]="field.key">{{ field.label }}</label>
+
+            <ng-container [ngSwitch]="field.type">
+                <input *ngSwitchCase="'text'" [id]="field.key" [formControlName]="field.key" type="text"
+                    [placeholder]="field.placeholder" />
+
+                <input *ngSwitchCase="'tel'" [id]="field.key" [formControlName]="field.key" type="tel"
+                    [placeholder]="field.placeholder" />
+
+                <select *ngSwitchCase="'select'" [id]="field.key" [formControlName]="field.key">
+                    <option *ngFor="let option of field.options" [value]="option.value">
+                        {{ option.label }}
+                    </option>
+                </select>
+            </ng-container>
+
+            <div class="error" *ngIf="sellerForm.get(field.key)?.touched && sellerForm.get(field.key)?.errors">
+                <ng-container *ngIf="sellerForm.get(field.key)?.errors?.['required']">
+                    {{ field.label }} is required
+                </ng-container>
+                <ng-container *ngIf="sellerForm.get(field.key)?.errors?.['pattern']">
+                    {{ field.label }} is not valid
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="form-row submit-row">
+            <button type="submit" [disabled]="sellerForm.invalid">Submit</button>
+        </div>
+    </form>
+</div>

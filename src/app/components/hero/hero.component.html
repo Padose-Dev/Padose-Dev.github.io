@@ -1,0 +1,21 @@
+<div class="banner-container">
+    <img src="./imgs/landingPageBanner.png" alt="Banner">
+    <div class="overlay"></div>
+    <div class="banner-content">
+        <h1>A platform that connects customers to street vendors and local shops!</h1>
+        <a href="#" class="download-btn" (click)="openModal($event)">Subscribe to updates</a>
+    </div>
+</div>
+
+<!-- Subscribe -->
+<div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <h2 class="m-1">Subscribe to newsletter</h2>
+        <p>Enter your email to receive quick updates:</p>
+        <input type="email" [(ngModel)]="email" placeholder="Your email" />
+        <div class="d-flex gap-1 justify-content-center">
+            <button class="close-btn" (click)="submitEmail(email)" [(ngModel)]="email">Submit Now</button>
+            <button class="close-btn" (click)="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
