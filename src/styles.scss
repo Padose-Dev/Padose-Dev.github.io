@@ -1,8 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Georama';
+    src: url('/fonts/geograma.ttf') format('truetype');
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Georama';
+    src: url('/fonts/geograma-italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
+    font-style: italic;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Georama', sans-serif;
 }
 
 html,
@@ -12,10 +30,11 @@ body {
     overflow-x: hidden;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;

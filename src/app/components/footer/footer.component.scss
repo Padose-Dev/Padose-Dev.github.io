@@ -24,7 +24,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 4em;
     gap: 20px;
 
     .foolter-g-play-image {
@@ -38,7 +38,7 @@
     }
 
     p {
-        font-weight: bold;
+        font-weight: 200;
         color: #fff;
         margin-bottom: 30px;
     }
@@ -173,3 +173,8 @@
     object-fit: cover;
     display: block;
 }
+
+.text-center {
+    text-align: center;
+}
+

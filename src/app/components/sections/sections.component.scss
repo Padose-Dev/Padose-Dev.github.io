@@ -8,7 +8,7 @@
         border: 2px solid transparent;
         cursor: pointer;
         font-size: 16px;
-        font-weight: bold;
+        font-weight: 600;
         background: #ddd;
         transition: all 0.3s ease;
 
@@ -46,47 +46,61 @@
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 4em;
     text-align: center;
     border-radius: 10px;
     padding: 20px;
 
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
         padding: 10px;
+
+        img {
+            width: 100%;
+            max-width: 255px;
+            height: 255px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
     }
 }
 
-.section-images {
+.section-images,
+.highlight-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background: repeating-linear-gradient(45deg, #e3f2fd, #e3f2fd 50px, #ffffff 50px, #ffffff 100px);
     border-radius: 10px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     @media (max-width: 768px) {
         flex-direction: column;
         padding: 10px;
+        gap: 20px;
     }
 }
 
+.section-images {
+    background: repeating-linear-gradient(45deg, #e3f2fd, #e3f2fd 50px, #ffffff 50px, #ffffff 100px);
+}
+
 .highlight-container {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-image: url("/imgs/seller/deviceImageBackground.svg");
     background-size: cover;
     background-position: center;
-    padding: 20px;
-    border-radius: 10px;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        padding: 10px;
-    }
 }
 
 .grid-item {
@@ -130,44 +144,4 @@
     @media (max-width: 768px) {
         max-width: 250px;
     }
-}
-
-@media (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .section-images,
-    .highlight-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-        img {
-            width: 100%;
-            max-width: 255px;
-            height: 255px;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto;
-            border-radius: 10px;
-        }
-    }
-
-
-    .section-images,
-    .highlight-container {
-        flex-direction: column;
-        padding: 10px;
-        gap: 20px;
-    }
-
-    .toggle {
-        flex-direction: row;
-        padding: 0px 10px;
-    }
-    
 }

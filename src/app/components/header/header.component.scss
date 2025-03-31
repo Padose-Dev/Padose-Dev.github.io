@@ -34,6 +34,7 @@ body {
         display: flex;
         gap: 20px;
         position: relative;
+        width: 100%;
 
         p {
             font-size: 23px;
@@ -45,8 +46,6 @@ body {
         }
 
         img {
-            padding-top: 6px;
-            height: 40px;
             scale: 3.5;
         }
     }
@@ -62,7 +61,7 @@ body {
             text-decoration: none;
             font-size: 1rem;
             transition: 0.3s;
-            font-weight: bold;
+            font-weight: 500;
 
             &:hover {
                 color: #001F60;
@@ -156,7 +155,7 @@ body {
 
         h1 {
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 600;
             background: linear-gradient(90deg, orange, blue, black);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -167,7 +166,6 @@ body {
             margin-top: 20px;
             padding: 12px 24px;
             font-size: 1rem;
-            font-weight: bold;
             background-color: #001F60;
             color: white;
             text-decoration: none;
@@ -261,7 +259,7 @@ body {
     .language-selector {
         font-size: 12px;
         padding: 8px 10px;
-        max-width: 150px;
+        max-width: 8em;
     }
 }
 
@@ -315,4 +313,8 @@ body {
 
 .m-1 {
     margin: 8px;
+}
+
+.align-self-anchor-center {
+    align-self: anchor-center;
 }

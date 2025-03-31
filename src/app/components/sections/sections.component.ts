@@ -64,10 +64,10 @@ export class SectionsComponent {
         description: 'We’re here to help you stock up on your produce based on your sales.'
       },
       {
-        image: './imgs/buyer/deviceImage1.svg',
+        image: './imgs/seller/deviceImage1.svg',
       },
       {
-        image: './imgs/buyer/deviceImage2.svg',
+        image: './imgs/seller/deviceImage2.svg',
       }
     ]
   };
