@@ -21,6 +21,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Georama', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
 }
 
 html,
@@ -30,11 +32,11 @@ body {
     overflow-x: hidden;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+body {
+    -ms-overflow-style: none;
 }
 
+/* WebKit Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -54,15 +56,7 @@ body {
     background: #555;
 }
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
-}
-
-body {
-    -ms-overflow-style: none;
-}
-
+/* Fallback for IE */
 ::-ms-scrollbar {
     width: 6px;
 }
