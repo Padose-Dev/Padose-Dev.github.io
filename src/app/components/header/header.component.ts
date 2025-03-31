@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../../environments/environment';
 
@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
   styleUrl: './header.component.scss',
   imports: [FormsModule, ReactiveFormsModule, CommonModule]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   languages = [
     { code: 'en', label: 'English' },
     { code: 'hi', label: 'हिन्दी' },
@@ -19,7 +19,6 @@ export class HeaderComponent {
     { code: 'ta', label: 'தமிழ்' },
     { code: 'te', label: 'తెలుగు' },
     { code: 'mr', label: 'मराठी' },
-    { code: 'gu', label: 'ગુજરાતી' },
     { code: 'pa', label: 'ਪੰਜਾਬੀ' },
     { code: 'ml', label: 'മലയാളം' },
     { code: 'kn', label: 'ಕನ್ನಡ' },
@@ -29,15 +28,29 @@ export class HeaderComponent {
   ];
 
   selectedLanguage = 'en';
-  isMenuOpen = false;
   showModal = false;
   email = '';
+  isMobileView = false;
 
   private portalId = environment.zohoPortalId;
   private formGuid = environment.zohoFormGuiId;
   private formUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${this.portalId}/${this.formGuid}`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.checkScreenSize();
+    console.log(this.isMobileView);
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize(): void {
+    this.isMobileView = window.innerWidth <= 768;
+  }
 
   submitEmail(email: string) {
     const data = {
@@ -55,16 +68,15 @@ export class HeaderComponent {
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    this.http.post(this.formUrl, data, { headers }).subscribe((res: any) => {
-      this.closeModal();
-      this.email = '';
-    }, (err: any) => {
-      console.log(err);
-    })
-  }
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.http.post(this.formUrl, data, { headers }).subscribe({
+      next: () => {
+        this.closeModal();
+        this.email = '';
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   changeLanguage(event: any) {
@@ -78,5 +90,23 @@ export class HeaderComponent {
 
   closeModal() {
     this.showModal = false;
+  }
+
+  onMobileNavSelect(event: Event): void {
+    const value = (event.target as HTMLSelectElement).value;
+
+    switch (value) {
+      case 'about':
+        console.log('Navigate to About');
+        break;
+      case 'features':
+        console.log('Navigate to Features');
+        break;
+      case 'get-onboarded':
+        console.log('Navigate to Get Onboarded');
+        break;
+      default:
+        break;
+    }
   }
 }

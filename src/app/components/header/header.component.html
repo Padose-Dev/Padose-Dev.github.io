@@ -5,9 +5,11 @@
       <p class="align-self-anchor-center">Padose</p>
     </div>
 
+    <!-- Desktop nav links -->
     <ul class="nav-links">
-      <li><a href="#">Features</a></li>
-      <li>
+      <li *ngIf="!isMobileView"><a href="#">Features</a></li>
+      <li *ngIf="!isMobileView"><a href="#">Get Onboarded</a></li>
+      <li *ngIf="!isMobileView">
         <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
           <option *ngFor="let lang of languages" [value]="lang.code">
             {{ lang.label }}
@@ -16,19 +18,13 @@
       </li>
     </ul>
 
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-    <ul class="mobile-menu" id="mobileMenu">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Features</a></li>
-      <li>
-        <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
-          <option *ngFor="let lang of languages" [value]="lang.code">
-            {{ lang.label }}
-          </option>
-        </select>
-      </li>
-    </ul>
+    <!-- Mobile dropdown menu -->
+    <select class="mobile-dropdown" *ngIf="isMobileView" (change)="onMobileNavSelect($event)">
+      <option value="">Home</option>
+      <option value="about">About</option>
+      <option value="features">Features</option>
+      <option value="get-onboarded">Get onboarded</option>
+    </select>
   </nav>
 
   <div class="banner-container">
@@ -36,7 +32,6 @@
     <div class="overlay"></div>
     <div class="banner-content">
       <h1>A platform that connects customers to street vendors and local shops!</h1>
-      <!-- Download Padose Button -->
       <a href="#" class="download-btn" (click)="openModal($event)">Subscribe to updates</a>
     </div>
   </div>
