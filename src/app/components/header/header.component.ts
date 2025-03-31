@@ -32,8 +32,8 @@ export class HeaderComponent implements OnInit {
   email = '';
   isMobileView = false;
 
-  private portalId = environment.zohoPortalId;
-  private formGuid = environment.zohoFormGuiId;
+  private portalId = environment.hubspotPortalId;
+  private formGuid = environment.hubspotFormGuiId;
   private formUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${this.portalId}/${this.formGuid}`;
 
   constructor(private http: HttpClient) {}
