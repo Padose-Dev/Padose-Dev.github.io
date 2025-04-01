@@ -10,23 +10,23 @@
 .form-header {
     text-align: start;
     margin-bottom: 14px;
-
-    h2 {
-        font-size: 24px;
-        margin-bottom: 8px;
-        font-weight: 700;
-        color: #333;
-    }
-
-    .form-subtitle {
-        font-size: 16px;
-        color: #666;
-        margin: 0;
-    }
 }
 
-hr{
-    margin: 0px 0px 10px 0px;
+.form-header h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #333;
+}
+
+.form-header .form-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+hr {
+    margin: 0 0 10px 0;
 }
 
 .onboarding-form {
@@ -88,7 +88,13 @@ button[type='submit']:hover {
     background-color: #0056b3;
 }
 
+/* Tablet and below (≤ 768px) */
 @media (max-width: 768px) {
+    .onboarding-form {
+        max-width: 90%;
+        padding: 20px;
+    }
+
     .form-row {
         flex-direction: column;
         align-items: stretch;
@@ -106,5 +112,30 @@ button[type='submit']:hover {
 
     .error {
         margin-left: 0;
+    }
+
+    .submit-row {
+        justify-content: center;
+    }
+}
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+    .form-header h2 {
+        font-size: 20px;
+    }
+
+    .form-header .form-subtitle {
+        font-size: 14px;
+    }
+
+    .onboarding-form {
+        padding: 16px;
+    }
+
+    button[type='submit'] {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px;
     }
 }
