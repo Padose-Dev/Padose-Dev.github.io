@@ -30,7 +30,7 @@ hr {
     height: 0.5px;
     border: none;
     background-color: #ddd;
-    margin: 1rem 0; 
+    margin: 1rem 0;
 }
 
 .onboarding-form {
@@ -139,4 +139,28 @@ button[type='submit']:hover {
         font-size: 15px;
         padding: 10px;
     }
+}
+
+.message-container {
+    display: flex;
+    justify-content: center
+}
+
+.confirmation-card {
+    margin-top: 100px;
+    background-color: #e6ffed;
+    border: 1px solid #34c759;
+    border-radius: 8px;
+    padding: 20px;
+    height: 150px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-content {
+    color: #28a745;
+    font-size: 16px;
+    font-weight: 600;
 }

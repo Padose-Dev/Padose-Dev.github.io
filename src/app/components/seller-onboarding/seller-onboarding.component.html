@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container" *ngIf="!submissionSuccess">
     <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()" class="onboarding-form">
         <div class="form-header">
             <h2>Seller Onboarding Form</h2>
@@ -15,6 +15,9 @@
                 <input *ngSwitchCase="'tel'" [id]="field.key" [formControlName]="field.key" type="tel"
                     [placeholder]="field.placeholder" />
 
+                <input *ngSwitchCase="'email'" [id]="field.key" [formControlName]="field.key" type="email"
+                    [placeholder]="field.placeholder" />
+
                 <select *ngSwitchCase="'select'" [id]="field.key" [formControlName]="field.key">
                     <option *ngFor="let option of field.options" [value]="option.value">
                         {{ option.label }}
@@ -29,6 +32,9 @@
                 <ng-container *ngIf="sellerForm.get(field.key)?.errors?.['pattern']">
                     {{ field.label }} is not valid
                 </ng-container>
+                <ng-container *ngIf="sellerForm.get(field.key)?.errors?.['email']">
+                    Please enter a valid email address
+                </ng-container>
             </div>
         </div>
 
@@ -36,4 +42,12 @@
             <button type="submit" [disabled]="sellerForm.invalid">Submit</button>
         </div>
     </form>
+</div>
+
+<div class="message-container" *ngIf="submissionSuccess">
+    <div class="confirmation-card">
+        <div class="confirmation-content">
+            Your information has been saved successfully. We’ll get in touch with you shortly.
+        </div>
+    </div>
 </div>
