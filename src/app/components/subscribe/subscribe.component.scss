@@ -1,9 +1,7 @@
 .subscribe-card {
-    max-width: 90%;
-    margin: 1.5rem auto;
+    width: 100%;
     padding: 2rem;
-    background: linear-gradient(to bottom, #e5b93e, #e2b044);
-    border-radius: 20px;
+    background: linear-gradient(to right, #ffcc70, #d2930c);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(12px);
     color: #333;
@@ -24,9 +22,10 @@
     input {
         padding: 0.9rem 1rem;
         border-radius: 12px;
-        width: 100%;
+        width: 40%;
         border: 1px solid #ccc;
         font-size: 1rem;
+        align-items: center;
         transition: border 0.2s ease, box-shadow 0.2s ease;
 
         &:focus {
@@ -92,11 +91,12 @@
 
 @media (min-width: 600px) {
     .subscribe-card {
-        max-width: 80%;
+        max-width: 100%;
         padding: 2.5rem;
 
         .input-and-btn {
             flex-direction: row;
+            justify-content: center;
         }
 
         button {
@@ -107,7 +107,7 @@
 
 @media (min-width: 900px) {
     .subscribe-card {
-        max-width: 50%;
+        width: 100%;
         padding: 3rem;
     }
 }

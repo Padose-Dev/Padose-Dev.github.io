@@ -7,8 +7,6 @@
 
     <!-- Desktop nav links -->
     <ul class="nav-links">
-      <li *ngIf="!isMobileView"><a href="#">Features</a></li>
-      <li *ngIf="!isMobileView"><a href="/seller-onboard">Get Onboarded</a></li>
       <li *ngIf="!isMobileView">
         <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
           <option *ngFor="let lang of languages" [value]="lang.code">
@@ -22,7 +20,5 @@
     <select class="mobile-dropdown" *ngIf="isMobileView" (change)="onMobileNavSelect($event)">
       <option value="">Home</option>
       <option value="about">About</option>
-      <option value="features">Features</option>
-      <option value="get-onboarded">Get onboarded</option>
     </select>
   </nav>

@@ -26,7 +26,11 @@
 }
 
 hr {
-    margin: 0 0 10px 0;
+    margin: 20px 0px;
+    height: 0.5px;
+    border: none;
+    background-color: #ddd;
+    margin: 1rem 0; 
 }
 
 .onboarding-form {
@@ -35,13 +39,12 @@ hr {
     background-color: #fff;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .form-row {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
     flex-wrap: wrap;
 }
 
@@ -76,7 +79,7 @@ hr {
 button[type='submit'] {
     padding: 6px 24px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #003366 !important;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -85,10 +88,9 @@ button[type='submit'] {
 }
 
 button[type='submit']:hover {
-    background-color: #0056b3;
+    background-color: #003366 !important;
 }
 
-/* Tablet and below (≤ 768px) */
 @media (max-width: 768px) {
     .onboarding-form {
         max-width: 90%;
@@ -119,7 +121,6 @@ button[type='submit']:hover {
     }
 }
 
-/* Mobile (≤ 480px) */
 @media (max-width: 480px) {
     .form-header h2 {
         font-size: 20px;
