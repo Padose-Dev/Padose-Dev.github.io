@@ -42,7 +42,7 @@ export class SectionsComponent {
         description: ''
       },
       {
-        image: './imgs/buyer/deviceImage1.svg',
+        image: './imgs/buyer/deviceImage2.svg',
         description: ''
       }
     ],
