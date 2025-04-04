@@ -1,24 +1,33 @@
 <div class="main">
   <nav class="navbar">
-    <a class="logo" [href]="['/']">
-      <img src="./imgs/logo.svg" alt="logo" width="25" height="25" />
-      <p class="align-self-anchor-center">Padose</p>
-    </a>
+    <div>
+      <a class="logo" [href]="['/']">
+        <img src="./imgs/logo.svg" alt="logo" width="25" height="25" />
+      </a>
+    </div>
+
+    <div>
+      <p class="align-self-anchor-center brand-text">padose</p>
+    </div>
 
     <!-- Desktop nav links -->
-    <ul class="nav-links">
-      <li *ngIf="!isMobileView">
-        <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
-          <option *ngFor="let lang of languages" [value]="lang.code">
-            {{ lang.label }}
-          </option>
-        </select>
-      </li>
-    </ul>
+    <div *ngIf="!isMobileView">
+      <ul class="nav-links">
+        <li>
+          <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
+            <option *ngFor="let lang of languages" [value]="lang.code">
+              {{ lang.label }}
+            </option>
+          </select>
+        </li>
+      </ul>
+    </div>
 
     <!-- Mobile dropdown menu -->
-    <select class="mobile-dropdown" *ngIf="isMobileView" (change)="onMobileNavSelect($event)">
-      <option value="">Home</option>
-      <option value="about">About</option>
-    </select>
+    <div *ngIf="isMobileView">
+      <select class="mobile-dropdown" (change)="onMobileNavSelect($event)">
+        <option value="">Home</option>
+        <option value="about">About</option>
+      </select>
+    </div>
   </nav>
