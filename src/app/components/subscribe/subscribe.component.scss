@@ -105,6 +105,12 @@
     }
 }
 
+@media (max-width: 480px) {
+    input {
+        width: 100% !important;
+    }
+}
+
 @media (min-width: 900px) {
     .subscribe-card {
         width: 100%;
