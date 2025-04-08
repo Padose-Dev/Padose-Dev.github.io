@@ -93,6 +93,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onMobileNavSelect(event: Event): void {
+    alert(event)
     const value = (event.target as HTMLSelectElement).value;
 
     switch (value) {
@@ -102,8 +103,8 @@ export class HeaderComponent implements OnInit {
       case 'features':
         console.log('Navigate to Features');
         break;
-      case 'get-onboarded':
-        this.router.navigate(['/seller-onboard']);
+      case 'home':
+        this.router.navigate(['/']);
         break;
       default:
         break;

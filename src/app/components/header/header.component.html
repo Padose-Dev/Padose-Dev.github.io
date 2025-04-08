@@ -10,8 +10,10 @@
       <p class="align-self-anchor-center brand-text">padose</p>
     </div>
 
+    <div></div>
+
     <!-- Desktop nav links -->
-    <div *ngIf="!isMobileView">
+    <!-- <div *ngIf="!isMobileView">
       <ul class="nav-links">
         <li>
           <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
@@ -21,13 +23,13 @@
           </select>
         </li>
       </ul>
-    </div>
+    </div> -->
 
     <!-- Mobile dropdown menu -->
     <div *ngIf="isMobileView">
       <select class="mobile-dropdown" (change)="onMobileNavSelect($event)">
-        <option value="">Home</option>
-        <option value="about">About</option>
+        <option value="home">Home</option>
+        <!-- <option value="about">About</option> -->
       </select>
     </div>
   </nav>
