@@ -123,6 +123,9 @@
             <input *ngSwitchCase="'email'" [id]="field.key" [formControlName]="field.key" type="email"
               [placeholder]="field.placeholder" />
 
+              <textarea *ngSwitchCase="'textarea'" [id]="field.key" [formControlName]="field.key"
+              [placeholder]="field.placeholder"></textarea>
+
             <select *ngSwitchCase="'select'" [id]="field.key" [formControlName]="field.key">
               <option *ngFor="let option of field.options" [value]="option.value">
                 {{ option.label }}
@@ -134,6 +137,9 @@
             <ng-container *ngIf="sellerForm.get(field.key)?.errors?.['required']">
               {{ field.label }} is required
             </ng-container>
+            <ng-container *ngIf="sellerForm.get(field.key)?.errors?.['minlength']">
+              {{ field.label }} must be at least {{ sellerForm.get(field.key)?.errors?.['minlength'].requiredLength }} characters
+            </ng-container>
             <ng-container *ngIf="sellerForm.get(field.key)?.errors?.['pattern']">
               {{ field.label }} is not valid
             </ng-container>
@@ -141,10 +147,10 @@
               Please enter a valid email address
             </ng-container>
           </div>
+          
         </div>
 
         <div class="form-row submit-row" style="display: flex; gap: 20px;">
-          <!-- <button type="button" (click)="navigateToFormStep(2)">Back</button> -->
           <button type="submit" [disabled]="sellerForm.invalid">Submit</button>
         </div>
       </form>

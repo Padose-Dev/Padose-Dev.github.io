@@ -21,6 +21,8 @@ export class SellerOnboardingComponent implements OnInit {
 
   formFields = [
     { key: 'businessName', label: 'Business Name', type: 'text', placeholder: 'Enter your business name' },
+    { key: 'productCategory', label: 'Category', type: 'text', placeholder: 'Enter product category' },
+    { key: 'description', label: 'Description', type: 'textarea', placeholder: 'Description' },
     { key: 'sellerFirstName', label: 'Seller First Name', type: 'text', placeholder: 'Enter seller first name' },
     { key: 'sellerLastName', label: 'Seller Last Name', type: 'text', placeholder: 'Enter seller last name' },
     { key: 'email', label: 'Email', type: 'email', placeholder: 'Enter your email' },
@@ -50,7 +52,7 @@ export class SellerOnboardingComponent implements OnInit {
     },
     { key: 'city', label: 'City', type: 'text', placeholder: 'Enter your city' }
   ];
-
+  
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -61,6 +63,8 @@ export class SellerOnboardingComponent implements OnInit {
 
     this.sellerForm = this.fb.group({
       businessName: ['', [Validators.required, Validators.pattern(/^[\w\s\-&.]{3,}$/)]],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+      productCategory: ['', [Validators.required, Validators.pattern(/^[\w\s\-&.]{2,50}$/)]],
       sellerFirstName: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]{2,30}$/)]],
       sellerLastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]{2,30}$/)]],
       email: ['', [Validators.required, Validators.email]],
