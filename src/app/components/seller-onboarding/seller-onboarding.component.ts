@@ -96,7 +96,6 @@ export class SellerOnboardingComponent implements OnInit {
       const formData = this.sellerForm.value;
       this.http.post(environment.BASE_URI + 'seller-onboard/create', formData).subscribe({
         next: response => {
-          console.log('Success', response);
           this.submissionSuccess = true;
         },
         error: err => console.error('Error', err)
