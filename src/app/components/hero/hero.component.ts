@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../../environments/environment';
 @Component({
@@ -21,7 +21,10 @@ export class HeroComponent {
   private formGuid = environment.hubspotFormGuiId;
   private formUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${this.portalId}/${this.formGuid}`;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   ngOnInit(): void {
     this.checkScreenSize();
@@ -34,7 +37,9 @@ export class HeroComponent {
   }
 
   checkScreenSize(): void {
-    this.isMobileView = window.innerWidth <= 768;
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMobileView = window.innerWidth <= 768;
+    }
   }
 
   submitEmail(email: string) {
@@ -45,9 +50,12 @@ export class HeroComponent {
           value: email
         }
       ],
-      context: {
+      context: isPlatformBrowser(this.platformId) ? {
         pageUri: window.location.href,
         pageName: document.title
+      } : {
+        pageUri: '',
+        pageName: ''
       }
     };
 
@@ -58,7 +66,7 @@ export class HeroComponent {
         this.closeModal();
         this.email = '';
       },
-      error: (err) => {
+      error: (err: unknown) => {
         console.log(err);
       }
     });

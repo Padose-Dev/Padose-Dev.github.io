@@ -13,22 +13,28 @@
     <div></div>
 
     <!-- Desktop nav links -->
-    <!-- <div *ngIf="!isMobileView">
+    <div *ngIf="!isMobileView">
       <ul class="nav-links">
-        <li>
+        <li><a routerLink="/terms-and-conditions">Terms & Conditions</a></li>
+        <li><a routerLink="/cancellation-refund-policy">Cancellation & Refund</a></li>
+        <li><a routerLink="/contact-us">Contact Us</a></li>
+        <!-- <li>
           <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
             <option *ngFor="let lang of languages" [value]="lang.code">
               {{ lang.label }}
             </option>
           </select>
-        </li>
+        </li> -->
       </ul>
-    </div> -->
+    </div>
 
     <!-- Mobile dropdown menu -->
     <div *ngIf="isMobileView">
       <select class="mobile-dropdown" (change)="onMobileNavSelect($event)">
         <option value="home">Home</option>
+        <option value="terms-and-conditions">Terms & Conditions</option>
+        <option value="cancellation-refund-policy">Cancellation & Refund</option>
+        <option value="contact-us">Contact Us</option>
         <!-- <option value="about">About</option> -->
       </select>
     </div>
