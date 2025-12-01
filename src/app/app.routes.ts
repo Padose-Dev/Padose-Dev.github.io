@@ -30,5 +30,10 @@ export const routes: Routes = [
     path: 'cancellation-refund-policy',
     loadComponent: () =>
       import('./components/cancellation-refund-policy/cancellation-refund-policy.component').then(m => m.CancellationRefundPolicyComponent),
+  },
+  {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./components/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent),
   }
 ];
