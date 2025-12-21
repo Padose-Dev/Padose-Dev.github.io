@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.padose.app.buyer",
+      "sha256_cert_fingerprints": [
+        "53:7F:EE:DF:77:94:64:DB:96:16:02:9E:B7:CA:AC:C7:90:01:0C:54:36:53:4A:30:1D:F7:B8:0A:3D:3F:40:6E"
+      ]
+    }
+  }
+]
+
