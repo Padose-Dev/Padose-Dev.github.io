@@ -35,5 +35,10 @@ export const routes: Routes = [
     path: 'privacy-policy',
     loadComponent: () =>
       import('./components/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent),
+  },
+  {
+    path: 'store/:business_id',
+    loadComponent: () =>
+      import('./components/store/store.component').then(m => m.StoreComponent),
   }
 ];

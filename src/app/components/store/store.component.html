@@ -1,0 +1,99 @@
+<div class="store-page">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Loading store...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !isLoading" class="error-container">
+    <div class="error-icon">⚠️</div>
+    <h2>Store Not Found</h2>
+    <p>{{ error }}</p>
+    <button class="btn-primary" (click)="goToHome()">Go to Home</button>
+  </div>
+
+  <!-- Store Content -->
+  <div *ngIf="store && !isLoading" class="store-content">
+    <!-- Store Header -->
+    <div class="store-header">
+      <div class="store-logo-container">
+        <img [src]="getStoreImage()" [alt]="store.business_name" class="store-logo" />
+      </div>
+      <div class="store-info">
+        <h1 class="store-name">{{ store.business_name }}</h1>
+        <div class="store-meta">
+          <span *ngIf="getRatingDisplay()" class="store-rating">{{ getRatingDisplay() }}</span>
+          <span *ngIf="getLocationDisplay()" class="store-location">📍 {{ getLocationDisplay() }}</span>
+        </div>
+        <p *ngIf="store.description" class="store-description">{{ store.description }}</p>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="store-actions">
+      <button *ngIf="isMobile" class="btn-primary btn-open-app" (click)="openInApp()">
+        <span>📱</span>
+        <span>Open in App</span>
+      </button>
+      <button *ngIf="isMobile" class="btn-secondary btn-download" (click)="downloadApp()">
+        <span>⬇️</span>
+        <span>Download App</span>
+      </button>
+      <button class="btn-outline btn-signup" (click)="signUp()">
+        <span>Sign Up</span>
+      </button>
+      <button class="btn-outline btn-login" (click)="login()">
+        <span>Login</span>
+      </button>
+    </div>
+
+    <!-- Products Preview -->
+    <div *ngIf="products.length > 0" class="products-section">
+      <h2 class="section-title">Products</h2>
+      <div class="products-grid">
+        <div *ngFor="let product of products" class="product-card">
+          <div class="product-image-container">
+            <img [src]="product.image || '/imgs/logo.png'" [alt]="product.product_name" class="product-image" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ product.product_name }}</h3>
+            <p *ngIf="product.display_price" class="product-price">₹{{ product.display_price }}</p>
+          </div>
+        </div>
+      </div>
+      <p class="view-more-text" *ngIf="isMobile">
+        <a (click)="openInApp()">View all products in app →</a>
+      </p>
+    </div>
+
+    <!-- Services Preview -->
+    <div *ngIf="services.length > 0" class="services-section">
+      <h2 class="section-title">Services</h2>
+      <div class="services-grid">
+        <div *ngFor="let service of services" class="service-card">
+          <div class="service-icon">🔧</div>
+          <div class="service-info">
+            <h3 class="service-name">{{ service.service_name }}</h3>
+            <p *ngIf="service.display_price" class="service-price">₹{{ service.display_price }}</p>
+          </div>
+        </div>
+      </div>
+      <p class="view-more-text" *ngIf="isMobile">
+        <a (click)="openInApp()">View all services in app →</a>
+      </p>
+    </div>
+
+    <!-- Download Prompt (if no products/services) -->
+    <div *ngIf="products.length === 0 && services.length === 0 && isMobile" class="download-prompt">
+      <div class="prompt-icon">📱</div>
+      <h3>Get the Full Experience</h3>
+      <p>Download the Digital Mahila app to browse all products, add to cart, and make purchases!</p>
+      <button class="btn-primary btn-download-large" (click)="downloadApp()">
+        <img src="/imgs/google-play.svg" alt="Google Play" class="playstore-icon" />
+        <span>Download from Play Store</span>
+      </button>
+    </div>
+  </div>
+</div>
+
