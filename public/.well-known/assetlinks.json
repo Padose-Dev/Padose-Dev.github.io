@@ -1,14 +1,11 @@
-[
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.padose.app.buyer",
-      "sha256_cert_fingerprints": [
-        "537FEEDF779464DB9616029EB7CAACC790010C5436534A301DF7B80A3D3F406E",
-        "6EE6CBD6236ABEF3D9C1F70B799FE3112087EC53E0B6684E4BD1F28A8751D046"
-      ]
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { 
+    "namespace": "android_app", 
+    "package_name": "com.padose.app.buyer",
+    "sha256_cert_fingerprints": [
+      "53:7F:EE:DF:77:94:64:DB:96:16:02:9E:B7:CA:AC:C7:90:01:0C:54:36:53:4A:30:1D:F7:B8:0A:3D:3F:40:6E"
+      ] 
     }
-  }
-]
+}]
 
