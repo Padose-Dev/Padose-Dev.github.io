@@ -40,5 +40,20 @@ export const routes: Routes = [
     path: 'store/:business_id',
     loadComponent: () =>
       import('./components/store/store.component').then(m => m.StoreComponent),
+  },
+  {
+    path: 'product/:id',
+    loadComponent: () =>
+      import('./components/redirect/redirect.component').then(m => m.RedirectComponent),
+  },
+  {
+    path: 'service/:id',
+    loadComponent: () =>
+      import('./components/redirect/redirect.component').then(m => m.RedirectComponent),
+  },
+  {
+    path: 'seller/:id',
+    loadComponent: () =>
+      import('./components/redirect/redirect.component').then(m => m.RedirectComponent),
   }
 ];
