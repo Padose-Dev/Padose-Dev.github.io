@@ -64,12 +64,9 @@ export class RedirectService {
     const referrer = this.buildReferrer(params);
     const playStoreUrl = this.generatePlayStoreUrl(referrer);
     
-    if (this.appDetection.isAndroid() || this.appDetection.isMobile()) {
-      window.location.href = playStoreUrl;
-    } else {
-      // Desktop - open in new tab
-      window.open(playStoreUrl, '_blank');
-    }
+    // Always redirect the current page (not open in new tab)
+    // This ensures the redirect is visible to the user
+    window.location.href = playStoreUrl;
   }
 
   /**
