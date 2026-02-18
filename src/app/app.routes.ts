@@ -37,6 +37,11 @@ export const routes: Routes = [
       import('./components/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent),
   },
   {
+    path: 'delete-account',
+    loadComponent: () =>
+      import('./components/delete-account/delete-account.component').then(m => m.DeleteAccountComponent),
+  },
+  {
     path: 'store/:business_id',
     loadComponent: () =>
       import('./components/store/store.component').then(m => m.StoreComponent),
