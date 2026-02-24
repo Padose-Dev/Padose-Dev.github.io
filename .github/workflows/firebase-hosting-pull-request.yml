@@ -17,5 +17,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PADOSE_WEB_APP }}
-          projectId: padose-web-app
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PADOSE_MOBILE_APP }}
+          projectId: padose-mobile-app
