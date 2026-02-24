@@ -3,7 +3,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Seller enquiries: allow create only with required fields, deny read/update/delete
+    // Seller enquiries: allow create with validation, allow list for count queries
     match /seller-enquiries/{enquiryId} {
       allow create: if request.resource.data.keys().hasAll([
         'businessName', 'email', 'contactNumber', 'status', 'createdAt'
@@ -18,7 +18,9 @@ service cloud.firestore {
       && request.resource.data.contactNumber.size() <= 15
       && request.resource.data.keys().size() <= 15;
 
-      allow read: if false;
+      // Allow list (needed for count aggregation), deny individual doc get
+      allow list: if true;
+      allow get: if false;
       allow update, delete: if false;
     }
 
