@@ -1,0 +1,77 @@
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="page-badge">Communities</span>
+    <h1>Your Neighborhood, <span class="highlight">Connected</span></h1>
+    <p>Padose communities are hyper-local marketplaces that bring together buyers and sellers within the same neighborhood. Shop local, support local, grow local.</p>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="benefits section">
+  <div class="container">
+    <h2 class="section-title">Why Community Commerce Matters</h2>
+    <p class="section-subtitle">When communities shop locally, everyone wins — buyers get fresher products, sellers earn better livelihoods, and neighborhoods grow stronger.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card" *ngFor="let b of benefits">
+        <span class="benefit-icon">{{ b.icon }}</span>
+        <h3>{{ b.title }}</h3>
+        <p>{{ b.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-section section">
+  <div class="container">
+    <h2 class="section-title">How Communities Work</h2>
+    <p class="section-subtitle">Getting started with your community marketplace is simple.</p>
+
+    <div class="steps-grid">
+      <div class="step-card" *ngFor="let step of howItWorks">
+        <div class="step-num">{{ step.step }}</div>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact -->
+<section class="impact section">
+  <div class="container impact-content">
+    <h2>The Padose Impact</h2>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <span class="impact-value">10,000+</span>
+        <span class="impact-label">Local Sellers Empowered</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-value">500+</span>
+        <span class="impact-label">Communities Active</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-value">30%</span>
+        <span class="impact-label">Less Food Waste</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-value">2x</span>
+        <span class="impact-label">Average Seller Income Growth</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="community-cta section">
+  <div class="container cta-content">
+    <h2>Join Your Community Today</h2>
+    <p>Download Padose and discover the vibrant marketplace in your neighborhood.</p>
+    <div class="cta-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-cta">Download the App</a>
+      <a routerLink="/seller-onboard" class="btn-cta-outline">Register as Seller</a>
+    </div>
+  </div>
+</section>

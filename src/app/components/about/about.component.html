@@ -1,0 +1,115 @@
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="page-badge">About Us</span>
+    <h1>We're Building the Future of <span class="highlight">Local Commerce</span></h1>
+    <p>Padose is a community-driven marketplace platform that connects customers to street vendors, local shops, and service providers — empowering local economies, one neighborhood at a time.</p>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mission section">
+  <div class="container mission-grid">
+    <div class="mission-card">
+      <h3>Our Mission</h3>
+      <p>To empower every street vendor, local shop owner, and service provider with digital tools to reach more customers, manage their business efficiently, and grow their income — regardless of their technical background.</p>
+    </div>
+    <div class="mission-card vision">
+      <h3>Our Vision</h3>
+      <p>A world where every neighborhood has a thriving digital marketplace, where buying local is the easiest choice, and where every small business has the tools to compete and succeed in the digital economy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- The Problem We Solve -->
+<section class="problem section">
+  <div class="container">
+    <h2 class="section-title">The Problem We're Solving</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="problem-icon">😔</span>
+        <h3>For Vendors</h3>
+        <p>Millions of street vendors and small shop owners in India lack access to digital tools. They rely on foot traffic, have no way to reach new customers, and struggle to manage inventory and orders.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🤔</span>
+        <h3>For Buyers</h3>
+        <p>Consumers often can't find local vendors when they need them. They don't know who sells what in their neighborhood, miss out on fresh local produce, and end up relying on large chains.</p>
+      </div>
+      <div class="solution-card">
+        <span class="solution-icon">💡</span>
+        <h3>Padose is the Solution</h3>
+        <p>We bridge this gap with a simple, powerful app that connects buyers and sellers within the same community. Digital storefronts, seamless ordering, and real-time communication — all designed for local commerce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values section">
+  <div class="container">
+    <h2 class="section-title">Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card" *ngFor="let v of values">
+        <span class="value-icon">{{ v.icon }}</span>
+        <h3>{{ v.title }}</h3>
+        <p>{{ v.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journey -->
+<section class="journey section">
+  <div class="container">
+    <h2 class="section-title">Our Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let m of milestones; let i = index" [class.right]="i % 2 !== 0">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">{{ m.year }}</span>
+          <h3>{{ m.title }}</h3>
+          <p>{{ m.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Company Info -->
+<section class="company section">
+  <div class="container company-content">
+    <h2 class="section-title">People Tech Ventures</h2>
+    <p class="section-subtitle">The company behind Padose.</p>
+    <div class="company-details">
+      <div class="detail-item">
+        <strong>Registered Name</strong>
+        <span>People Tech Ventures</span>
+      </div>
+      <div class="detail-item">
+        <strong>Location</strong>
+        <span>Rajahmundry, Andhra Pradesh, India</span>
+      </div>
+      <div class="detail-item">
+        <strong>Email</strong>
+        <span>phanikumaryadavilli&#64;gmail.com</span>
+      </div>
+      <div class="detail-item">
+        <strong>Phone</strong>
+        <span>+91 9739960092</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta section">
+  <div class="container cta-content">
+    <h2>Join the Movement</h2>
+    <p>Be part of the community commerce revolution. Whether you're a buyer or seller, Padose is your platform.</p>
+    <div class="cta-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-cta">Download App</a>
+      <a routerLink="/contact-us" class="btn-cta-outline">Contact Us</a>
+    </div>
+  </div>
+</section>

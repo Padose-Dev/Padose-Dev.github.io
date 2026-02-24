@@ -7,6 +7,31 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'for-buyers',
+    loadComponent: () =>
+      import('./components/for-buyers/for-buyers.component').then(m => m.ForBuyersComponent),
+  },
+  {
+    path: 'for-sellers',
+    loadComponent: () =>
+      import('./components/for-sellers/for-sellers.component').then(m => m.ForSellersComponent),
+  },
+  {
+    path: 'communities',
+    loadComponent: () =>
+      import('./components/communities/communities.component').then(m => m.CommunitiesComponent),
+  },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./components/about/about.component').then(m => m.AboutComponent),
+  },
+  {
+    path: 'faq',
+    loadComponent: () =>
+      import('./components/faq/faq.component').then(m => m.FaqComponent),
+  },
+  {
     path: 'section',
     loadComponent: () =>
       import('./components/sections/sections.component').then(m => m.SectionsComponent),

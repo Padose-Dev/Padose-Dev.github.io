@@ -1,0 +1,43 @@
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="page-badge">Help Center</span>
+    <h1>Frequently Asked <span class="highlight">Questions</span></h1>
+    <p>Find answers to common questions about Padose. Can't find what you're looking for? Contact our support team.</p>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section section">
+  <div class="container">
+    <div class="category-tabs">
+      <button [class.active]="activeCategory === 'general'" (click)="switchCategory('general')">General</button>
+      <button [class.active]="activeCategory === 'buyer'" (click)="switchCategory('buyer')">For Buyers</button>
+      <button [class.active]="activeCategory === 'seller'" (click)="switchCategory('seller')">For Sellers</button>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let faq of currentFaqs; let i = index" [class.open]="openIndex === i">
+        <button class="faq-question" (click)="toggleFaq(i)">
+          <span>{{ faq.question }}</span>
+          <span class="faq-arrow">{{ openIndex === i ? '−' : '+' }}</span>
+        </button>
+        <div class="faq-answer" *ngIf="openIndex === i">
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-cta section">
+  <div class="container cta-content">
+    <h2>Still Have Questions?</h2>
+    <p>Our support team is here to help. Reach out and we'll get back to you as soon as possible.</p>
+    <div class="cta-actions">
+      <a routerLink="/contact-us" class="btn-cta">Contact Support</a>
+      <a href="mailto:phanikumaryadavilli@gmail.com" class="btn-cta-outline">Email Us</a>
+    </div>
+  </div>
+</section>

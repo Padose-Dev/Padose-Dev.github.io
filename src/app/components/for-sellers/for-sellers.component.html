@@ -1,0 +1,59 @@
+<!-- Hero -->
+<section class="page-hero seller-hero">
+  <div class="container">
+    <span class="page-badge">For Sellers</span>
+    <h1>Turn Your Business <span class="highlight">Digital</span></h1>
+    <p>Whether you're a street vendor, home baker, tutor, or local shop owner — Padose gives you the tools to reach more customers and grow your income.</p>
+    <div class="hero-actions">
+      <a routerLink="/seller-onboard" class="btn-hero-primary">Start Selling — It's Free</a>
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-hero-outline">Download Seller App</a>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Bar -->
+<section class="benefits-bar">
+  <div class="container benefits-grid">
+    <div class="benefit-item" *ngFor="let b of benefits">
+      <span class="benefit-value">{{ b.value }}</span>
+      <span class="benefit-label">{{ b.label }}</span>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features-section section">
+  <div class="container">
+    <h2 class="section-title">Powerful Tools for Every Seller</h2>
+    <p class="section-subtitle">From product listing to payment collection — everything you need to run your business professionally.</p>
+
+    <div class="features-list">
+      <div class="feature-row" *ngFor="let feature of features; let i = index" [class.reverse]="i % 2 !== 0">
+        <div class="feature-info">
+          <span class="feature-icon-lg">{{ feature.icon }}</span>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+          <ul class="feature-details">
+            <li *ngFor="let detail of feature.details">
+              <span class="check">&#10003;</span> {{ detail }}
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card-visual">
+            <span class="big-icon">{{ feature.icon }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="seller-cta section">
+  <div class="container cta-content">
+    <h2>Ready to Reach More Customers?</h2>
+    <p>Register now and create your digital store in just 5 minutes. No fees, no commission, no hassle.</p>
+    <a routerLink="/seller-onboard" class="btn-cta">Register as a Seller</a>
+  </div>
+</section>

@@ -45,11 +45,8 @@ export class RedirectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('[RedirectComponent] Initializing redirect component');
-    
     // Only execute redirects in the browser (not during SSR)
     if (!isPlatformBrowser(this.platformId)) {
-      console.log('[RedirectComponent] Not in browser, skipping redirect');
       return;
     }
 
@@ -57,30 +54,22 @@ export class RedirectComponent implements OnInit {
     const url = this.router.url;
     const id = this.route.snapshot.paramMap.get('id');
     
-    console.log('[RedirectComponent] URL:', url);
-    console.log('[RedirectComponent] ID:', id);
-    
     if (!id) {
-      console.warn('[RedirectComponent] No ID found in route parameters');
+      console.warn('RedirectComponent: No ID found in route parameters');
       return;
     }
     
     // Extract the base path (remove query params and fragments)
     const basePath = url.split('?')[0].split('#')[0];
-    console.log('[RedirectComponent] Base path:', basePath);
     
-    // Execute redirect immediately
     if (basePath.startsWith('/product/')) {
-      console.log('[RedirectComponent] Redirecting to product:', id);
       this.redirectService.redirectProduct(id);
     } else if (basePath.startsWith('/service/')) {
-      console.log('[RedirectComponent] Redirecting to service:', id);
       this.redirectService.redirectService(id);
     } else if (basePath.startsWith('/seller/')) {
-      console.log('[RedirectComponent] Redirecting to seller:', id);
       this.redirectService.redirectSeller(id);
     } else {
-      console.warn(`[RedirectComponent] Unknown route type for URL: ${url}`);
+      console.warn(`RedirectComponent: Unknown route type for URL: ${url}`);
     }
   }
 }

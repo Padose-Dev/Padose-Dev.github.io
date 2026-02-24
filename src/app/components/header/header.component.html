@@ -1,41 +1,52 @@
-<div class="main">
-  <nav class="navbar">
-    <div>
-      <a class="logo" [href]="['/']">
-        <img src="./imgs/logo.svg" alt="logo" width="25" height="25" />
-      </a>
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="nav container">
+    <a class="logo" routerLink="/">
+      <img src="./imgs/logo.svg" alt="Padose logo" width="32" height="32" />
+      <span class="logo-text">padose</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <ul class="nav-links" *ngIf="!isMobileView">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-trigger">Platform <span class="arrow">&#9662;</span></a>
+        <div class="dropdown-menu">
+          <a routerLink="/for-buyers">For Buyers</a>
+          <a routerLink="/for-sellers">For Sellers</a>
+          <a routerLink="/communities">Communities</a>
+        </div>
+      </li>
+      <li><a routerLink="/about">About Us</a></li>
+      <li><a routerLink="/faq">FAQ</a></li>
+      <li><a routerLink="/contact-us" routerLinkActive="active">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions" *ngIf="!isMobileView">
+      <a routerLink="/seller-onboard" class="btn-nav-outline">Start Selling</a>
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-nav-primary">Download App</a>
     </div>
 
-    <div>
-      <p class="align-self-anchor-center brand-text">padose</p>
-    </div>
-
-    <div></div>
-
-    <!-- Desktop nav links -->
-    <div *ngIf="!isMobileView">
-      <ul class="nav-links">
-        <li><a routerLink="/terms-and-conditions">Terms & Conditions</a></li>
-        <li><a routerLink="/cancellation-refund-policy">Cancellation & Refund</a></li>
-        <li><a routerLink="/contact-us">Contact Us</a></li>
-        <!-- <li>
-          <select class="language-selector" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
-            <option *ngFor="let lang of languages" [value]="lang.code">
-              {{ lang.label }}
-            </option>
-          </select>
-        </li> -->
-      </ul>
-    </div>
-
-    <!-- Mobile dropdown menu -->
-    <div *ngIf="isMobileView">
-      <select class="mobile-dropdown" (change)="onMobileNavSelect($event)">
-        <option value="home">Home</option>
-        <option value="terms-and-conditions">Terms & Conditions</option>
-        <option value="cancellation-refund-policy">Cancellation & Refund</option>
-        <option value="contact-us">Contact Us</option>
-        <!-- <option value="about">About</option> -->
-      </select>
-    </div>
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" *ngIf="isMobileView" (click)="toggleMobileMenu()" [attr.aria-label]="'Toggle menu'" [attr.aria-expanded]="mobileMenuOpen">
+      <span class="hamburger-line" [class.open]="mobileMenuOpen"></span>
+      <span class="hamburger-line" [class.open]="mobileMenuOpen"></span>
+      <span class="hamburger-line" [class.open]="mobileMenuOpen"></span>
+    </button>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" *ngIf="isMobileView && mobileMenuOpen" (click)="closeMobileMenu()">
+    <div class="mobile-menu-content" (click)="$event.stopPropagation()">
+      <a routerLink="/" (click)="closeMobileMenu()">Home</a>
+      <a routerLink="/for-buyers" (click)="closeMobileMenu()">For Buyers</a>
+      <a routerLink="/for-sellers" (click)="closeMobileMenu()">For Sellers</a>
+      <a routerLink="/communities" (click)="closeMobileMenu()">Communities</a>
+      <a routerLink="/about" (click)="closeMobileMenu()">About Us</a>
+      <a routerLink="/faq" (click)="closeMobileMenu()">FAQ</a>
+      <a routerLink="/contact-us" (click)="closeMobileMenu()">Contact</a>
+      <hr />
+      <a routerLink="/seller-onboard" class="mobile-cta" (click)="closeMobileMenu()">Start Selling</a>
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="mobile-cta accent" (click)="closeMobileMenu()">Download App</a>
+    </div>
+  </div>
+</header>

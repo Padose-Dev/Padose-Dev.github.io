@@ -46,11 +46,7 @@ export class RedirectService {
    */
   private generatePlayStoreUrl(referrer: string): string {
     const encodedReferrer = encodeURIComponent(referrer);
-    const url = `${this.PLAY_STORE_BASE_URL}?id=${this.APP_PACKAGE}&referrer=${encodedReferrer}`;
-    console.log('[RedirectService] Generated Play Store URL:', url);
-    console.log('[RedirectService] Referrer:', referrer);
-    console.log('[RedirectService] Encoded Referrer:', encodedReferrer);
-    return url;
+    return `${this.PLAY_STORE_BASE_URL}?id=${this.APP_PACKAGE}&referrer=${encodedReferrer}`;
   }
 
   /**
@@ -64,9 +60,12 @@ export class RedirectService {
     const referrer = this.buildReferrer(params);
     const playStoreUrl = this.generatePlayStoreUrl(referrer);
     
-    // Always redirect the current page (not open in new tab)
-    // This ensures the redirect is visible to the user
-    window.location.href = playStoreUrl;
+    if (this.appDetection.isAndroid() || this.appDetection.isMobile()) {
+      window.location.href = playStoreUrl;
+    } else {
+      // Desktop - open in new tab
+      window.open(playStoreUrl, '_blank');
+    }
   }
 
   /**
@@ -101,7 +100,6 @@ export class RedirectService {
    * Handle product redirect
    */
   redirectProduct(productId: string | number): void {
-    console.log('[RedirectService] Redirecting product:', productId);
     const path = `/product/${productId}`;
     const params: RedirectParams = {
       screen: 'product',
@@ -114,7 +112,6 @@ export class RedirectService {
    * Handle service redirect
    */
   redirectService(serviceId: string | number): void {
-    console.log('[RedirectService] Redirecting service:', serviceId);
     const path = `/service/${serviceId}`;
     const params: RedirectParams = {
       screen: 'service',
@@ -127,7 +124,6 @@ export class RedirectService {
    * Handle seller redirect
    */
   redirectSeller(sellerId: string | number): void {
-    console.log('[RedirectService] Redirecting seller:', sellerId);
     const path = `/seller/${sellerId}`;
     const params: RedirectParams = {
       screen: 'seller',

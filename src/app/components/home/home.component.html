@@ -1,3 +1,223 @@
-<app-hero></app-hero>
-<app-sections></app-sections>
-<app-subscribe></app-subscribe>
+<!-- ============================================ -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <span class="hero-badge">Your Neighborhood Marketplace</span>
+      <h1>Connect with <span class="highlight">Local Sellers</span> & Get Everything Delivered to Your Doorstep</h1>
+      <p class="hero-description">Padose brings street vendors, local shops, and service providers to your fingertips. Fresh produce, home services, handmade crafts — all from trusted people in your community.</p>
+      <div class="hero-ctas">
+        <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-hero-primary">
+          <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="play-badge" />
+        </a>
+        <a routerLink="/seller-onboard" class="btn-hero-secondary">Start Selling Today</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <span class="avatar a1">R</span>
+          <span class="avatar a2">P</span>
+          <span class="avatar a3">L</span>
+          <span class="avatar a4">S</span>
+        </div>
+        <span class="trust-text">Trusted by <strong>10,000+</strong> sellers & buyers</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <img src="./imgs/buyer/deviceImage1.svg" alt="Padose App Screenshot" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- TRUST BAR / STATS -->
+<!-- ============================================ -->
+<section class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item" *ngFor="let stat of stats">
+      <span class="stat-value">{{ stat.value }}<span *ngIf="stat.icon === 'star'" class="star-icon">&#9733;</span></span>
+      <span class="stat-label">{{ stat.label }}</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- HOW IT WORKS -->
+<!-- ============================================ -->
+<section class="how-it-works section">
+  <div class="container">
+    <h2 class="section-title">How Padose Works</h2>
+    <p class="section-subtitle">Whether you're buying or selling, Padose makes it simple. Three easy steps to get started.</p>
+
+    <div class="tab-toggle">
+      <button [class.active]="activeTab === 'buyer'" (click)="switchTab('buyer')">I'm a Buyer</button>
+      <button [class.active]="activeTab === 'seller'" (click)="switchTab('seller')">I'm a Seller</button>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card" *ngFor="let step of currentSteps; let i = index">
+        <div class="step-number">{{ i + 1 }}</div>
+        <span class="step-icon">{{ step.icon }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURES SHOWCASE -->
+<!-- ============================================ -->
+<section class="features section">
+  <div class="container">
+    <h2 class="section-title">Everything You Need, In One App</h2>
+    <p class="section-subtitle">Padose is packed with powerful features for both buyers and sellers to thrive in their local marketplace.</p>
+
+    <div class="tab-toggle">
+      <button [class.active]="activeTab === 'buyer'" (click)="switchTab('buyer')">Buyer Features</button>
+      <button [class.active]="activeTab === 'seller'" (click)="switchTab('seller')">Seller Features</button>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of currentFeatures">
+        <span class="feature-icon">{{ feature.icon }}</span>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+
+    <div class="features-cta">
+      <a [routerLink]="activeTab === 'buyer' ? '/for-buyers' : '/for-sellers'" class="btn-see-all">
+        See All {{ activeTab === 'buyer' ? 'Buyer' : 'Seller' }} Features &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CATEGORIES -->
+<!-- ============================================ -->
+<section class="categories section">
+  <div class="container">
+    <h2 class="section-title">Explore Categories</h2>
+    <p class="section-subtitle">From fresh vegetables to home services, discover a wide range of products and services available in your neighborhood.</p>
+
+    <div class="categories-grid">
+      <div class="category-card" *ngFor="let cat of categories">
+        <span class="category-icon">{{ cat.icon }}</span>
+        <span class="category-name">{{ cat.name }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- COMMUNITY SECTION -->
+<!-- ============================================ -->
+<section class="community section">
+  <div class="container">
+    <div class="community-content">
+      <div class="community-text">
+        <span class="community-badge">Community-Driven</span>
+        <h2>Empowering Local Communities, One Transaction at a Time</h2>
+        <p>Padose is more than a marketplace. It's a movement to support local vendors, reduce food waste, and strengthen neighborhood bonds. When you shop on Padose, you're investing in your community.</p>
+        <ul class="community-benefits">
+          <li><span class="check">&#10003;</span> Support local livelihoods and small businesses</li>
+          <li><span class="check">&#10003;</span> Get fresher products with shorter supply chains</li>
+          <li><span class="check">&#10003;</span> Reduce food waste with local, seasonal produce</li>
+          <li><span class="check">&#10003;</span> Build trust with vendors you see every day</li>
+        </ul>
+        <a routerLink="/communities" class="btn-community">Learn About Communities &rarr;</a>
+      </div>
+      <div class="community-visual">
+        <img src="./imgs/seller/deviceImage2.svg" alt="Community marketplace on Padose" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- TESTIMONIALS -->
+<!-- ============================================ -->
+<section class="testimonials section">
+  <div class="container">
+    <h2 class="section-title">What Our Users Say</h2>
+    <p class="section-subtitle">Real stories from real people who are transforming their lives with Padose.</p>
+
+    <div class="testimonial-carousel">
+      <button class="carousel-btn prev" (click)="prevTestimonial()" aria-label="Previous testimonial">&lsaquo;</button>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"{{ testimonials[currentTestimonial].quote }}"</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">{{ testimonials[currentTestimonial].avatar }}</div>
+          <div class="author-info">
+            <strong>{{ testimonials[currentTestimonial].name }}</strong>
+            <span>{{ testimonials[currentTestimonial].role }}</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-btn next" (click)="nextTestimonial()" aria-label="Next testimonial">&rsaquo;</button>
+    </div>
+
+    <div class="testimonial-dots">
+      <button *ngFor="let t of testimonials; let i = index"
+              [class.active]="i === currentTestimonial"
+              (click)="setTestimonial(i)"
+              [attr.aria-label]="'Go to testimonial ' + (i + 1)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SELLER ONBOARDING SECTION -->
+<!-- ============================================ -->
+<section class="seller-cta section">
+  <div class="container">
+    <div class="seller-cta-content">
+      <h2>Ready to Grow Your Business?</h2>
+      <p>Join thousands of sellers who are reaching more customers, managing orders effortlessly, and growing their income with Padose.</p>
+      <div class="seller-cta-features">
+        <div class="scta-feature">
+          <span>&#10003;</span>
+          <span>Free to register</span>
+        </div>
+        <div class="scta-feature">
+          <span>&#10003;</span>
+          <span>Set up in 5 minutes</span>
+        </div>
+        <div class="scta-feature">
+          <span>&#10003;</span>
+          <span>No commission fees</span>
+        </div>
+        <div class="scta-feature">
+          <span>&#10003;</span>
+          <span>Full analytics dashboard</span>
+        </div>
+      </div>
+      <a routerLink="/seller-onboard" class="btn-seller-cta">Register as a Seller &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- DOWNLOAD APP CTA -->
+<!-- ============================================ -->
+<section class="download-cta">
+  <div class="container download-cta-content">
+    <div class="download-text">
+      <h2>Download Padose Today</h2>
+      <p>Your neighborhood marketplace is just one tap away. Start discovering local products and services now.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener">
+        <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="download-play-badge" />
+      </a>
+    </div>
+    <div class="download-visual">
+      <img src="./imgs/buyer/deviceImage2.svg" alt="Padose App" />
+    </div>
+  </div>
+</section>

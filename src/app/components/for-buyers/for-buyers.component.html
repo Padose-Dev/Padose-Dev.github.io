@@ -1,0 +1,50 @@
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="page-badge">For Buyers</span>
+    <h1>Shop Local. <span class="highlight">Live Fresh.</span></h1>
+    <p>Discover products and services from trusted vendors in your neighborhood. From fresh produce to home services — everything you need is just around the corner.</p>
+    <div class="hero-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-primary-lg">
+        <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="play-badge" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features-section section">
+  <div class="container">
+    <h2 class="section-title">Everything a Buyer Needs</h2>
+    <p class="section-subtitle">Padose is designed to make your local shopping experience seamless, fast, and delightful.</p>
+
+    <div class="features-list">
+      <div class="feature-row" *ngFor="let feature of features; let i = index" [class.reverse]="i % 2 !== 0">
+        <div class="feature-info">
+          <span class="feature-icon-lg">{{ feature.icon }}</span>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+          <ul class="feature-details">
+            <li *ngFor="let detail of feature.details">
+              <span class="check">&#10003;</span> {{ detail }}
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card-visual">
+            <span class="big-icon">{{ feature.icon }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="buyer-cta section">
+  <div class="container cta-content">
+    <h2>Start Shopping Locally Today</h2>
+    <p>Download the Padose app and discover amazing products and services from your neighborhood.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-cta">Download Padose App</a>
+  </div>
+</section>
