@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../../environments/environment';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-seller-onboarding',
@@ -15,6 +14,8 @@ export class SellerOnboardingComponent implements OnInit {
   sellerForm!: FormGroup;
   userAccountSetupForm!: FormGroup;
   submissionSuccess = false;
+  submitting = false;
+  enquiryCount = 0;
   currentStep = 1;
   steps = [1, 2, 3];
   stepLabels = ['Mobile Number', 'OTP Verification', 'Seller Details'];
@@ -53,9 +54,11 @@ export class SellerOnboardingComponent implements OnInit {
     { key: 'city', label: 'City', type: 'text', placeholder: 'Enter your city' }
   ];
   
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
+    this.loadEnquiryCount();
+
     this.userAccountSetupForm = this.fb.group({
       mobile: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
       otp: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]]
@@ -91,17 +94,28 @@ export class SellerOnboardingComponent implements OnInit {
     this.currentStep = stepNumber;
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.sellerForm.valid) {
-      const formData = this.sellerForm.value;
-      this.http.post(environment.BASE_URI + 'seller-onboard/create', formData).subscribe({
-        next: response => {
-          this.submissionSuccess = true;
-        },
-        error: err => console.error('Error', err)
-      });
+      this.submitting = true;
+      try {
+        await this.firebaseService.addSellerEnquiry(this.sellerForm.value);
+        this.submissionSuccess = true;
+        this.enquiryCount++;
+      } catch (err) {
+        console.error('Error submitting enquiry', err);
+      } finally {
+        this.submitting = false;
+      }
     } else {
       this.sellerForm.markAllAsTouched();
+    }
+  }
+
+  private async loadEnquiryCount(): Promise<void> {
+    try {
+      this.enquiryCount = await this.firebaseService.getEnquiryCount();
+    } catch {
+      this.enquiryCount = 0;
     }
   }
 }

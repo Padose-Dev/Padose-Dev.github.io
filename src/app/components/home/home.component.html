@@ -1,3 +1,9 @@
+<!-- FOMO Activity Toast -->
+<div class="activity-toast" [class.visible]="showActivity" *ngIf="activityNotification">
+  <span class="activity-dot"></span>
+  <span class="activity-text">{{ activityNotification }}</span>
+</div>
+
 <!-- ============================================ -->
 <!-- HERO SECTION -->
 <!-- ============================================ -->
@@ -21,7 +27,7 @@
           <span class="avatar a3">L</span>
           <span class="avatar a4">S</span>
         </div>
-        <span class="trust-text">Trusted by <strong>10,000+</strong> sellers & buyers</span>
+        <span class="trust-text">Trusted by <strong>500+</strong> sellers & buyers</span>
       </div>
     </div>
     <div class="hero-visual">

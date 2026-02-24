@@ -2,6 +2,7 @@ import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,12 @@ export class HomeComponent implements OnInit {
   email = '';
   subscribedSuccess = false;
 
-  stats = [
-    { value: '10,000+', label: 'Active Sellers' },
-    { value: '500+', label: 'Communities' },
-    { value: '50,000+', label: 'Products Listed' },
-    { value: '4.5', label: 'App Rating', icon: 'star' }
+  stats: { value: string; label: string; icon?: string }[] = [
+    { value: '500+', label: 'Active Sellers' },
+    { value: '50+', label: 'Communities' },
+    { value: '5,000+', label: 'Products Listed' },
+    { value: '4.5', label: 'App Rating', icon: 'star' },
+    { value: '...', label: 'Seller Enquiries' }
   ];
 
   buyerSteps = [
@@ -92,16 +94,55 @@ export class HomeComponent implements OnInit {
     }
   ];
 
+  // FOMO activity ticker
+  activityNotification = '';
+  showActivity = false;
+  private activityInterval: any;
+  private activityMessages = [
+    { city: 'Hyderabad', type: 'buyer' },
+    { city: 'Bangalore', type: 'seller' },
+    { city: 'Chennai', type: 'buyer' },
+    { city: 'Mumbai', type: 'seller' },
+    { city: 'Delhi', type: 'buyer' },
+    { city: 'Pune', type: 'seller' },
+    { city: 'Kolkata', type: 'buyer' },
+    { city: 'Ahmedabad', type: 'seller' },
+    { city: 'Jaipur', type: 'buyer' },
+    { city: 'Lucknow', type: 'seller' }
+  ];
+  private activityIndex = 0;
+
   currentTestimonial = 0;
   private testimonialInterval: any;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private firebaseService: FirebaseService
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.testimonialInterval = setInterval(() => {
         this.nextTestimonial();
       }, 5000);
+
+      this.loadEnquiryCount();
+      this.startActivityTicker();
+    }
+  }
+
+  private async loadEnquiryCount(): Promise<void> {
+    try {
+      const count = await this.firebaseService.getEnquiryCount();
+      const enquiryStat = this.stats.find(s => s.label === 'Seller Enquiries');
+      if (enquiryStat) {
+        enquiryStat.value = count.toLocaleString();
+      }
+    } catch {
+      const enquiryStat = this.stats.find(s => s.label === 'Seller Enquiries');
+      if (enquiryStat) {
+        enquiryStat.value = '0';
+      }
     }
   }
 
@@ -109,6 +150,31 @@ export class HomeComponent implements OnInit {
     if (this.testimonialInterval) {
       clearInterval(this.testimonialInterval);
     }
+    if (this.activityInterval) {
+      clearInterval(this.activityInterval);
+    }
+  }
+
+  private startActivityTicker(): void {
+    this.showNextActivity();
+    this.activityInterval = setInterval(() => {
+      this.showNextActivity();
+    }, 6000);
+  }
+
+  private showNextActivity(): void {
+    const msg = this.activityMessages[this.activityIndex];
+    const timeAgo = Math.floor(Math.random() * 5) + 1;
+    this.activityNotification = msg.type === 'buyer'
+      ? `Someone in ${msg.city} just installed the Padose app - ${timeAgo}m ago`
+      : `A new seller in ${msg.city} just joined Padose - ${timeAgo}m ago`;
+    this.showActivity = true;
+
+    setTimeout(() => {
+      this.showActivity = false;
+    }, 4500);
+
+    this.activityIndex = (this.activityIndex + 1) % this.activityMessages.length;
   }
 
   nextTestimonial(): void {

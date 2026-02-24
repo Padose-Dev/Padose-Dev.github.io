@@ -103,6 +103,9 @@
       </div>
 
     </section> -->
+    <div class="enquiry-stats" *ngIf="enquiryCount > 0 && !submissionSuccess">
+      <p><strong>{{ enquiryCount }}</strong> sellers have already registered their interest</p>
+    </div>
     <div class="form-container" *ngIf="!submissionSuccess">
       <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()" class="onboarding-form">
         <div class="form-header">
@@ -151,7 +154,9 @@
         </div>
 
         <div class="form-row submit-row" style="display: flex; gap: 20px;">
-          <button type="submit" [disabled]="sellerForm.invalid">Submit</button>
+          <button type="submit" [disabled]="sellerForm.invalid || submitting">
+            {{ submitting ? 'Submitting...' : 'Submit' }}
+          </button>
         </div>
       </form>
     </div>

@@ -5,6 +5,28 @@
     box-sizing: border-box;
 }
 
+.enquiry-stats {
+    background-color: #f0f7ff;
+    border: 1px solid #b3d4fc;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-bottom: 16px;
+    text-align: center;
+    width: 100%;
+    max-width: 65%;
+
+    p {
+        margin: 0;
+        color: #003366;
+        font-size: 15px;
+    }
+
+    strong {
+        color: #0e9594;
+        font-size: 18px;
+    }
+}
+
 .form-container {
     display: flex;
     flex-direction: column;

@@ -1,3 +1,59 @@
+// Activity Toast (FOMO)
+.activity-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  max-width: 380px;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .activity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+    animation: pulse-dot 2s infinite;
+  }
+
+  .activity-text {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.4;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (max-width: 480px) {
+  .activity-toast {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+    font-size: 13px;
+  }
+}
+
 $primary: #001F60;
 $primary-light: #0036A0;
 $accent: #FF9900;
