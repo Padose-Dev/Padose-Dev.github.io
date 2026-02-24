@@ -23,37 +23,37 @@ export class HomeComponent implements OnInit {
   ];
 
   buyerSteps = [
-    { icon: '📍', title: 'Discover Nearby', description: 'Find local vendors, shops, and service providers right in your neighborhood' },
-    { icon: '🛒', title: 'Shop & Book', description: 'Browse products, book services, and add to cart from multiple stores' },
-    { icon: '🚀', title: 'Get Delivered', description: 'Track your order in real-time and receive it at your doorstep' }
+    { title: 'Discover Nearby', description: 'Find local vendors, shops, and service providers right in your neighborhood', image: './imgs/buyer/buyerModuleImage1.svg' },
+    { title: 'Shop & Book', description: 'Browse products, book services, and add to cart from multiple stores', image: './imgs/buyer/buyerModuleImage2.svg' },
+    { title: 'Get Delivered', description: 'Track your order in real-time and receive it at your doorstep', image: './imgs/buyer/buyerModuleImage3.svg' }
   ];
 
   sellerSteps = [
-    { icon: '🏪', title: 'Create Your Store', description: 'Set up your digital storefront with products, services, and custom branding' },
-    { icon: '📦', title: 'Manage & Sell', description: 'Handle orders, inventory, scheduling, and customer conversations' },
-    { icon: '📈', title: 'Grow Your Business', description: 'Track analytics, boost visibility, and reach more customers daily' }
+    { title: 'Create Your Store', description: 'Set up your digital storefront with products, services, and custom branding', image: './imgs/seller/sellerModuleImage1.svg' },
+    { title: 'Manage & Sell', description: 'Handle orders, inventory, scheduling, and customer conversations', image: './imgs/seller/sellerModuleImage2.svg' },
+    { title: 'Grow Your Business', description: 'Track analytics, boost visibility, and reach more customers daily', image: './imgs/seller/sellerModuleImage3.svg' }
   ];
 
   buyerFeatures = [
-    { icon: '🔍', title: 'Smart Discovery', description: 'Find products and services by category, location, or keyword search' },
-    { icon: '📅', title: 'Service Booking', description: 'Book appointments with time slot selection and availability tracking' },
-    { icon: '🛍️', title: 'Multi-Store Cart', description: 'Shop from multiple sellers in a single checkout experience' },
-    { icon: '📱', title: 'Order Tracking', description: 'Real-time status updates from placement to delivery' },
-    { icon: '💬', title: 'Chat with Sellers', description: 'Direct messaging for queries, negotiations, and custom orders' },
-    { icon: '🎬', title: 'Pulse Video Feed', description: 'Watch short videos from sellers showcasing their products' },
-    { icon: '❤️', title: 'Wishlist & Follows', description: 'Save favorite items and follow your preferred stores' },
-    { icon: '⭐', title: 'Reviews & Ratings', description: 'Read and write honest reviews to help the community' }
+    { title: 'Smart Discovery', description: 'Find products and services by category, location, or keyword search', image: './imgs/buyer/buyerModuleImage1.svg' },
+    { title: 'Service Booking', description: 'Book appointments with time slot selection and availability tracking', image: './imgs/buyer/buyerModuleImage2.svg' },
+    { title: 'Multi-Store Cart', description: 'Shop from multiple sellers in a single checkout experience', image: './imgs/buyer/buyerModuleImage3.svg' },
+    { title: 'Order Tracking', description: 'Real-time status updates from placement to delivery', image: './imgs/buyer/buyerModuleImage4.svg' },
+    { title: 'Chat with Sellers', description: 'Direct messaging for queries, negotiations, and custom orders', image: './imgs/buyer/buyerModuleImage5.svg' },
+    { title: 'Pulse Video Feed', description: 'Watch short videos from sellers showcasing their products', image: './imgs/buyer/buyerModuleImage6.svg' },
+    { title: 'Wishlist & Follows', description: 'Save favorite items and follow your preferred stores', image: './imgs/buyer/buyerModuleImage1.svg' },
+    { title: 'Reviews & Ratings', description: 'Read and write honest reviews to help the community', image: './imgs/buyer/buyerModuleImage2.svg' }
   ];
 
   sellerFeatures = [
-    { icon: '🏪', title: 'Store Customization', description: 'Logo, banner, colors, business hours, policies — make it yours' },
-    { icon: '📦', title: 'Catalog Management', description: 'Products and services with variants, images, videos, and discounts' },
-    { icon: '📊', title: 'Analytics Dashboard', description: 'Revenue, engagement, popular items, and customer insights at a glance' },
-    { icon: '📅', title: 'Scheduling & Availability', description: 'Weekly hours, blocked dates, and course/workshop curriculum' },
-    { icon: '💳', title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links' },
-    { icon: '📋', title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation' },
-    { icon: '💬', title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships' },
-    { icon: '🎯', title: 'Promotions', description: 'Feature products, set discounts with expiry, and boost visibility' }
+    { title: 'Store Customization', description: 'Logo, banner, colors, business hours, policies — make it yours', image: './imgs/seller/sellerModuleImage1.svg' },
+    { title: 'Catalog Management', description: 'Products and services with variants, images, videos, and discounts', image: './imgs/seller/sellerModuleImage2.svg' },
+    { title: 'Analytics Dashboard', description: 'Revenue, engagement, popular items, and customer insights at a glance', image: './imgs/seller/sellerModuleImage3.svg' },
+    { title: 'Scheduling & Availability', description: 'Weekly hours, blocked dates, and course/workshop curriculum', image: './imgs/seller/sellerModuleImage4.svg' },
+    { title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links', image: './imgs/seller/sellerModuleImage1.svg' },
+    { title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation', image: './imgs/seller/sellerModuleImage2.svg' },
+    { title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships', image: './imgs/seller/sellerModuleImage3.svg' },
+    { title: 'Promotions', description: 'Feature products, set discounts with expiry, and boost visibility', image: './imgs/seller/sellerModuleImage4.svg' }
   ];
 
   categories = [

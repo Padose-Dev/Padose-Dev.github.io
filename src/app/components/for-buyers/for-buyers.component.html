@@ -1,27 +1,75 @@
-<!-- Hero -->
+<!-- Hero with Device Mockup -->
 <section class="page-hero">
-  <div class="container">
-    <span class="page-badge">For Buyers</span>
-    <h1>Shop Local. <span class="highlight">Live Fresh.</span></h1>
-    <p>Discover products and services from trusted vendors in your neighborhood. From fresh produce to home services — everything you need is just around the corner.</p>
-    <div class="hero-actions">
-      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-primary-lg">
-        <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="play-badge" />
-      </a>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="page-badge">For Buyers</span>
+      <h1>Shop Local. <span class="highlight">Live Fresh.</span></h1>
+      <p>Discover products and services from trusted vendors in your neighborhood. From fresh produce to home services — everything you need is just around the corner.</p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-primary-lg">
+          <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="play-badge" />
+        </a>
+      </div>
+    </div>
+    <div class="hero-device">
+      <img src="./imgs/buyer/deviceImage1.svg" alt="Padose Buyer App - Home Screen" />
     </div>
   </div>
 </section>
 
-<!-- Features -->
+<!-- Your Shopping Journey -->
+<section class="buyer-journey section">
+  <div class="container">
+    <h2 class="section-title">Your Shopping Journey</h2>
+    <p class="section-subtitle">From discovering local sellers on the web to getting everything delivered via the app — here's how it all comes together.</p>
+
+    <div class="journey-steps">
+      <div class="journey-step">
+        <div class="journey-number">1</div>
+        <div class="journey-visual">
+          <img src="./imgs/landingPageBanner.png" alt="Padose Website" class="journey-img" />
+        </div>
+        <h3>Explore on the Web</h3>
+        <p>Visit padose.in to discover local sellers, browse categories, and learn about vendors in your neighborhood.</p>
+        <span class="journey-label">Website</span>
+      </div>
+      <div class="journey-connector">
+        <span class="connector-arrow">&rarr;</span>
+      </div>
+      <div class="journey-step">
+        <div class="journey-number">2</div>
+        <div class="journey-visual">
+          <img src="./imgs/google-play.svg" alt="Download from Play Store" class="journey-img store-badge" />
+        </div>
+        <h3>Download the App</h3>
+        <p>Get the Padose buyer app from Google Play Store for the full shopping experience with all features.</p>
+        <span class="journey-label">App Download</span>
+      </div>
+      <div class="journey-connector">
+        <span class="connector-arrow">&rarr;</span>
+      </div>
+      <div class="journey-step">
+        <div class="journey-number">3</div>
+        <div class="journey-visual">
+          <img src="./imgs/buyer/deviceImage2.svg" alt="Padose Buyer App" class="journey-img device-img" />
+        </div>
+        <h3>Shop & Get Delivered</h3>
+        <p>Browse products, book services, chat with sellers, track orders, and get everything delivered to your doorstep.</p>
+        <span class="journey-label">Buyer App</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features with App Screenshots -->
 <section class="features-section section">
   <div class="container">
     <h2 class="section-title">Everything a Buyer Needs</h2>
-    <p class="section-subtitle">Padose is designed to make your local shopping experience seamless, fast, and delightful.</p>
+    <p class="section-subtitle">Padose is designed to make your local shopping experience seamless, fast, and delightful. Here's how each feature looks in the app.</p>
 
     <div class="features-list">
       <div class="feature-row" *ngFor="let feature of features; let i = index" [class.reverse]="i % 2 !== 0">
         <div class="feature-info">
-          <span class="feature-icon-lg">{{ feature.icon }}</span>
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.description }}</p>
           <ul class="feature-details">
@@ -31,11 +79,32 @@
           </ul>
         </div>
         <div class="feature-visual">
-          <div class="feature-card-visual">
-            <span class="big-icon">{{ feature.icon }}</span>
+          <div class="feature-device-frame">
+            <img [src]="feature.image" [alt]="feature.title + ' - Buyer App Screen'" />
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- App Preview Section -->
+<section class="app-preview section">
+  <div class="container">
+    <h2 class="section-title">See the App in Action</h2>
+    <p class="section-subtitle">The Padose buyer app puts your entire neighborhood marketplace in your pocket.</p>
+    <div class="preview-devices">
+      <div class="preview-device secondary">
+        <img src="./imgs/buyer/deviceImage2.svg" alt="Padose Buyer App - Browse Screen" />
+      </div>
+      <div class="preview-device primary">
+        <img src="./imgs/buyer/deviceImage1.svg" alt="Padose Buyer App - Home Screen" />
+      </div>
+    </div>
+    <div class="preview-cta">
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener">
+        <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="play-badge-lg" />
+      </a>
     </div>
   </div>
 </section>

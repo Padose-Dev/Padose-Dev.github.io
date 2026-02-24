@@ -60,9 +60,99 @@
     <div class="steps-grid">
       <div class="step-card" *ngFor="let step of currentSteps; let i = index">
         <div class="step-number">{{ i + 1 }}</div>
-        <span class="step-icon">{{ step.icon }}</span>
+        <div class="step-device-preview" *ngIf="step.image">
+          <img [src]="step.image" [alt]="step.title" />
+        </div>
         <h3>{{ step.title }}</h3>
         <p>{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- USER JOURNEY - WEBAPP + MOBILE ECOSYSTEM -->
+<!-- ============================================ -->
+<section class="user-journey section">
+  <div class="container">
+    <h2 class="section-title">The Complete Padose Experience</h2>
+    <p class="section-subtitle">Our website and mobile apps work together to give you a seamless marketplace experience from discovery to delivery.</p>
+
+    <div class="journey-ecosystem">
+      <!-- Website -->
+      <div class="ecosystem-card">
+        <div class="ecosystem-visual">
+          <img src="./imgs/landingPageBanner.png" alt="Padose Website" class="ecosystem-img website-img" />
+        </div>
+        <span class="ecosystem-label">Website</span>
+        <h3>padose.in</h3>
+        <p>Discover the marketplace, explore sellers, learn about features, and register as a seller — all from your browser.</p>
+        <ul class="ecosystem-features">
+          <li><span class="check">&#10003;</span> Browse seller profiles</li>
+          <li><span class="check">&#10003;</span> Seller registration</li>
+          <li><span class="check">&#10003;</span> Community discovery</li>
+        </ul>
+      </div>
+
+      <!-- Connector -->
+      <div class="ecosystem-connector">
+        <div class="connector-line"></div>
+        <span class="connector-text">Download & Connect</span>
+        <div class="connector-line"></div>
+      </div>
+
+      <!-- Buyer App -->
+      <div class="ecosystem-card">
+        <div class="ecosystem-visual">
+          <img src="./imgs/buyer/deviceImage1.svg" alt="Padose Buyer App" class="ecosystem-img device-img" />
+        </div>
+        <span class="ecosystem-label buyer-label">Buyer App</span>
+        <h3>Shop & Discover</h3>
+        <p>The full shopping experience — browse products, book services, track orders, chat with sellers, and get deliveries.</p>
+        <ul class="ecosystem-features">
+          <li><span class="check">&#10003;</span> Smart local discovery</li>
+          <li><span class="check">&#10003;</span> Multi-store shopping</li>
+          <li><span class="check">&#10003;</span> Real-time order tracking</li>
+        </ul>
+        <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="ecosystem-cta">
+          <img src="./imgs/google-play.svg" alt="Get it on Google Play" />
+        </a>
+      </div>
+
+      <!-- Seller App -->
+      <div class="ecosystem-card">
+        <div class="ecosystem-visual">
+          <img src="./imgs/seller/deviceImage1.svg" alt="Padose Seller App" class="ecosystem-img device-img" />
+        </div>
+        <span class="ecosystem-label seller-label">Seller App</span>
+        <h3>Manage & Grow</h3>
+        <p>Your complete business toolkit — manage your store, handle orders, track analytics, and communicate with customers.</p>
+        <ul class="ecosystem-features">
+          <li><span class="check">&#10003;</span> Digital storefront</li>
+          <li><span class="check">&#10003;</span> Order & inventory management</li>
+          <li><span class="check">&#10003;</span> Analytics dashboard</li>
+        </ul>
+        <a routerLink="/seller-onboard" class="ecosystem-cta-btn">Register as Seller</a>
+      </div>
+    </div>
+
+    <!-- Visual Flow showing Buyer-Seller interaction -->
+    <div class="interaction-flow">
+      <div class="flow-device">
+        <img src="./imgs/buyer/deviceImage2.svg" alt="Buyer browsing products" />
+        <span class="flow-label">Buyer browses & orders</span>
+      </div>
+      <div class="flow-arrows">
+        <div class="flow-arrow-right">
+          <span>Order placed</span>
+        </div>
+        <div class="flow-arrow-left">
+          <span>Delivery & updates</span>
+        </div>
+      </div>
+      <div class="flow-device">
+        <img src="./imgs/seller/deviceImage2.svg" alt="Seller manages orders" />
+        <span class="flow-label">Seller receives & fulfills</span>
       </div>
     </div>
   </div>
@@ -83,7 +173,9 @@
 
     <div class="features-grid">
       <div class="feature-card" *ngFor="let feature of currentFeatures">
-        <span class="feature-icon">{{ feature.icon }}</span>
+        <div class="feature-image" *ngIf="feature.image">
+          <img [src]="feature.image" [alt]="feature.title" />
+        </div>
         <h3>{{ feature.title }}</h3>
         <p>{{ feature.description }}</p>
       </div>
