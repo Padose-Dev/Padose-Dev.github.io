@@ -23,6 +23,10 @@
     ],
     "rewrites": [
       {
+        "source": "/open",
+        "destination": "/index.csr.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
