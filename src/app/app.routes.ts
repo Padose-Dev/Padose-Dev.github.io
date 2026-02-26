@@ -62,6 +62,11 @@ export const routes: Routes = [
       import('./components/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent),
   },
   {
+    path: 'open',
+    loadComponent: () =>
+      import('./components/open-data/open-data.component').then(m => m.OpenDataComponent),
+  },
+  {
     path: 'delete-account',
     loadComponent: () =>
       import('./components/delete-account/delete-account.component').then(m => m.DeleteAccountComponent),

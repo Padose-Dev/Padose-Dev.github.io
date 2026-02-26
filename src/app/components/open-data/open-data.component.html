@@ -1,0 +1,77 @@
+<section class="open-data">
+  <!-- Hero KPI Cards -->
+  <div class="hero">
+    <div class="hero-header">
+      <h1>Open Data</h1>
+      <span class="live-badge"><span class="dot"></span> Live</span>
+    </div>
+    <p class="hero-sub">Real-time platform metrics — fully transparent</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card" *ngFor="let kpi of kpis">
+      <div class="kpi-value">{{ kpi.display }}</div>
+      <div class="kpi-label">{{ kpi.label }}</div>
+    </div>
+    <div *ngIf="loading" class="loading-msg">Loading metrics...</div>
+  </div>
+
+  <!-- Growth Chart -->
+  <div class="section">
+    <div class="chart-wrap">
+      <div class="chart-header">
+        <h2>{{ periodSubtitle }}</h2>
+        <div class="period-toggle">
+          <button [class.active]="activePeriod === 'daily'" (click)="switchPeriod('daily')">Daily</button>
+          <button [class.active]="activePeriod === 'weekly'" (click)="switchPeriod('weekly')">Weekly</button>
+          <button [class.active]="activePeriod === 'monthly'" (click)="switchPeriod('monthly')">Monthly</button>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="growth-chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Stores -->
+  <div class="section" *ngIf="topStores.length">
+    <h2 class="section-title">Top Stores</h2>
+    <div class="stores-grid">
+      <div class="store-card" *ngFor="let s of topStores">
+        <img *ngIf="s.imageUrl" [src]="s.imageUrl" [alt]="s.name" class="store-img" (error)="$any($event.target).style.display='none'">
+        <div *ngIf="!s.imageUrl" class="store-avatar">{{ getInitial(s.name) }}</div>
+        <div class="store-name">{{ s.name }}</div>
+        <div class="store-orders">{{ s.orderCount }} orders</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Communities -->
+  <div class="section" *ngIf="communities.length">
+    <h2 class="section-title">Communities</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Community</th>
+            <th>Stores</th>
+            <th>Orders</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of communities">
+            <td>{{ c.communityName }}</td>
+            <td>{{ c.storeCount }}</td>
+            <td>{{ c.orderCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="open-footer">
+    <p>Built with transparency</p>
+    <p class="updated" *ngIf="lastUpdated">Last updated: {{ lastUpdated }} · Auto-refreshes every 60s</p>
+  </div>
+</section>
