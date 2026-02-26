@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && mkdir -p dist/padose/browser/open && cp dist/padose/browser/index.csr.html dist/padose/browser/open/index.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:padose-web": "node dist/padose-web/server/server.mjs"
