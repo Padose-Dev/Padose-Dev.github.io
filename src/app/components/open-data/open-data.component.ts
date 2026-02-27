@@ -11,7 +11,7 @@ declare const Chart: any;
   styleUrl: './open-data.component.scss'
 })
 export class OpenDataComponent implements OnInit, OnDestroy {
-  private readonly API = 'http://139.59.64.179/open';
+  private readonly API = 'https://app.padose.com/open';
 
   kpis: { label: string; value: number; display: string }[] = [];
   topStores: any[] = [];
