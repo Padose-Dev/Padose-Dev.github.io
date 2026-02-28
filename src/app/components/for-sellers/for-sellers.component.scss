@@ -450,6 +450,456 @@ $gray-800: #1F2937;
 }
 
 // ============================================
+// STORE DNA SECTION
+// ============================================
+.store-dna-section {
+  background: linear-gradient(180deg, #f0f4ff 0%, $off-white 100%);
+}
+
+.dna-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.dna-hero-text {
+  .dna-badge {
+    display: inline-block;
+    background: $primary;
+    color: $white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .dna-subtitle {
+    font-weight: 400;
+    color: $gray-500;
+    font-size: 1.2rem;
+  }
+
+  .dna-intro {
+    color: $gray-600;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .btn-hero-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: $accent;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 100px;
+    text-decoration: none;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+    &:hover { background: $accent-dark; color: $white; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4); }
+  }
+}
+
+// DNA Report Card Infographic
+.dna-report-card {
+  background: $white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 31, 96, 0.1);
+  border: 1px solid $gray-200;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.dna-report-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $gray-100;
+}
+
+.dna-report-ring {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+
+  .dna-svg { width: 100%; height: 100%; }
+
+  .dna-ring-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dna-ring-score {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #22C55E;
+    line-height: 1;
+  }
+
+  .dna-ring-max {
+    font-size: 0.65rem;
+    color: $gray-400;
+  }
+}
+
+.dna-report-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dna-grade-pill {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 3px 10px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.dna-peer-text {
+  font-size: 0.75rem;
+  color: $gray-400;
+}
+
+.dna-dims-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.dna-dim-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 50px;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+
+  .dna-dim-name { color: $gray-700; }
+}
+
+.dna-dim-bar-wrap {
+  height: 5px;
+  background: $gray-100;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dna-dim-bar {
+  height: 100%;
+  border-radius: 3px;
+  &.green { background: #22C55E; }
+  &.yellow { background: #F59E0B; }
+  &.red { background: #EF4444; }
+}
+
+.dna-dim-score {
+  font-weight: 700;
+  text-align: right;
+  font-size: 0.75rem;
+  &.green-text { color: #16a34a; }
+  &.yellow-text { color: #d97706; }
+  &.red-text { color: #dc2626; }
+}
+
+.dna-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(34, 197, 94, 0.06);
+  border-radius: 8px;
+  padding: 8px 12px;
+
+  .dna-tip-text { font-size: 0.8rem; color: #16a34a; font-weight: 500; }
+}
+
+// How DNA scoring works
+.dna-how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+}
+
+.dna-how-card {
+  background: $white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid $gray-200;
+
+  .dna-how-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $primary;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin: 0 auto 12px;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $gray-500;
+    line-height: 1.6;
+  }
+}
+
+// ============================================
+// STORE WEBSITE SECTION
+// ============================================
+.store-website-section {
+  background: $white;
+}
+
+.website-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.website-hero-text {
+  .website-badge {
+    display: inline-block;
+    background: $accent;
+    color: $primary;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: $gray-600;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .btn-hero-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: $accent;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 100px;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    &:hover { background: $accent-dark; color: $white; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4); }
+  }
+}
+
+.website-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: $gray-700;
+    line-height: 1.5;
+
+    .check {
+      color: #22C55E;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    strong { color: $primary; }
+  }
+}
+
+// Website Browser Frame Mock
+.website-browser-frame {
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 31, 96, 0.12);
+  border: 1px solid $gray-200;
+}
+
+.wb-chrome {
+  background: $gray-100;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid $gray-200;
+}
+
+.wb-dots {
+  display: flex;
+  gap: 5px;
+  span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    &:nth-child(1) { background: #ef4444; }
+    &:nth-child(2) { background: #f59e0b; }
+    &:nth-child(3) { background: #22c55e; }
+  }
+}
+
+.wb-url-bar {
+  flex: 1;
+  background: $white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  color: $gray-500;
+  border: 1px solid $gray-200;
+  font-weight: 500;
+}
+
+.wb-content {
+  background: $white;
+  padding: 16px;
+}
+
+.wb-store-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  .wb-store-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: $primary;
+  }
+
+  .wb-store-name-mock {
+    width: 80px;
+    height: 8px;
+    border-radius: 4px;
+    background: $gray-200;
+  }
+
+  .wb-store-nav {
+    margin-left: auto;
+    display: flex;
+    gap: 6px;
+    span {
+      width: 24px;
+      height: 4px;
+      border-radius: 2px;
+      background: $gray-200;
+    }
+  }
+}
+
+.wb-store-banner {
+  background: linear-gradient(135deg, $primary, $primary-light);
+  border-radius: 8px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.wb-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.wb-product {
+  border-radius: 6px;
+  border: 1px solid $gray-100;
+  overflow: hidden;
+
+  .wb-product-img {
+    aspect-ratio: 1;
+    background: $gray-50;
+  }
+
+  .wb-product-text {
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .mock-line {
+      height: 4px;
+      border-radius: 2px;
+      background: $gray-200;
+      &.w80 { width: 80%; }
+      &.w50 { width: 50%; }
+    }
+  }
+}
+
+// ============================================
 // ANIMATIONS
 // ============================================
 @keyframes float {

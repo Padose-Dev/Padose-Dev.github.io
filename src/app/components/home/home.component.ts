@@ -55,7 +55,9 @@ export class HomeComponent implements OnInit {
     { title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links', image: './imgs/seller/sellerModuleImage1.svg' },
     { title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation', image: './imgs/seller/sellerModuleImage2.svg' },
     { title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'Promotions', description: 'Feature products, set discounts with expiry, and boost visibility', image: './imgs/seller/sellerModuleImage4.svg' }
+    { title: 'Promotions', description: 'Feature products, set discounts with expiry, and boost visibility', image: './imgs/seller/sellerModuleImage4.svg' },
+    { title: 'Store DNA', description: 'Your performance score vs peers — 7 dimensions, color-coded grades, and tips', image: './imgs/seller/sellerModuleImage3.svg' },
+    { title: 'Store Website', description: 'Free website at yourstore.padose.com — buyers browse without installing an app', image: './imgs/seller/sellerModuleImage4.svg' }
   ];
 
   categories = [

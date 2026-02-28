@@ -80,6 +80,20 @@ export class ForSellersComponent {
       description: 'List your store in multiple community marketplaces to reach more customers. Get discovered by buyers in different neighborhoods.',
       details: ['Multi-community listing', 'Wider reach', 'Local targeting', 'Community events'],
       image: './imgs/seller/sellerModuleImage2.svg'
+    },
+    {
+      icon: '🧬',
+      title: 'Store DNA — Performance Tutor',
+      description: 'Get a single score out of 100 that tells you how your store performs vs peers in your community. Analyze 7 dimensions with color-coded grades and actionable tips to improve.',
+      details: ['Peer percentile ranking', '7 performance dimensions', 'Actionable tips', 'Community comparison'],
+      image: './imgs/seller/sellerModuleImage3.svg'
+    },
+    {
+      icon: '🖥️',
+      title: 'Your Own Store Website',
+      description: 'Every seller gets a free professional website at yourstore.padose.com. Buyers can browse and order without installing an app. Share it on WhatsApp, Instagram, or print it on business cards.',
+      details: ['Custom subdomain', 'Full product catalog', 'No app needed for buyers', 'SEO friendly'],
+      image: './imgs/seller/sellerModuleImage4.svg'
     }
   ];
 
