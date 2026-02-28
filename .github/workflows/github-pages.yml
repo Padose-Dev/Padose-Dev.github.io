@@ -25,12 +25,12 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
-      - name: Use CSR index for full client-side rendering
-        run: cp dist/padose/browser/200.html dist/padose/browser/index.html
+      - name: Use CSR shell for all pages (SSR prerender misses dynamic content)
+        run: |
+          cp dist/padose/browser/index.csr.html dist/padose/browser/index.html
+          cp dist/padose/browser/index.csr.html dist/padose/browser/404.html
       - name: Add CNAME
         run: echo "padose.com" > dist/padose/browser/CNAME
-      - name: Add 404 fallback for SPA routing
-        run: cp dist/padose/browser/200.html dist/padose/browser/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/padose/browser
