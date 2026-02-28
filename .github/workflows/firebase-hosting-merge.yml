@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm run build
+      - name: Replace prerendered pages with CSR shell
+        run: |
+          CSR=dist/padose/browser/index.csr.html
+          find dist/padose/browser -mindepth 2 -name "index.html" -exec cp "$CSR" {} \;
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
