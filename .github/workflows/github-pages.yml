@@ -25,10 +25,11 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
-      - name: Use CSR shell for all pages (SSR prerender misses dynamic content)
+      - name: Replace all prerendered pages with CSR shell
         run: |
-          cp dist/padose/browser/index.csr.html dist/padose/browser/index.html
-          cp dist/padose/browser/index.csr.html dist/padose/browser/404.html
+          CSR=dist/padose/browser/index.csr.html
+          find dist/padose/browser -name "index.html" -exec cp "$CSR" {} \;
+          cp "$CSR" dist/padose/browser/404.html
       - name: Add CNAME
         run: echo "padose.com" > dist/padose/browser/CNAME
       - uses: actions/upload-pages-artifact@v3
