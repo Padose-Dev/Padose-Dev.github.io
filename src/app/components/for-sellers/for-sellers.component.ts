@@ -72,12 +72,6 @@ export class ForSellersComponent {
       image: './imgs/seller/sellerModuleImage2.svg'
     },
     {
-      title: 'AI-Powered Product Listing',
-      description: 'Just describe your product in plain language and our AI chatbot creates a complete listing for you — title, description, pricing, and category. The fastest way to get your catalog online.',
-      details: ['Chat-based product creation', 'Auto-generated descriptions', 'Smart categorization', 'Edit before publishing'],
-      image: './imgs/seller/sellerModuleImage3.svg'
-    },
-    {
       title: 'Pulse Video Feed',
       description: 'Create short-form videos showcasing your products, behind-the-scenes moments, or customer testimonials. Reach more buyers through engaging video content on the Pulse feed.',
       details: ['Short video uploads', 'Product showcase reels', 'Video engagement analytics', 'Reach new customers'],
@@ -94,18 +88,6 @@ export class ForSellersComponent {
       description: 'Create time-limited discounts, featured product promotions, and special deals to attract more buyers. Set expiry dates and track how your offers perform.',
       details: ['Discount with expiry dates', 'Featured product boost', 'Promotion analytics', 'Festival & seasonal deals'],
       image: './imgs/seller/sellerModuleImage2.svg'
-    },
-    {
-      title: 'Store DNA — Performance Tutor',
-      description: 'Get a single score out of 100 that tells you how your store performs vs peers in your community. Analyze 7 dimensions with color-coded grades and actionable tips to improve.',
-      details: ['Peer percentile ranking', '7 performance dimensions', 'Actionable tips', 'Community comparison'],
-      image: './imgs/seller/sellerModuleImage3.svg'
-    },
-    {
-      title: 'Your Own Store Website',
-      description: 'Every seller gets a free professional website at yourstore.padose.com. Buyers can browse and order without installing an app. Share it on WhatsApp, Instagram, or print it on business cards.',
-      details: ['Custom subdomain', 'Full product catalog', 'No app needed for buyers', 'SEO friendly'],
-      image: './imgs/seller/sellerModuleImage4.svg'
     }
   ];
 

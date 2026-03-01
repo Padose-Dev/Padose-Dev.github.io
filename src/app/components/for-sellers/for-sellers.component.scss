@@ -703,15 +703,50 @@ $gray-800: #1F2937;
   }
 }
 
-// DNA Report Card Infographic
+// DNA Visual Stack — device screenshot with floating report card
+.dna-visual-stack {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.dna-device-preview {
+  max-width: 280px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.12));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 220px;
+  }
+}
+
+// DNA Report Card Infographic — floats over the device
 .dna-report-card {
+  position: absolute;
+  right: -20px;
+  bottom: 40px;
   background: $white;
   border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 32px rgba(0, 31, 96, 0.1);
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 31, 96, 0.15);
   border: 1px solid $gray-200;
-  max-width: 380px;
-  margin: 0 auto;
+  max-width: 320px;
+  z-index: 2;
+  animation: float 6s ease-in-out infinite 1s;
+
+  @media (max-width: 968px) {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: -40px auto 0;
+    max-width: 340px;
+  }
 }
 
 .dna-report-header {

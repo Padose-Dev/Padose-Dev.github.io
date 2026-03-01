@@ -70,28 +70,106 @@
   </div>
 </section>
 
-<!-- Features with App Screenshots -->
-<section class="features-section section">
+<!-- ============================================ -->
+<!-- STORE DNA — Highlighted First -->
+<!-- ============================================ -->
+<section class="store-dna-section section" id="store-dna">
   <div class="container">
-    <h2 class="section-title">Powerful Tools for Every Seller</h2>
-    <p class="section-subtitle">From product listing to payment collection — everything you need to run your business professionally.</p>
-
-    <div class="features-list">
-      <div class="feature-row" *ngFor="let feature of features; let i = index" [class.reverse]="i % 2 !== 0">
-        <div class="feature-info">
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
-          <ul class="feature-details">
-            <li *ngFor="let detail of feature.details">
-              <span class="check">&#10003;</span> {{ detail }}
-            </li>
-          </ul>
-        </div>
-        <div class="feature-visual">
-          <div class="feature-device-frame">
-            <img [src]="feature.image" [alt]="feature.title + ' - Seller App Screen'" />
+    <div class="dna-hero-grid">
+      <div class="dna-hero-text">
+        <span class="dna-badge">New Feature</span>
+        <h2>Store DNA <span class="dna-subtitle">— Does Numbers Awesomely</span></h2>
+        <p class="dna-intro">Inspired by how Lichess Tutor helps chess players discover strengths, Store DNA analyzes your store's performance across 7 dimensions and compares you against peers in your community.</p>
+        <p class="dna-intro">One glanceable score. Color-coded insights. Actionable tips. Know exactly where you shine and where to improve.</p>
+        <a routerLink="/seller-onboard" class="btn-hero-primary">Start Selling — It's Free</a>
+      </div>
+      <div class="dna-hero-visual">
+        <div class="dna-visual-stack">
+          <!-- Device screenshot showing the actual Store DNA screen -->
+          <div class="dna-device-preview">
+            <img src="./imgs/seller/deviceImage2.svg" alt="Store DNA - Performance Tutor Screen" />
+          </div>
+          <!-- Floating report card overlay -->
+          <div class="dna-report-card">
+            <div class="dna-report-header">
+              <div class="dna-report-ring">
+                <svg viewBox="0 0 100 100" class="dna-svg">
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#e5e7eb" stroke-width="7" />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#22C55E" stroke-width="7"
+                          stroke-dasharray="264" stroke-dashoffset="74" stroke-linecap="round"
+                          transform="rotate(-90 50 50)" />
+                </svg>
+                <div class="dna-ring-text">
+                  <span class="dna-ring-score">72</span>
+                  <span class="dna-ring-max">/100</span>
+                </div>
+              </div>
+              <div class="dna-report-meta">
+                <span class="dna-grade-pill">Grade: B</span>
+                <span class="dna-peer-text">vs 45 stores in Koramangala Market</span>
+              </div>
+            </div>
+            <div class="dna-dims-list">
+              <div class="dna-dim-row">
+                <span class="dna-dim-name">Sales Performance</span>
+                <div class="dna-dim-bar-wrap"><div class="dna-dim-bar green" style="width: 85%"></div></div>
+                <span class="dna-dim-score green-text">85 A</span>
+              </div>
+              <div class="dna-dim-row">
+                <span class="dna-dim-name">Engagement</span>
+                <div class="dna-dim-bar-wrap"><div class="dna-dim-bar yellow" style="width: 65%"></div></div>
+                <span class="dna-dim-score yellow-text">65 C+</span>
+              </div>
+              <div class="dna-dim-row">
+                <span class="dna-dim-name">Catalog Quality</span>
+                <div class="dna-dim-bar-wrap"><div class="dna-dim-bar yellow" style="width: 55%"></div></div>
+                <span class="dna-dim-score yellow-text">55 C</span>
+              </div>
+              <div class="dna-dim-row">
+                <span class="dna-dim-name">Reviews</span>
+                <div class="dna-dim-bar-wrap"><div class="dna-dim-bar green" style="width: 78%"></div></div>
+                <span class="dna-dim-score green-text">78 B+</span>
+              </div>
+              <div class="dna-dim-row">
+                <span class="dna-dim-name">Conversion</span>
+                <div class="dna-dim-bar-wrap"><div class="dna-dim-bar yellow" style="width: 60%"></div></div>
+                <span class="dna-dim-score yellow-text">60 B</span>
+              </div>
+              <div class="dna-dim-row">
+                <span class="dna-dim-name">Responsiveness</span>
+                <div class="dna-dim-bar-wrap"><div class="dna-dim-bar green" style="width: 72%"></div></div>
+                <span class="dna-dim-score green-text">72 B</span>
+              </div>
+              <div class="dna-dim-row">
+                <span class="dna-dim-name">Content</span>
+                <div class="dna-dim-bar-wrap"><div class="dna-dim-bar red" style="width: 35%"></div></div>
+                <span class="dna-dim-score red-text">35 D</span>
+              </div>
+            </div>
+            <div class="dna-tip-row">
+              <span class="dna-tip-text">Revenue is 36% above community average!</span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- How DNA scoring works -->
+    <div class="dna-how-grid">
+      <div class="dna-how-card">
+        <div class="dna-how-number">1</div>
+        <h4>Measure</h4>
+        <p>We analyze your real data across 7 dimensions — sales, engagement, catalog, reviews, conversion, responsiveness, and content.</p>
+      </div>
+      <div class="dna-how-card">
+        <div class="dna-how-number">2</div>
+        <h4>Compare</h4>
+        <p>Your metrics are ranked against all active stores in your community using percentile scoring. No vanity metrics — real peer comparison.</p>
+      </div>
+      <div class="dna-how-card">
+        <div class="dna-how-number">3</div>
+        <h4>Improve</h4>
+        <p>Every yellow or red metric comes with an actionable tip. Follow the suggestions and watch your score climb.</p>
       </div>
     </div>
   </div>
@@ -154,104 +232,6 @@
 </section>
 
 <!-- ============================================ -->
-<!-- STORE DNA -->
-<!-- ============================================ -->
-<section class="store-dna-section section" id="store-dna">
-  <div class="container">
-    <div class="dna-hero-grid">
-      <div class="dna-hero-text">
-        <span class="dna-badge">New Feature</span>
-        <h2>Store DNA <span class="dna-subtitle">— Does Numbers Awesomely</span></h2>
-        <p class="dna-intro">Inspired by how Lichess Tutor helps chess players discover strengths, Store DNA analyzes your store's performance across 7 dimensions and compares you against peers in your community.</p>
-        <p class="dna-intro">One glanceable score. Color-coded insights. Actionable tips. Know exactly where you shine and where to improve.</p>
-        <a routerLink="/seller-onboard" class="btn-hero-primary">Start Selling — It's Free</a>
-      </div>
-      <div class="dna-hero-visual">
-        <div class="dna-report-card">
-          <div class="dna-report-header">
-            <div class="dna-report-ring">
-              <svg viewBox="0 0 100 100" class="dna-svg">
-                <circle cx="50" cy="50" r="42" fill="none" stroke="#e5e7eb" stroke-width="7" />
-                <circle cx="50" cy="50" r="42" fill="none" stroke="#22C55E" stroke-width="7"
-                        stroke-dasharray="264" stroke-dashoffset="74" stroke-linecap="round"
-                        transform="rotate(-90 50 50)" />
-              </svg>
-              <div class="dna-ring-text">
-                <span class="dna-ring-score">72</span>
-                <span class="dna-ring-max">/100</span>
-              </div>
-            </div>
-            <div class="dna-report-meta">
-              <span class="dna-grade-pill">Grade: B</span>
-              <span class="dna-peer-text">vs 45 stores in Koramangala Market</span>
-            </div>
-          </div>
-          <div class="dna-dims-list">
-            <div class="dna-dim-row">
-              <span class="dna-dim-name">Sales Performance</span>
-              <div class="dna-dim-bar-wrap"><div class="dna-dim-bar green" style="width: 85%"></div></div>
-              <span class="dna-dim-score green-text">85 A</span>
-            </div>
-            <div class="dna-dim-row">
-              <span class="dna-dim-name">Engagement</span>
-              <div class="dna-dim-bar-wrap"><div class="dna-dim-bar yellow" style="width: 65%"></div></div>
-              <span class="dna-dim-score yellow-text">65 C+</span>
-            </div>
-            <div class="dna-dim-row">
-              <span class="dna-dim-name">Catalog Quality</span>
-              <div class="dna-dim-bar-wrap"><div class="dna-dim-bar yellow" style="width: 55%"></div></div>
-              <span class="dna-dim-score yellow-text">55 C</span>
-            </div>
-            <div class="dna-dim-row">
-              <span class="dna-dim-name">Reviews</span>
-              <div class="dna-dim-bar-wrap"><div class="dna-dim-bar green" style="width: 78%"></div></div>
-              <span class="dna-dim-score green-text">78 B+</span>
-            </div>
-            <div class="dna-dim-row">
-              <span class="dna-dim-name">Conversion</span>
-              <div class="dna-dim-bar-wrap"><div class="dna-dim-bar yellow" style="width: 60%"></div></div>
-              <span class="dna-dim-score yellow-text">60 B</span>
-            </div>
-            <div class="dna-dim-row">
-              <span class="dna-dim-name">Responsiveness</span>
-              <div class="dna-dim-bar-wrap"><div class="dna-dim-bar green" style="width: 72%"></div></div>
-              <span class="dna-dim-score green-text">72 B</span>
-            </div>
-            <div class="dna-dim-row">
-              <span class="dna-dim-name">Content</span>
-              <div class="dna-dim-bar-wrap"><div class="dna-dim-bar red" style="width: 35%"></div></div>
-              <span class="dna-dim-score red-text">35 D</span>
-            </div>
-          </div>
-          <div class="dna-tip-row">
-            <span class="dna-tip-text">Revenue is 36% above community average!</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- How DNA scoring works -->
-    <div class="dna-how-grid">
-      <div class="dna-how-card">
-        <div class="dna-how-number">1</div>
-        <h4>Measure</h4>
-        <p>We analyze your real data across 7 dimensions — sales, engagement, catalog, reviews, conversion, responsiveness, and content.</p>
-      </div>
-      <div class="dna-how-card">
-        <div class="dna-how-number">2</div>
-        <h4>Compare</h4>
-        <p>Your metrics are ranked against all active stores in your community using percentile scoring. No vanity metrics — real peer comparison.</p>
-      </div>
-      <div class="dna-how-card">
-        <div class="dna-how-number">3</div>
-        <h4>Improve</h4>
-        <p>Every yellow or red metric comes with an actionable tip. Follow the suggestions and watch your score climb.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================ -->
 <!-- STORE WEBSITE -->
 <!-- ============================================ -->
 <section class="store-website-section section">
@@ -292,6 +272,35 @@
           <li><span class="check">&#10003;</span> <strong>Zero setup</strong> — auto-generated from your seller app</li>
         </ul>
         <a routerLink="/seller-onboard" class="btn-hero-primary">Create Your Store &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- Features with App Screenshots -->
+<!-- ============================================ -->
+<section class="features-section section">
+  <div class="container">
+    <h2 class="section-title">Powerful Tools for Every Seller</h2>
+    <p class="section-subtitle">From product listing to payment collection — everything you need to run your business professionally.</p>
+
+    <div class="features-list">
+      <div class="feature-row" *ngFor="let feature of features; let i = index" [class.reverse]="i % 2 !== 0">
+        <div class="feature-info">
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+          <ul class="feature-details">
+            <li *ngFor="let detail of feature.details">
+              <span class="check">&#10003;</span> {{ detail }}
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-device-frame">
+            <img [src]="feature.image" [alt]="feature.title + ' - Seller App Screen'" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
