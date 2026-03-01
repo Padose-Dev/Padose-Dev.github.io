@@ -50,14 +50,17 @@ export class HomeComponent implements OnInit {
   sellerFeatures = [
     { title: 'Store Customization', description: 'Logo, banner, colors, business hours, policies — make it yours', image: './imgs/seller/sellerModuleImage1.svg' },
     { title: 'Catalog Management', description: 'Products and services with variants, images, videos, and discounts', image: './imgs/seller/sellerModuleImage2.svg' },
-    { title: 'Analytics Dashboard', description: 'Revenue, engagement, popular items, and customer insights at a glance', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'Scheduling & Availability', description: 'Weekly hours, blocked dates, and course/workshop curriculum', image: './imgs/seller/sellerModuleImage4.svg' },
-    { title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links', image: './imgs/seller/sellerModuleImage1.svg' },
-    { title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation', image: './imgs/seller/sellerModuleImage2.svg' },
-    { title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'Promotions', description: 'Feature products, set discounts with expiry, and boost visibility', image: './imgs/seller/sellerModuleImage4.svg' },
-    { title: 'Store DNA', description: 'Your performance score vs peers — 7 dimensions, color-coded grades, and tips', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'Store Website', description: 'Free website at yourstore.padose.com — buyers browse without installing an app', image: './imgs/seller/sellerModuleImage4.svg' }
+    { title: 'AI Product Listing', description: 'Describe your product in chat and AI creates the full listing for you', image: './imgs/seller/sellerModuleImage3.svg' },
+    { title: 'Analytics Dashboard', description: 'Revenue, engagement, popular items, and customer insights at a glance', image: './imgs/seller/sellerModuleImage4.svg' },
+    { title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation', image: './imgs/seller/sellerModuleImage1.svg' },
+    { title: 'Scheduling & Availability', description: 'Weekly hours, blocked dates, and course/workshop curriculum', image: './imgs/seller/sellerModuleImage2.svg' },
+    { title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links', image: './imgs/seller/sellerModuleImage3.svg' },
+    { title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships', image: './imgs/seller/sellerModuleImage4.svg' },
+    { title: 'Pulse Video Feed', description: 'Short-form videos to showcase products and reach new customers', image: './imgs/seller/sellerModuleImage1.svg' },
+    { title: 'Reviews & Reputation', description: 'Customer reviews, star ratings, and reputation analytics', image: './imgs/seller/sellerModuleImage2.svg' },
+    { title: 'Offers & Promotions', description: 'Time-limited discounts, featured products, and seasonal deals', image: './imgs/seller/sellerModuleImage3.svg' },
+    { title: 'Store DNA', description: 'Your performance score vs peers — 7 dimensions, color-coded grades, and tips', image: './imgs/seller/sellerModuleImage4.svg' },
+    { title: 'Store Website', description: 'Free website at yourstore.padose.com — buyers browse without installing an app', image: './imgs/seller/sellerModuleImage1.svg' }
   ];
 
   categories = [

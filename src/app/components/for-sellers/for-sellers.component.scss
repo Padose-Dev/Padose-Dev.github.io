@@ -450,6 +450,192 @@ $gray-800: #1F2937;
 }
 
 // ============================================
+// AI CHATBOT SECTION
+// ============================================
+.ai-chatbot-section {
+  background: linear-gradient(180deg, $off-white 0%, #fff8eb 100%);
+}
+
+.chatbot-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.chatbot-hero-text {
+  .chatbot-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #7C3AED, #A855F7);
+    color: $white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .chatbot-intro {
+    color: $gray-600;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .btn-hero-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: $accent;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 100px;
+    text-decoration: none;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+    &:hover { background: $accent-dark; color: $white; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4); }
+  }
+}
+
+.chatbot-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: $gray-700;
+    line-height: 1.5;
+
+    .check {
+      color: #22C55E;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    strong { color: $primary; }
+  }
+}
+
+// Chatbot Phone Mockup
+.chatbot-phone-frame {
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 31, 96, 0.12);
+  border: 1px solid $gray-200;
+  background: $white;
+}
+
+.chatbot-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-header {
+  background: $primary;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .chatbot-header-icon {
+    font-size: 0.65rem;
+    font-weight: 800;
+    background: $accent;
+    color: $primary;
+    padding: 3px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .chatbot-header-title { color: $white; font-weight: 700; font-size: 0.95rem; }
+}
+
+.chatbot-messages {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: $gray-50;
+  min-height: 300px;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+
+  p { margin: 0 0 4px; &:last-child { margin: 0; } }
+
+  &.bot {
+    align-self: flex-start;
+    background: $white;
+    color: $gray-700;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  &.user {
+    align-self: flex-end;
+    background: $primary;
+    color: $white;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.chat-product-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: $gray-50;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 6px 0;
+
+  .chat-product-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    flex-shrink: 0;
+  }
+
+  .chat-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    strong { font-size: 0.8rem; color: $gray-800; }
+    span { font-size: 0.7rem; color: $gray-500; }
+    .chat-product-price { color: #16a34a; font-weight: 700; font-size: 0.8rem; }
+  }
+}
+
+// ============================================
 // STORE DNA SECTION
 // ============================================
 .store-dna-section {
