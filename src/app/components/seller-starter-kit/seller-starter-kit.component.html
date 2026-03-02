@@ -1,0 +1,429 @@
+<!-- Hero -->
+<section class="kit-hero">
+  <div class="container hero-content">
+    <span class="kit-badge">Seller Starter Kit</span>
+    <h1>Everything You Need <span class="highlight">Before</span> You Start</h1>
+    <p>Prepare your store assets, product photos, and descriptions ahead of time. This guide will make your store setup smooth and quick.</p>
+    <div class="hero-actions">
+      <a routerLink="/seller-onboard" class="btn-hero-primary">Register as a Seller</a>
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.seller" target="_blank" rel="noopener" class="btn-hero-outline">Download Seller App</a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Reference Bar -->
+<section class="quick-ref-bar">
+  <div class="container ref-grid">
+    <div class="ref-item">
+      <span class="ref-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </span>
+      <span class="ref-label">Store</span>
+      <span class="ref-detail">1 image + 3 banners + 3 videos</span>
+    </div>
+    <div class="ref-item">
+      <span class="ref-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </span>
+      <span class="ref-label">Per Product</span>
+      <span class="ref-detail">10 images + 3 videos + 1+ variants</span>
+    </div>
+    <div class="ref-item">
+      <span class="ref-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </span>
+      <span class="ref-label">Per Service</span>
+      <span class="ref-detail">10 images + 3 videos + 1+ variants</span>
+    </div>
+    <div class="ref-item">
+      <span class="ref-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </span>
+      <span class="ref-label">Image Specs</span>
+      <span class="ref-detail">JPG/PNG/WebP, max 1200px</span>
+    </div>
+    <div class="ref-item">
+      <span class="ref-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      </span>
+      <span class="ref-label">Video Specs</span>
+      <span class="ref-detail">MP4, max 60 sec, under 25 MB</span>
+    </div>
+  </div>
+</section>
+
+<!-- Step Navigation -->
+<section class="step-nav section">
+  <div class="container">
+    <div class="steps-header">
+      <button class="step-tab" [class.active]="activeStep === 1" (click)="setStep(1)">
+        <span class="step-number">1</span>
+        <span class="step-label">Store Setup</span>
+      </button>
+      <div class="step-connector"></div>
+      <button class="step-tab" [class.active]="activeStep === 2" (click)="setStep(2)">
+        <span class="step-number">2</span>
+        <span class="step-label">Products</span>
+      </button>
+      <div class="step-connector"></div>
+      <button class="step-tab" [class.active]="activeStep === 3" (click)="setStep(3)">
+        <span class="step-number">3</span>
+        <span class="step-label">Services</span>
+      </button>
+      <div class="step-connector"></div>
+      <button class="step-tab" [class.active]="activeStep === 4" (click)="setStep(4)">
+        <span class="step-number">4</span>
+        <span class="step-label">Checklist</span>
+      </button>
+    </div>
+
+    <!-- =============================== -->
+    <!-- STEP 1: Store Setup -->
+    <!-- =============================== -->
+    <div class="step-content" *ngIf="activeStep === 1">
+      <h2 class="section-title">Prepare Your Store Assets</h2>
+      <p class="section-subtitle">Your store is your digital shopfront. Have these ready before you begin.</p>
+
+      <!-- Asset Cards -->
+      <div class="asset-grid">
+        <div class="asset-card" *ngFor="let asset of storeAssets">
+          <div class="asset-icon" [attr.data-icon]="asset.icon">
+            <svg *ngIf="asset.icon === 'store-img'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <svg *ngIf="asset.icon === 'logo'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <svg *ngIf="asset.icon === 'banner'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            <svg *ngIf="asset.icon === 'video'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name-row">
+              <h4>{{ asset.name }}</h4>
+              <span class="asset-tag" [class.required]="asset.required">{{ asset.required ? 'Required' : 'Optional' }}</span>
+            </div>
+            <p class="asset-spec">{{ asset.spec }}</p>
+            <p class="asset-tip">{{ asset.tip }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store Text Fields: Do vs Don't -->
+      <h3 class="sub-section-title">Store Text Fields</h3>
+      <p class="sub-section-desc">Keep it short, clear, and customer-friendly.</p>
+
+      <div class="do-dont-grid">
+        <div class="do-dont-card" *ngFor="let field of storeFields">
+          <div class="field-header">
+            <h4>{{ field.name }}</h4>
+            <span class="field-tag" [class.required]="field.required">{{ field.required ? 'Required' : 'Optional' }}</span>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison good">
+              <span class="comparison-label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                Do this
+              </span>
+              <p>{{ field.good }}</p>
+            </div>
+            <div class="comparison bad">
+              <span class="comparison-label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Not this
+              </span>
+              <p>{{ field.bad }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store Settings -->
+      <h3 class="sub-section-title">Store Settings</h3>
+      <div class="settings-grid">
+        <div class="setting-card">
+          <div class="setting-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4>Selling Type</h4>
+          <div class="setting-options">
+            <div class="option-pill"><strong>Products</strong> Physical or digital goods</div>
+            <div class="option-pill"><strong>Services</strong> Appointments, courses, workshops</div>
+          </div>
+        </div>
+        <div class="setting-card">
+          <div class="setting-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h4>Vendor Type</h4>
+          <div class="setting-options">
+            <div class="option-pill"><strong>Fixed</strong> Physical shop or office</div>
+            <div class="option-pill"><strong>Mobile</strong> Cart, vehicle, or home delivery</div>
+          </div>
+        </div>
+        <div class="setting-card">
+          <div class="setting-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h4>Payment</h4>
+          <div class="setting-options">
+            <div class="option-pill"><strong>UPI ID</strong> e.g., yourname&#64;upi</div>
+            <div class="option-pill"><strong>QR Code</strong> Upload your payment QR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =============================== -->
+    <!-- STEP 2: Products -->
+    <!-- =============================== -->
+    <div class="step-content" *ngIf="activeStep === 2">
+      <h2 class="section-title">Prepare Your Product Catalog</h2>
+      <p class="section-subtitle">For each product, gather the following before you add it to the app.</p>
+
+      <!-- Image Checklist -->
+      <h3 class="sub-section-title">Photo Checklist (Per Product)</h3>
+      <p class="sub-section-desc">Up to <strong>10 images</strong> and <strong>3 videos</strong> (60 sec, 25 MB max) per product.</p>
+      <div class="photo-checklist">
+        <div class="photo-check-item" *ngFor="let item of imageChecklist; let i = index">
+          <div class="photo-number">{{ i + 1 }}</div>
+          <div>
+            <strong>{{ item.title }}</strong>
+            <p>{{ item.desc }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Naming -->
+      <h3 class="sub-section-title">How to Name Products</h3>
+      <p class="sub-section-desc">Formula: <strong>[Product Type] — [Key Differentiator]</strong>. Keep it short, specific, and searchable.</p>
+      <div class="naming-table">
+        <div class="naming-header">
+          <span class="col-good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Good
+          </span>
+          <span class="col-bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Avoid
+          </span>
+        </div>
+        <div class="naming-row" *ngFor="let item of productNaming">
+          <span class="col-good">{{ item.good }}</span>
+          <span class="col-bad">{{ item.bad }}</span>
+        </div>
+      </div>
+
+      <!-- Description Guide -->
+      <h3 class="sub-section-title">How to Write Descriptions</h3>
+      <p class="sub-section-desc">Structure your description in this order for maximum clarity.</p>
+      <div class="desc-guide">
+        <div class="desc-step">
+          <div class="desc-num">1</div>
+          <div>
+            <strong>What is it?</strong>
+            <p>One sentence about the product</p>
+          </div>
+        </div>
+        <div class="desc-step">
+          <div class="desc-num">2</div>
+          <div>
+            <strong>Key features</strong>
+            <p>3-5 bullet points: material, size, weight, specs</p>
+          </div>
+        </div>
+        <div class="desc-step">
+          <div class="desc-num">3</div>
+          <div>
+            <strong>Who is it for?</strong>
+            <p>Mention the use case or occasion</p>
+          </div>
+        </div>
+        <div class="desc-step">
+          <div class="desc-num">4</div>
+          <div>
+            <strong>Care instructions</strong>
+            <p>If applicable (wash, store, maintain)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Description -->
+      <div class="example-card">
+        <span class="example-label">Example Description</span>
+        <p class="example-main">Handwoven Kanchipuram silk saree with traditional zari border and pallu.</p>
+        <ul class="example-features">
+          <li>Pure mulberry silk, 6.2 meters with blouse piece</li>
+          <li>Weight: 650g (heavy feel, premium drape)</li>
+          <li>Zari: Genuine copper-gold thread work</li>
+          <li>Suitable for weddings, festivals, and special occasions</li>
+        </ul>
+        <p class="example-care">Dry clean only. Store folded in muslin cloth.</p>
+      </div>
+
+      <!-- Variants -->
+      <h3 class="sub-section-title">How to Set Up Variants</h3>
+      <p class="sub-section-desc">Each variant has a <strong>name</strong> and <strong>price</strong>. Use consistent, short names. Pick ONE attribute per variant.</p>
+      <div class="variant-table">
+        <div class="variant-header">
+          <span>Business</span>
+          <span>Variant Names</span>
+          <span>Prices</span>
+        </div>
+        <div class="variant-row" *ngFor="let v of variantExamples">
+          <span class="variant-biz">{{ v.business }}</span>
+          <span class="variant-names">{{ v.variants }}</span>
+          <span class="variant-prices">{{ v.prices }}</span>
+        </div>
+      </div>
+      <div class="variant-tip">
+        <strong>Cost Price</strong> (optional) — your buying/manufacturing cost. Only you can see it. Helps track profit margins.
+      </div>
+    </div>
+
+    <!-- =============================== -->
+    <!-- STEP 3: Services -->
+    <!-- =============================== -->
+    <div class="step-content" *ngIf="activeStep === 3">
+      <h2 class="section-title">Prepare Your Service Catalog</h2>
+      <p class="section-subtitle">If you sell services, prepare the following for each one. Same image/video limits as products.</p>
+
+      <!-- Service Naming -->
+      <h3 class="sub-section-title">How to Name Services</h3>
+      <p class="sub-section-desc">Formula: <strong>[Service Type] — [Key Detail]</strong></p>
+      <div class="naming-table">
+        <div class="naming-header">
+          <span class="col-good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            Good
+          </span>
+          <span class="col-bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Avoid
+          </span>
+        </div>
+        <div class="naming-row">
+          <span class="col-good">Bridal Mehendi - Full Hands</span>
+          <span class="col-bad">Mehendi service for brides with full hands and legs beautiful designs</span>
+        </div>
+        <div class="naming-row">
+          <span class="col-good">AC Service - Split Unit</span>
+          <span class="col-bad">AC repair and servicing</span>
+        </div>
+        <div class="naming-row">
+          <span class="col-good">Yoga Class - Beginners</span>
+          <span class="col-bad">Yoga</span>
+        </div>
+      </div>
+
+      <!-- Service Variants -->
+      <h3 class="sub-section-title">Service Variants</h3>
+      <p class="sub-section-desc">Each variant has a <strong>name</strong>, <strong>duration</strong>, and <strong>price</strong>.</p>
+      <div class="svc-variant-table">
+        <div class="svc-variant-header">
+          <span>Service</span>
+          <span>Variant</span>
+          <span>Duration</span>
+          <span>Price</span>
+        </div>
+        <div class="svc-variant-row" *ngFor="let s of serviceVariantExamples">
+          <span>{{ s.service }}</span>
+          <span>{{ s.variant }}</span>
+          <span>{{ s.duration }}</span>
+          <span class="svc-price">&#8377;{{ s.price }}</span>
+        </div>
+      </div>
+
+      <!-- Service Types -->
+      <h3 class="sub-section-title">Service Types</h3>
+      <div class="svc-types-grid">
+        <div class="svc-type-card">
+          <div class="svc-type-icon standard">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>Standard</h4>
+          <p>One-time services like haircuts, repairs, consultations</p>
+        </div>
+        <div class="svc-type-card">
+          <div class="svc-type-icon course">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h4>Course</h4>
+          <p>Multi-session learning — cooking class, yoga program. Set capacity and curriculum.</p>
+        </div>
+        <div class="svc-type-card">
+          <div class="svc-type-icon workshop">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Workshop</h4>
+          <p>One-day or short events. Set capacity and schedule sessions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- =============================== -->
+    <!-- STEP 4: Checklist -->
+    <!-- =============================== -->
+    <div class="step-content" *ngIf="activeStep === 4">
+      <h2 class="section-title">Pre-Launch Checklist</h2>
+      <p class="section-subtitle">Make sure you have everything ready before you open the app.</p>
+
+      <div class="checklist-card">
+        <div class="checklist-item" *ngFor="let item of checklist">
+          <div class="check-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>{{ item }}</span>
+        </div>
+      </div>
+
+      <!-- Specs Summary -->
+      <h3 class="sub-section-title">Quick Specs Reference</h3>
+      <div class="specs-grid">
+        <div class="spec-card">
+          <div class="spec-header">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Images
+          </div>
+          <ul>
+            <li>Format: JPG, PNG, or WebP</li>
+            <li>Max width: 1200 px</li>
+            <li>Store: 1 main + 1 logo + 3 banners</li>
+            <li>Products/Services: up to 10 each</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <div class="spec-header">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            Videos
+          </div>
+          <ul>
+            <li>Format: MP4 (recommended)</li>
+            <li>Max length: 60 seconds</li>
+            <li>Max size: 25 MB</li>
+            <li>Up to 3 per store/product/service</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <div class="spec-header">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Variants
+          </div>
+          <ul>
+            <li>Products: name + price (min 1)</li>
+            <li>Services: name + duration + price</li>
+            <li>Keep names short and consistent</li>
+            <li>One attribute per variant</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="kit-cta section">
+  <div class="container cta-content">
+    <h2>Ready to Build Your Store?</h2>
+    <p>Register now and create your digital store in just 5 minutes. No fees, no commission, no hassle.</p>
+    <div class="cta-actions">
+      <a routerLink="/seller-onboard" class="btn-cta-primary">Register as a Seller</a>
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.seller" target="_blank" rel="noopener" class="btn-cta-outline">Download Seller App</a>
+    </div>
+  </div>
+</section>

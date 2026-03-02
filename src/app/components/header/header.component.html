@@ -23,6 +23,7 @@
     </ul>
 
     <div class="nav-actions" *ngIf="!isMobileView">
+      <a routerLink="/seller-starter-kit" class="btn-nav-outline">Starter Kit</a>
       <a routerLink="/seller-onboard" class="btn-nav-outline">Start Selling</a>
       <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-nav-primary">Download App</a>
     </div>
@@ -47,6 +48,7 @@
       <a routerLink="/faq" (click)="closeMobileMenu()">FAQ</a>
       <a routerLink="/contact-us" (click)="closeMobileMenu()">Contact</a>
       <hr />
+      <a routerLink="/seller-starter-kit" class="mobile-cta" (click)="closeMobileMenu()">Seller Starter Kit</a>
       <a routerLink="/seller-onboard" class="mobile-cta" (click)="closeMobileMenu()">Start Selling</a>
       <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="mobile-cta accent" (click)="closeMobileMenu()">Download App</a>
     </div>

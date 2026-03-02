@@ -42,6 +42,11 @@ export const routes: Routes = [
       import('./components/seller-onboarding/seller-onboarding.component').then(m => m.SellerOnboardingComponent),
   },
   {
+    path: 'seller-starter-kit',
+    loadComponent: () =>
+      import('./components/seller-starter-kit/seller-starter-kit.component').then(m => m.SellerStarterKitComponent),
+  },
+  {
     path: 'contact-us',
     loadComponent: () =>
       import('./components/contact-us/contact-us.component').then(m => m.ContactUsComponent),
