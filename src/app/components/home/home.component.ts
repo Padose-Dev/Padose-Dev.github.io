@@ -36,31 +36,37 @@ export class HomeComponent implements OnInit {
     { title: 'Grow Your Business', description: 'Track analytics, boost visibility, and reach more customers daily', image: './imgs/seller/sellerModuleImage3.svg' }
   ];
 
-  buyerFeatures = [
+  buyerHighlights = [
     { title: 'Smart Discovery', description: 'Find products and services by category, location, or keyword search', image: './imgs/buyer/buyerModuleImage1.svg' },
     { title: 'Service Booking', description: 'Book appointments with time slot selection and availability tracking', image: './imgs/buyer/buyerModuleImage2.svg' },
     { title: 'Multi-Store Cart', description: 'Shop from multiple sellers in a single checkout experience', image: './imgs/buyer/buyerModuleImage3.svg' },
     { title: 'Order Tracking', description: 'Real-time status updates from placement to delivery', image: './imgs/buyer/buyerModuleImage4.svg' },
     { title: 'Chat with Sellers', description: 'Direct messaging for queries, negotiations, and custom orders', image: './imgs/buyer/buyerModuleImage5.svg' },
-    { title: 'Pulse Video Feed', description: 'Watch short videos from sellers showcasing their products', image: './imgs/buyer/buyerModuleImage6.svg' },
-    { title: 'Wishlist & Follows', description: 'Save favorite items and follow your preferred stores', image: './imgs/buyer/buyerModuleImage1.svg' },
-    { title: 'Reviews & Ratings', description: 'Read and write honest reviews to help the community', image: './imgs/buyer/buyerModuleImage2.svg' }
+    { title: 'Pulse Video Feed', description: 'Watch short videos from sellers showcasing their products', image: './imgs/buyer/buyerModuleImage6.svg' }
   ];
 
-  sellerFeatures = [
+  buyerFeatures = [
+    { title: 'Wishlist & Follows', description: 'Save favorite items and follow your preferred stores', accent: '#EC4899' },
+    { title: 'Reviews & Ratings', description: 'Read and write honest reviews to help the community', accent: '#EAB308' }
+  ];
+
+  sellerHighlights = [
     { title: 'Store Customization', description: 'Logo, banner, colors, business hours, policies — make it yours', image: './imgs/seller/sellerModuleImage1.svg' },
     { title: 'Catalog Management', description: 'Products and services with variants, images, videos, and discounts', image: './imgs/seller/sellerModuleImage2.svg' },
     { title: 'AI Product Listing', description: 'Describe your product in chat and AI creates the full listing for you', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'Analytics Dashboard', description: 'Revenue, engagement, popular items, and customer insights at a glance', image: './imgs/seller/sellerModuleImage4.svg' },
-    { title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation', image: './imgs/seller/sellerModuleImage1.svg' },
-    { title: 'Scheduling & Availability', description: 'Weekly hours, blocked dates, and course/workshop curriculum', image: './imgs/seller/sellerModuleImage2.svg' },
-    { title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships', image: './imgs/seller/sellerModuleImage4.svg' },
-    { title: 'Pulse Video Feed', description: 'Short-form videos to showcase products and reach new customers', image: './imgs/seller/sellerModuleImage1.svg' },
-    { title: 'Reviews & Reputation', description: 'Customer reviews, star ratings, and reputation analytics', image: './imgs/seller/sellerModuleImage2.svg' },
-    { title: 'Offers & Promotions', description: 'Time-limited discounts, featured products, and seasonal deals', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'Store DNA', description: 'Your performance score vs peers — 7 dimensions, color-coded grades, and tips', image: './imgs/seller/sellerModuleImage4.svg' },
-    { title: 'Store Website', description: 'Free website at yourstore.padose.com — buyers browse without installing an app', image: './imgs/seller/sellerModuleImage1.svg' }
+    { title: 'Analytics Dashboard', description: 'Revenue, engagement, popular items, and customer insights at a glance', image: './imgs/seller/sellerModuleImage4.svg' }
+  ];
+
+  sellerFeatures = [
+    { title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation', accent: '#14B8A6' },
+    { title: 'Scheduling & Availability', description: 'Weekly hours, blocked dates, and course/workshop curriculum', accent: '#6366F1' },
+    { title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links', accent: '#22C55E' },
+    { title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships', accent: '#EC4899' },
+    { title: 'Pulse Video Feed', description: 'Short-form videos to showcase products and reach new customers', accent: '#EF4444' },
+    { title: 'Reviews & Reputation', description: 'Customer reviews, star ratings, and reputation analytics', accent: '#EAB308' },
+    { title: 'Offers & Promotions', description: 'Time-limited discounts, featured products, and seasonal deals', accent: '#A855F7' },
+    { title: 'Store DNA', description: 'Your performance score vs peers — 7 dimensions, color-coded grades, and tips', accent: '#06B6D4' },
+    { title: 'Store Website', description: 'Free website at yourstore.padose.com — buyers browse without installing an app', accent: '#F97316' }
   ];
 
   categories = [
@@ -204,7 +210,4 @@ export class HomeComponent implements OnInit {
     return this.activeTab === 'buyer' ? this.buyerSteps : this.sellerSteps;
   }
 
-  get currentFeatures() {
-    return this.activeTab === 'buyer' ? this.buyerFeatures : this.sellerFeatures;
-  }
 }
