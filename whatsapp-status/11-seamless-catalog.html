@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>Padose - Seamless Catalog Creation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1920px;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+    background: #0F0A2A;
+  }
+
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(99,102,241,0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0,136,204,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255,153,0,0.08) 0%, transparent 40%),
+      linear-gradient(180deg, #0F0A2A, #1a1145);
+  }
+
+  .dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .content {
+    position: relative; z-index: 2;
+    height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px 50px; text-align: center;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(0,136,204,0.25));
+    border: 1px solid rgba(99,102,241,0.35);
+    color: #a78bfa; font-size: 20px; font-weight: 700;
+    padding: 12px 28px; border-radius: 50px;
+    margin-bottom: 40px; letter-spacing: 2px;
+  }
+
+  h1 {
+    font-size: 62px; font-weight: 900;
+    color: #fff; line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #FF9900, #a78bfa, #0088cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 26px; color: rgba(255,255,255,0.4);
+    margin-bottom: 56px; line-height: 1.5; max-width: 800px;
+  }
+
+  /* Two channel cards side by side */
+  .channels-row {
+    display: flex; gap: 32px;
+    margin-bottom: 56px; width: 100%; max-width: 860px;
+  }
+
+  .channel-card {
+    flex: 1; background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px; padding: 0; overflow: hidden;
+  }
+
+  .channel-header {
+    padding: 20px 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .ch-chatbot .channel-header {
+    background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
+    border-bottom: 1px solid rgba(99,102,241,0.15);
+  }
+
+  .ch-telegram .channel-header {
+    background: linear-gradient(135deg, rgba(0,136,204,0.2), rgba(0,180,220,0.2));
+    border-bottom: 1px solid rgba(0,136,204,0.15);
+  }
+
+  .ch-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800; color: #fff;
+  }
+  .ch-chatbot .ch-icon { background: linear-gradient(135deg, #6366F1, #8B5CF6); }
+  .ch-telegram .ch-icon { background: #0088cc; font-size: 22px; }
+
+  .ch-name { font-size: 20px; font-weight: 700; color: #fff; }
+  .ch-sub { font-size: 14px; color: rgba(255,255,255,0.35); }
+
+  .channel-body { padding: 20px 24px; }
+
+  .msg {
+    margin-bottom: 12px; display: flex; gap: 0;
+  }
+  .msg-right { justify-content: flex-end; }
+  .msg-bubble {
+    max-width: 90%; padding: 14px 18px;
+    border-radius: 16px; font-size: 17px; line-height: 1.5;
+  }
+  .msg-user .msg-bubble {
+    background: #FF9900; color: #0F0A2A; font-weight: 600;
+    border-bottom-right-radius: 4px;
+  }
+  .msg-bot .msg-bubble {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    border-bottom-left-radius: 4px;
+  }
+
+  .product-mini {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: 12px; padding: 14px;
+    margin-top: 8px;
+  }
+  .pm-label { font-size: 11px; color: #22c55e; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .pm-title { font-size: 17px; font-weight: 700; color: #fff; }
+  .pm-price { font-size: 16px; color: #FF9900; font-weight: 700; margin-top: 2px; }
+
+  .photo-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15); border-radius: 6px;
+    padding: 4px 10px; font-size: 13px; color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+  }
+
+  /* OR divider */
+  .or-divider {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; flex-shrink: 0;
+    gap: 8px; align-self: center;
+  }
+  .or-line { width: 2px; height: 40px; background: rgba(255,255,255,0.08); }
+  .or-text {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.35); font-size: 16px; font-weight: 700;
+    padding: 8px 16px; border-radius: 50px;
+  }
+
+  /* Features row */
+  .features-row {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 40px;
+  }
+  .feat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 16px 22px;
+    text-align: center; min-width: 140px;
+  }
+  .feat-icon { font-size: 28px; margin-bottom: 6px; }
+  .feat-label { font-size: 16px; font-weight: 600; color: rgba(255,255,255,0.7); }
+
+  .tagline {
+    font-size: 30px; font-weight: 700; color: #fff;
+    margin-bottom: 8px;
+  }
+  .tagline-sub {
+    font-size: 20px; color: rgba(255,255,255,0.3);
+  }
+
+  .bottom-bar {
+    position: absolute; bottom: 50px; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    z-index: 2;
+  }
+  .logo-text { font-size: 36px; font-weight: 800; color: rgba(255,255,255,0.5); }
+  .sep { width: 2px; height: 28px; background: rgba(255,255,255,0.15); }
+  .url { font-size: 20px; color: #FF9900; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="dots"></div>
+
+  <div class="content">
+    <div class="badge">&#10024; AI-POWERED CATALOG</div>
+
+    <h1>Build Your Catalog<br><span class="gradient-text">Seamlessly.</span></h1>
+
+    <p class="subtitle">Two ways to list products. Zero forms. Just describe &amp; publish.</p>
+
+    <div class="channels-row">
+      <!-- In-App Chatbot -->
+      <div class="channel-card ch-chatbot">
+        <div class="channel-header">
+          <div class="ch-icon">AI</div>
+          <div>
+            <div class="ch-name">In-App Chatbot</div>
+            <div class="ch-sub">Inside Padose Seller App</div>
+          </div>
+        </div>
+        <div class="channel-body">
+          <div class="msg msg-right msg-user">
+            <div class="msg-bubble">Homemade mango pickle, 250g jar, &#8377;180</div>
+          </div>
+          <div class="msg msg-bot">
+            <div>
+              <div class="msg-bubble">Got it! Here's your listing:</div>
+              <div class="product-mini">
+                <div class="pm-label">&#10003; Auto-generated</div>
+                <div class="pm-title">Mango Pickle (250g)</div>
+                <div class="pm-price">&#8377;180</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OR -->
+      <div class="or-divider">
+        <div class="or-line"></div>
+        <div class="or-text">OR</div>
+        <div class="or-line"></div>
+      </div>
+
+      <!-- Telegram Bot -->
+      <div class="channel-card ch-telegram">
+        <div class="channel-header">
+          <div class="ch-icon">&#9992;</div>
+          <div>
+            <div class="ch-name">Telegram Bot</div>
+            <div class="ch-sub">No app download needed</div>
+          </div>
+        </div>
+        <div class="channel-body">
+          <div class="msg msg-right msg-user">
+            <div class="msg-bubble">
+              <div class="photo-tag">&#128247; Photo attached</div>
+              Clay diyas, set of 10, &#8377;120
+            </div>
+          </div>
+          <div class="msg msg-bot">
+            <div>
+              <div class="product-mini">
+                <div class="pm-label">&#10003; Published</div>
+                <div class="pm-title">Handmade Clay Diyas</div>
+                <div class="pm-price">&#8377;120 &middot; Set of 10</div>
+              </div>
+              <div class="msg-bubble" style="margin-top: 8px;">Live on your store!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features-row">
+      <div class="feat"><div class="feat-icon">&#128172;</div><div class="feat-label">Text</div></div>
+      <div class="feat"><div class="feat-icon">&#128247;</div><div class="feat-label">Photo</div></div>
+      <div class="feat"><div class="feat-icon">&#127908;</div><div class="feat-label">Voice</div></div>
+      <div class="feat"><div class="feat-icon">&#127463;&#127462;</div><div class="feat-label">5 Languages</div></div>
+      <div class="feat"><div class="feat-icon">&#9889;</div><div class="feat-label">Instant</div></div>
+    </div>
+
+    <div class="tagline">No forms. No friction. Just describe &amp; sell.</div>
+    <div class="tagline-sub">Available in Padose Seller App &amp; Telegram</div>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="logo-text">padose</div>
+    <div class="sep"></div>
+    <div class="url">padose.com</div>
+  </div>
+</body>
+</html>
