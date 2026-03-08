@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>Padose - Create Store via WhatsApp</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1920px;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+    background: #0F0A2A;
+  }
+
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(37,211,102,0.2) 0%, transparent 50%),
+      radial-gradient(circle at 70% 75%, rgba(18,140,126,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255,153,0,0.08) 0%, transparent 40%),
+      linear-gradient(180deg, #0F0A2A, #1a1145);
+  }
+
+  .dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .content {
+    position: relative; z-index: 2;
+    height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px 50px; text-align: center;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, rgba(37,211,102,0.25), rgba(18,140,126,0.25));
+    border: 1px solid rgba(37,211,102,0.35);
+    color: #25D366; font-size: 20px; font-weight: 700;
+    padding: 12px 28px; border-radius: 50px;
+    margin-bottom: 40px; letter-spacing: 2px;
+  }
+
+  h1 {
+    font-size: 62px; font-weight: 900;
+    color: #fff; line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #25D366, #FF9900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 26px; color: rgba(255,255,255,0.4);
+    margin-bottom: 56px; line-height: 1.5; max-width: 800px;
+  }
+
+  /* WhatsApp Chat Mockup */
+  .wa-chat {
+    width: 100%; max-width: 700px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px; overflow: hidden;
+    margin-bottom: 56px;
+  }
+
+  .wa-chat-header {
+    background: #075E54;
+    padding: 20px 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .wa-chat-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800; color: #fff;
+  }
+
+  .wa-chat-name { font-size: 22px; font-weight: 700; color: #fff; }
+  .wa-chat-status { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+  .wa-chat-body {
+    padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+
+  .wa-bubble {
+    max-width: 85%; padding: 14px 18px;
+    border-radius: 12px; font-size: 19px; line-height: 1.5;
+  }
+
+  .wa-bubble.bot {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    border-bottom-left-radius: 4px;
+  }
+
+  .wa-bubble.user {
+    align-self: flex-end;
+    background: #25D366; color: #0F0A2A; font-weight: 600;
+    border-bottom-right-radius: 4px;
+  }
+
+  .wa-bubble .step-num {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%; width: 22px; height: 22px;
+    text-align: center; line-height: 22px;
+    font-size: 13px; font-weight: 800;
+    margin-right: 6px; color: rgba(255,255,255,0.6);
+  }
+
+  .store-created {
+    background: rgba(37,211,102,0.12);
+    border: 1px solid rgba(37,211,102,0.3);
+    border-radius: 12px; padding: 16px;
+    margin-top: 8px;
+  }
+  .sc-label { font-size: 12px; color: #25D366; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .sc-name { font-size: 20px; font-weight: 700; color: #fff; }
+  .sc-community { font-size: 15px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+  .sc-time { font-size: 14px; color: #FF9900; font-weight: 700; margin-top: 8px; }
+
+  /* Steps row */
+  .steps-row {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 40px;
+  }
+  .step-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 16px 22px;
+    text-align: center; min-width: 150px;
+  }
+  .step-icon { font-size: 28px; margin-bottom: 6px; }
+  .step-label { font-size: 16px; font-weight: 600; color: rgba(255,255,255,0.7); }
+
+  .tagline {
+    font-size: 30px; font-weight: 700; color: #fff;
+    margin-bottom: 8px;
+  }
+  .tagline-sub {
+    font-size: 20px; color: rgba(255,255,255,0.3);
+  }
+
+  .bottom-bar {
+    position: absolute; bottom: 50px; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    z-index: 2;
+  }
+  .logo-text { font-size: 36px; font-weight: 800; color: rgba(255,255,255,0.5); }
+  .sep { width: 2px; height: 28px; background: rgba(255,255,255,0.15); }
+  .url { font-size: 20px; color: #25D366; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="dots"></div>
+
+  <div class="content">
+    <div class="badge">&#128172; WHATSAPP BOT</div>
+
+    <h1>Create Your Store in<br><span class="gradient-text">30 Seconds.</span></h1>
+
+    <p class="subtitle">No app download. No website. Just WhatsApp.</p>
+
+    <div class="wa-chat">
+      <div class="wa-chat-header">
+        <div class="wa-chat-avatar">P</div>
+        <div>
+          <div class="wa-chat-name">padose</div>
+          <div class="wa-chat-status">Business Account</div>
+        </div>
+      </div>
+      <div class="wa-chat-body">
+        <div class="wa-bubble bot">
+          <span class="step-num">1</span> Welcome! Type your community name to start.
+        </div>
+        <div class="wa-bubble user">Koramangala</div>
+        <div class="wa-bubble bot">
+          <span class="step-num">2</span> Found: <strong>Koramangala Market</strong>
+        </div>
+        <div class="wa-bubble user">Lakshmi Pickles</div>
+        <div class="wa-bubble bot">
+          <div class="store-created">
+            <div class="sc-label">&#10003; Store Created</div>
+            <div class="sc-name">Lakshmi Pickles</div>
+            <div class="sc-community">Koramangala Market</div>
+            <div class="sc-time">&#9889; 30 seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps-row">
+      <div class="step-item"><div class="step-icon">&#128269;</div><div class="step-label">Search Community</div></div>
+      <div class="step-item"><div class="step-icon">&#127979;</div><div class="step-label">Name Your Store</div></div>
+      <div class="step-item"><div class="step-icon">&#128196;</div><div class="step-label">Pick Category</div></div>
+      <div class="step-item"><div class="step-icon">&#9989;</div><div class="step-label">Go Live</div></div>
+    </div>
+
+    <div class="tagline">Just message. Your store is live.</div>
+    <div class="tagline-sub">wa.me/919492543639</div>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="logo-text">padose</div>
+    <div class="sep"></div>
+    <div class="url">padose.com</div>
+  </div>
+</body>
+</html>

@@ -1331,6 +1331,499 @@ $gray-800: #1F2937;
 }
 
 // ============================================
+// FEATURE ICON CARDS (replaces device frame images)
+// ============================================
+.feature-icon-card {
+  max-width: 360px;
+  width: 100%;
+  border-radius: 24px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    max-width: 260px;
+    padding: 28px 20px;
+  }
+}
+
+.feature-icon-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon-emoji {
+  font-size: 2.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.feature-icon-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fid-bar {
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  color: $gray-800;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  span { display: block; }
+}
+
+// ============================================
+// VOICE SECTION
+// ============================================
+.voice-section {
+  background: linear-gradient(180deg, #f0f7ff 0%, #fff8eb 100%);
+}
+
+.voice-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.voice-hero-text {
+  .voice-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #F97316, #EA580C);
+    color: $white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .voice-intro {
+    color: $gray-600;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+}
+
+.voice-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: $gray-700;
+    line-height: 1.5;
+
+    .check { color: #22C55E; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    strong { color: $primary; }
+  }
+}
+
+.btn-voice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #F97316, #EA580C);
+  color: $white;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #EA580C, #C2410C);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
+  }
+}
+
+// Voice Phone Mockup
+.voice-phone-frame {
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 31, 96, 0.12);
+  border: 1px solid $gray-200;
+  background: $white;
+}
+
+.voice-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.voice-header {
+  background: linear-gradient(135deg, #F97316, #EA580C);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .voice-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .voice-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .voice-bot-name { color: $white; font-weight: 700; font-size: 0.95rem; line-height: 1; }
+  .voice-bot-status { color: rgba(255,255,255,0.75); font-size: 0.7rem; }
+}
+
+.voice-messages {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fef7f0;
+  min-height: 280px;
+}
+
+.voice-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+
+  p { margin: 0 0 4px; &:last-child { margin: 0; } em { color: $primary; font-style: normal; font-weight: 600; }  }
+
+  &.bot {
+    align-self: flex-start;
+    background: $white;
+    color: $gray-700;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  &.user {
+    align-self: flex-end;
+    background: #fde8d0;
+    color: $gray-800;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.voice-note-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+}
+
+.voice-waveform {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+
+  span {
+    display: block;
+    width: 3px;
+    border-radius: 2px;
+    background: #EA580C;
+
+    &:nth-child(1) { height: 8px; }
+    &:nth-child(2) { height: 16px; }
+    &:nth-child(3) { height: 22px; }
+    &:nth-child(4) { height: 14px; }
+    &:nth-child(5) { height: 20px; }
+    &:nth-child(6) { height: 10px; }
+    &:nth-child(7) { height: 18px; }
+    &:nth-child(8) { height: 12px; }
+    &:nth-child(9) { height: 8px; }
+  }
+}
+
+.voice-note-label {
+  font-size: 0.78rem;
+  color: #EA580C;
+  font-weight: 600;
+}
+
+.voice-product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(249, 115, 22, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 6px 0;
+  border-left: 3px solid #F97316;
+
+  strong { font-size: 0.8rem; color: $gray-800; }
+  span { font-size: 0.75rem; color: #EA580C; font-weight: 600; }
+}
+
+// Language chips below the phone mockup
+.voice-lang-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lang-chip {
+  padding: 4px 12px;
+  background: $white;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #EA580C;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 100px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+// ============================================
+// WHATSAPP BOT SECTION
+// ============================================
+.whatsapp-bot-section {
+  background: linear-gradient(180deg, #f0f7ff 0%, #f0fdf4 100%);
+}
+
+.whatsapp-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.whatsapp-hero-text {
+  .whatsapp-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: $white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .whatsapp-intro {
+    color: $gray-600;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+}
+
+.whatsapp-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: $gray-700;
+    line-height: 1.5;
+
+    .check { color: #22C55E; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    strong { color: $primary; }
+  }
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #25D366;
+  color: $white;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+
+  .wa-icon-btn { font-size: 1.1rem; }
+
+  &:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+  }
+}
+
+// WhatsApp Phone Mockup
+.whatsapp-phone-frame {
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 31, 96, 0.12);
+  border: 1px solid $gray-200;
+  background: $white;
+}
+
+.whatsapp-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.whatsapp-header {
+  background: #075E54;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .wa-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    color: $white;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .wa-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .wa-bot-name { color: $white; font-weight: 700; font-size: 0.95rem; line-height: 1; }
+  .wa-bot-status { color: rgba(255,255,255,0.7); font-size: 0.72rem; }
+}
+
+.whatsapp-messages {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #ECE5DD;
+  min-height: 320px;
+}
+
+.wa-msg {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+
+  p { margin: 0 0 4px; &:last-child { margin: 0; } }
+
+  &.bot {
+    align-self: flex-start;
+    background: $white;
+    color: $gray-700;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  &.user {
+    align-self: flex-end;
+    background: #DCF8C6;
+    color: $gray-800;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.wa-store-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(37, 211, 102, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 6px 0;
+  border-left: 3px solid #25D366;
+
+  strong { font-size: 0.82rem; color: #128C7E; }
+  span { font-size: 0.75rem; color: $gray-700; }
+  .wa-store-community { color: $gray-500; font-size: 0.7rem; }
+}
+
+// ============================================
 // ANIMATIONS
 // ============================================
 @keyframes float {
