@@ -58,7 +58,9 @@ export class StoreGlobeComponent implements OnInit, OnDestroy {
   }
 
   private loadStores(): void {
-    const apiUrl = (environment as any).BASE_URI || 'https://app.padose.com/';
+    // Use production API directly — Angular fileReplacements not configured,
+    // so environment.BASE_URI always points to dev server.
+    const apiUrl = 'https://app.padose.com/';
     this.http.get<ShowcaseStore[]>(`${apiUrl}api/public/showcase-stores`).subscribe({
       next: (stores) => {
         // Shuffle and pick stores that have images
