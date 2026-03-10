@@ -1,7 +1,8 @@
-<section class="store-showcase section">
+<section class="store-showcase">
   <div class="container showcase-header">
-    <h2 class="section-title">Discover {{stores.length}}+ Local Stores</h2>
-    <p class="section-subtitle">Real businesses from your neighborhood, already on Padose. Tap any store to explore.</p>
+    <span class="showcase-badge">{{stores.length}}+ stores on Padose</span>
+    <h2 class="section-title">Your Neighborhood, Online</h2>
+    <p class="section-subtitle">Real local businesses already selling on Padose. Browse their stores, products, and services.</p>
   </div>
 
   <!-- Loading -->
@@ -28,14 +29,16 @@
           class="store-card"
           [href]="getStoreUrl(store)"
         >
-          <img
-            [src]="getImageUrl(store)"
-            [alt]="store.name"
-            loading="lazy"
-            class="store-img"
-            (error)="$any($event.target).style.display='none'"
-          />
-          <div class="store-info">
+          <div class="card-img-wrap">
+            <img
+              [src]="getImageUrl(store)"
+              [alt]="store.name"
+              loading="lazy"
+              class="store-img"
+              (error)="$any($event.target).style.display='none'"
+            />
+          </div>
+          <div class="card-body">
             <span class="store-name">{{ store.name }}</span>
             <span class="store-community" *ngIf="store.community">{{ store.community }}</span>
           </div>
@@ -44,14 +47,14 @@
     </div>
   </div>
 
-  <!-- Gradient fades on edges -->
+  <!-- Edge fades -->
   <div class="edge-fade left" *ngIf="!isLoading && rows.length > 0"></div>
   <div class="edge-fade right" *ngIf="!isLoading && rows.length > 0"></div>
 
   <!-- CTA -->
   <div class="container showcase-cta" *ngIf="!isLoading && stores.length > 0">
     <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-explore">
-      Download App to Explore All Stores
+      Explore All Stores on the App
     </a>
   </div>
 </section>

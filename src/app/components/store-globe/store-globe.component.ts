@@ -30,7 +30,7 @@ export class StoreGlobeComponent implements OnInit, OnDestroy {
   error = false;
   isPaused = false;
 
-  private readonly ROW_COUNT = 4;
+  private readonly ROW_COUNT = 3;
   private readonly API_URL = 'https://app.padose.com/';
 
   constructor(
@@ -61,16 +61,12 @@ export class StoreGlobeComponent implements OnInit, OnDestroy {
   }
 
   private buildRows(): void {
-    // Shuffle stores
     const shuffled = [...this.stores].sort(() => Math.random() - 0.5);
-
-    // Split into rows, duplicate each row for seamless infinite scroll
     const perRow = Math.ceil(shuffled.length / this.ROW_COUNT);
     this.rows = [];
     for (let i = 0; i < this.ROW_COUNT; i++) {
       const rowStores = shuffled.slice(i * perRow, (i + 1) * perRow);
       if (rowStores.length > 0) {
-        // Duplicate for seamless loop
         this.rows.push([...rowStores, ...rowStores]);
       }
     }
