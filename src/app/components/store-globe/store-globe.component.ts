@@ -4,12 +4,9 @@ import {
   OnDestroy,
   PLATFORM_ID,
   Inject,
-  ElementRef,
-  ViewChild,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
 
 interface ShowcaseStore {
   name: string;
@@ -28,19 +25,13 @@ interface ShowcaseStore {
 })
 export class StoreGlobeComponent implements OnInit, OnDestroy {
   stores: ShowcaseStore[] = [];
-  visibleStores: ShowcaseStore[] = [];
+  rows: ShowcaseStore[][] = [];
   isLoading = true;
   error = false;
-
-  // Globe config
-  private readonly VISIBLE_COUNT = 24; // cards shown at once
-  private readonly ROWS = 4;
-  private rotationAngle = 0;
-  private animationId: number | null = null;
-  private rotationSpeed = 0.15; // degrees per frame
   isPaused = false;
 
-  @ViewChild('globeContainer') globeContainer!: ElementRef;
+  private readonly ROW_COUNT = 4;
+  private readonly API_URL = 'https://app.padose.com/';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -53,25 +44,14 @@ export class StoreGlobeComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-    this.stopAnimation();
-  }
+  ngOnDestroy(): void {}
 
   private loadStores(): void {
-    // Use production API directly — Angular fileReplacements not configured,
-    // so environment.BASE_URI always points to dev server.
-    const apiUrl = 'https://app.padose.com/';
-    this.http.get<ShowcaseStore[]>(`${apiUrl}api/public/showcase-stores`).subscribe({
+    this.http.get<ShowcaseStore[]>(`${this.API_URL}api/public/showcase-stores`).subscribe({
       next: (stores) => {
-        // Shuffle and pick stores that have images
-        this.stores = stores
-          .filter((s) => s.bannerUrl || s.logoUrl)
-          .sort(() => Math.random() - 0.5);
-        this.visibleStores = this.stores.slice(0, this.VISIBLE_COUNT);
+        this.stores = stores.filter((s) => s.bannerUrl || s.logoUrl);
+        this.buildRows();
         this.isLoading = false;
-        if (this.visibleStores.length > 0) {
-          requestAnimationFrame(() => this.startAnimation());
-        }
       },
       error: () => {
         this.isLoading = false;
@@ -80,31 +60,32 @@ export class StoreGlobeComponent implements OnInit, OnDestroy {
     });
   }
 
-  private startAnimation(): void {
-    const animate = () => {
-      if (!this.isPaused) {
-        this.rotationAngle += this.rotationSpeed;
-        if (this.rotationAngle >= 360) this.rotationAngle -= 360;
-        this.updateGlobeRotation();
+  private buildRows(): void {
+    // Shuffle stores
+    const shuffled = [...this.stores].sort(() => Math.random() - 0.5);
+
+    // Split into rows, duplicate each row for seamless infinite scroll
+    const perRow = Math.ceil(shuffled.length / this.ROW_COUNT);
+    this.rows = [];
+    for (let i = 0; i < this.ROW_COUNT; i++) {
+      const rowStores = shuffled.slice(i * perRow, (i + 1) * perRow);
+      if (rowStores.length > 0) {
+        // Duplicate for seamless loop
+        this.rows.push([...rowStores, ...rowStores]);
       }
-      this.animationId = requestAnimationFrame(animate);
-    };
-    this.animationId = requestAnimationFrame(animate);
-  }
-
-  private stopAnimation(): void {
-    if (this.animationId !== null) {
-      cancelAnimationFrame(this.animationId);
-      this.animationId = null;
     }
   }
 
-  private updateGlobeRotation(): void {
-    if (!this.globeContainer?.nativeElement) return;
-    const globe = this.globeContainer.nativeElement.querySelector('.globe-sphere');
-    if (globe) {
-      globe.style.transform = `rotateY(${this.rotationAngle}deg)`;
-    }
+  getStoreUrl(store: ShowcaseStore): string {
+    return `${this.API_URL}store/${store.slug}`;
+  }
+
+  getImageUrl(store: ShowcaseStore): string {
+    return store.bannerUrl || store.logoUrl || '';
+  }
+
+  isReversed(rowIndex: number): boolean {
+    return rowIndex % 2 === 1;
   }
 
   onMouseEnter(): void {
@@ -115,33 +96,7 @@ export class StoreGlobeComponent implements OnInit, OnDestroy {
     this.isPaused = false;
   }
 
-  getCardStyle(index: number): { [key: string]: string } {
-    const total = this.visibleStores.length;
-    const row = index % this.ROWS;
-    const colCount = Math.ceil(total / this.ROWS);
-    const col = Math.floor(index / this.ROWS);
-
-    // Distribute cards in a sphere: theta (horizontal), phi (vertical)
-    const theta = (col / colCount) * 360;
-    const phiRange = 120; // total vertical spread in degrees
-    const phi = -phiRange / 2 + (row / (this.ROWS - 1)) * phiRange;
-
-    const radius = 280; // sphere radius in px
-
-    return {
-      transform: `rotateY(${theta}deg) rotateX(${phi}deg) translateZ(${radius}px)`,
-    };
-  }
-
-  getStoreUrl(store: ShowcaseStore): string {
-    return `/store/${store.slug}`;
-  }
-
-  getImageUrl(store: ShowcaseStore): string {
-    return store.bannerUrl || store.logoUrl || '';
-  }
-
   trackBySlug(_: number, store: ShowcaseStore): string {
-    return store.slug;
+    return store.slug + '_' + _;
   }
 }
