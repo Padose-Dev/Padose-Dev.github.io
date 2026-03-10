@@ -27,8 +27,6 @@
           *ngFor="let store of row; let j = index; trackBy: trackBySlug"
           class="store-card"
           [href]="getStoreUrl(store)"
-          target="_blank"
-          rel="noopener"
         >
           <img
             [src]="getImageUrl(store)"

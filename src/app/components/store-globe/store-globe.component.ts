@@ -77,7 +77,7 @@ export class StoreGlobeComponent implements OnInit, OnDestroy {
   }
 
   getStoreUrl(store: ShowcaseStore): string {
-    return `${this.API_URL}store/${store.slug}`;
+    return `https://${store.slug}.padose.com`;
   }
 
   getImageUrl(store: ShowcaseStore): string {
