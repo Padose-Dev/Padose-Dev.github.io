@@ -3,11 +3,12 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FirebaseService } from '../../services/firebase.service';
+import { StoreGlobeComponent } from '../store-globe/store-globe.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, StoreGlobeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

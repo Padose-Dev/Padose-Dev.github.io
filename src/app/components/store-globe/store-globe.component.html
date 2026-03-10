@@ -1,0 +1,48 @@
+<section class="store-globe-section section">
+  <div class="container">
+    <h2 class="section-title">Explore Our Seller Stores</h2>
+    <p class="section-subtitle">{{stores.length}} local businesses and growing. Click any store to browse their products and services.</p>
+
+    <div
+      class="globe-wrapper"
+      *ngIf="!isLoading && visibleStores.length > 0"
+      #globeContainer
+      (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()"
+    >
+      <div class="globe-sphere">
+        <a
+          *ngFor="let store of visibleStores; let i = index; trackBy: trackBySlug"
+          class="globe-card"
+          [style]="getCardStyle(i)"
+          [href]="getStoreUrl(store)"
+        >
+          <div class="card-inner">
+            <img
+              [src]="getImageUrl(store)"
+              [alt]="store.name"
+              loading="lazy"
+              class="card-image"
+              (error)="store.bannerUrl = null; store.logoUrl = null"
+            />
+            <div class="card-overlay">
+              <span class="card-name">{{ store.name }}</span>
+              <span class="card-community" *ngIf="store.community">{{ store.community }}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="globe-loading" *ngIf="isLoading">
+      <div class="spinner"></div>
+      <p>Loading stores...</p>
+    </div>
+
+    <div class="globe-cta" *ngIf="!isLoading && visibleStores.length > 0">
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-explore">
+        Download App to Explore All {{stores.length}} Stores
+      </a>
+    </div>
+  </div>
+</section>
