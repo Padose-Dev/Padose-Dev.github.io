@@ -7,23 +7,17 @@
 
     <!-- Desktop Navigation -->
     <ul class="nav-links" *ngIf="!isMobileView">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-      <li class="dropdown">
-        <a class="dropdown-trigger">Platform <span class="arrow">&#9662;</span></a>
-        <div class="dropdown-menu">
-          <a routerLink="/for-buyers">For Buyers</a>
-          <a routerLink="/for-sellers">For Sellers</a>
-          <a routerLink="/communities">Communities</a>
-          <a routerLink="/open">Open Data</a>
-        </div>
-      </li>
-      <li><a routerLink="/about">About Us</a></li>
-      <li><a routerLink="/faq">FAQ</a></li>
+      <li><a (click)="goHome()" style="cursor:pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/for-buyers" routerLinkActive="active">For Buyers</a></li>
+      <li><a routerLink="/for-sellers" routerLinkActive="active">For Sellers</a></li>
+      <li><a routerLink="/communities" routerLinkActive="active">Communities</a></li>
+      <li><a routerLink="/pricing" routerLinkActive="active">Pricing</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
       <li><a routerLink="/contact-us" routerLinkActive="active">Contact</a></li>
     </ul>
 
     <div class="nav-actions" *ngIf="!isMobileView">
-      <a routerLink="/seller-starter-kit" class="btn-nav-outline">Starter Kit</a>
       <a routerLink="/seller-onboard" class="btn-nav-outline">Start Selling</a>
       <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-nav-primary">Download App</a>
     </div>
@@ -39,16 +33,15 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" *ngIf="isMobileView && mobileMenuOpen" (click)="closeMobileMenu()">
     <div class="mobile-menu-content" (click)="$event.stopPropagation()">
-      <a routerLink="/" (click)="closeMobileMenu()">Home</a>
+      <a (click)="goHome()" style="cursor:pointer">Home</a>
       <a routerLink="/for-buyers" (click)="closeMobileMenu()">For Buyers</a>
       <a routerLink="/for-sellers" (click)="closeMobileMenu()">For Sellers</a>
       <a routerLink="/communities" (click)="closeMobileMenu()">Communities</a>
-      <a routerLink="/open" (click)="closeMobileMenu()">Open Data</a>
-      <a routerLink="/about" (click)="closeMobileMenu()">About Us</a>
+      <a routerLink="/pricing" (click)="closeMobileMenu()">Pricing</a>
+      <a routerLink="/about" (click)="closeMobileMenu()">About</a>
       <a routerLink="/faq" (click)="closeMobileMenu()">FAQ</a>
       <a routerLink="/contact-us" (click)="closeMobileMenu()">Contact</a>
       <hr />
-      <a routerLink="/seller-starter-kit" class="mobile-cta" (click)="closeMobileMenu()">Seller Starter Kit</a>
       <a routerLink="/seller-onboard" class="mobile-cta" (click)="closeMobileMenu()">Start Selling</a>
       <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="mobile-cta accent" (click)="closeMobileMenu()">Download App</a>
     </div>

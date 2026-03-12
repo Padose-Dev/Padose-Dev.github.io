@@ -1,24 +1,45 @@
-<!-- FOMO Activity Toast -->
-<div class="activity-toast" [class.visible]="showActivity" *ngIf="activityNotification">
-  <span class="activity-dot"></span>
-  <span class="activity-text">{{ activityNotification }}</span>
-</div>
+<!-- ============================================ -->
+<!-- HERO: PERSONA SELECTOR — Full-Screen Split -->
+<!-- ============================================ -->
+<section class="split-hero" *ngIf="!persona">
+  <div class="split-half split-buy" (click)="selectPersona('buyer')">
+    <div class="split-content">
+      <div class="split-illustration">
+        <img src="./imgs/buyer/illustration-buyer.svg" alt="Shop from local stores" />
+      </div>
+      <h2>I want to Buy</h2>
+      <p>Discover local shops, order products, book services — all delivered to your doorstep.</p>
+      <span class="split-cta buyer-cta">Explore as Buyer &rarr;</span>
+    </div>
+    <div class="split-divider">or</div>
+  </div>
+  <div class="split-half split-sell" (click)="selectPersona('seller')">
+    <div class="split-content">
+      <div class="split-illustration">
+        <img src="./imgs/seller/illustration-seller.svg" alt="Grow your business" />
+      </div>
+      <h2>I want to Sell</h2>
+      <p>Create your digital store for free, manage orders, and grow your business online.</p>
+      <span class="split-cta seller-cta-label">Explore as Seller &rarr;</span>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================ -->
-<!-- HERO SECTION -->
+<!-- HERO: BUYER PERSONA -->
 <!-- ============================================ -->
-<section class="hero">
+<section class="hero hero-persona" *ngIf="persona === 'buyer'">
   <div class="hero-bg"></div>
   <div class="hero-content container">
     <div class="hero-text">
-      <span class="hero-badge">Your Neighborhood Marketplace</span>
-      <h1>Connect with <span class="highlight">Local Sellers</span> & Get Everything Delivered to Your Doorstep</h1>
-      <p class="hero-description">Padose brings street vendors, local shops, and service providers to your fingertips. Fresh produce, home services, handmade crafts — all from trusted people in your community.</p>
+      <span class="hero-badge buyer-badge">For Buyers</span>
+      <h1>Shop Local. <span class="highlight">Live Fresh.</span></h1>
+      <p class="hero-description">Discover nearby stores, order fresh produce, book home services, and get everything delivered to your doorstep — all from one app.</p>
       <div class="hero-ctas">
         <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="btn-hero-primary">
           <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="play-badge" />
         </a>
-        <a routerLink="/seller-onboard" class="btn-hero-secondary">Start Selling Today</a>
+        <a routerLink="/for-buyers" class="btn-hero-secondary">See All Features</a>
       </div>
       <div class="hero-trust">
         <div class="trust-avatars">
@@ -27,46 +48,78 @@
           <span class="avatar a3">L</span>
           <span class="avatar a4">S</span>
         </div>
-        <span class="trust-text">Trusted by <strong>500+</strong> sellers & buyers</span>
+        <span class="trust-text"><strong>260+</strong> local stores near you</span>
       </div>
     </div>
     <div class="hero-visual">
       <div class="phone-mockup">
-        <img src="./imgs/buyer/deviceImage1.svg" alt="Padose App Screenshot" />
+        <img src="./imgs/buyer/deviceImage1.svg" alt="Padose Buyer App" />
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- TRUST BAR / STATS -->
+<!-- HERO: SELLER PERSONA -->
 <!-- ============================================ -->
-<section class="stats-bar">
-  <div class="container stats-grid">
-    <div class="stat-item" *ngFor="let stat of stats">
-      <span class="stat-value">{{ stat.value }}<span *ngIf="stat.icon === 'star'" class="star-icon">&#9733;</span></span>
-      <span class="stat-label">{{ stat.label }}</span>
+<section class="hero hero-persona" *ngIf="persona === 'seller'">
+  <div class="hero-bg hero-bg-seller"></div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <span class="hero-badge seller-badge">For Sellers</span>
+      <h1>Turn Your Business <span class="highlight">Digital.</span></h1>
+      <p class="hero-description">Create your free digital store in 5 minutes. Manage orders, track analytics, and reach more customers — zero commission, forever free.</p>
+      <div class="hero-ctas">
+        <a routerLink="/seller-onboard" class="btn-hero-sell">Start Selling — It's Free</a>
+        <a href="https://play.google.com/store/apps/details?id=com.padose.app.seller" target="_blank" rel="noopener" class="btn-hero-primary">
+          <img src="./imgs/google-play.svg" alt="Get Seller App" class="play-badge" />
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-text"><strong>0%</strong> commission &middot; <strong>5 min</strong> setup &middot; <strong>Free</strong> forever</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <img src="./imgs/seller/deviceImage1.svg" alt="Padose Seller App" />
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- STORE GLOBE SHOWCASE -->
+<!-- PERSONA-SPECIFIC STATS BAR -->
 <!-- ============================================ -->
-<app-store-globe></app-store-globe>
+<section class="stats-bar" *ngIf="persona">
+  <div class="container stats-grid">
+    <ng-container *ngIf="persona === 'buyer'">
+      <div class="stat-item" *ngFor="let stat of buyerStats">
+        <span class="stat-value">{{ stat.value }}</span>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="persona === 'seller'">
+      <div class="stat-item" *ngFor="let stat of sellerStats">
+        <span class="stat-value">{{ stat.value }}</span>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    </ng-container>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- STORE SHOWCASE (both personas) -->
+<!-- ============================================ -->
+<app-store-globe *ngIf="persona"></app-store-globe>
 
 <!-- ============================================ -->
 <!-- HOW IT WORKS -->
 <!-- ============================================ -->
-<section class="how-it-works section">
+<section class="how-it-works section" *ngIf="persona">
   <div class="container">
     <h2 class="section-title">How Padose Works</h2>
-    <p class="section-subtitle">Whether you're buying or selling, Padose makes it simple. Three easy steps to get started.</p>
-
-    <div class="tab-toggle">
-      <button [class.active]="activeTab === 'buyer'" (click)="switchTab('buyer')">I'm a Buyer</button>
-      <button [class.active]="activeTab === 'seller'" (click)="switchTab('seller')">I'm a Seller</button>
-    </div>
+    <p class="section-subtitle" *ngIf="persona === 'buyer'">Three easy steps to start shopping from local sellers near you.</p>
+    <p class="section-subtitle" *ngIf="persona === 'seller'">Three easy steps to get your store online and start selling.</p>
 
     <div class="steps-grid">
       <div class="step-card" *ngFor="let step of currentSteps; let i = index">
@@ -82,108 +135,17 @@
 </section>
 
 <!-- ============================================ -->
-<!-- USER JOURNEY - WEBAPP + MOBILE ECOSYSTEM -->
-<!-- ============================================ -->
-<section class="user-journey section">
-  <div class="container">
-    <h2 class="section-title">The Complete Padose Experience</h2>
-    <p class="section-subtitle">Our website and mobile apps work together to give you a seamless marketplace experience from discovery to delivery.</p>
-
-    <div class="journey-ecosystem">
-      <!-- Website -->
-      <div class="ecosystem-card">
-        <div class="ecosystem-visual">
-          <img src="./imgs/landingPageBanner.png" alt="Padose Website" class="ecosystem-img website-img" />
-        </div>
-        <span class="ecosystem-label">Website</span>
-        <h3>padose.com</h3>
-        <p>Discover the marketplace, explore sellers, learn about features, and register as a seller — all from your browser.</p>
-        <ul class="ecosystem-features">
-          <li><span class="check">&#10003;</span> Browse seller profiles</li>
-          <li><span class="check">&#10003;</span> Seller registration</li>
-          <li><span class="check">&#10003;</span> Community discovery</li>
-        </ul>
-      </div>
-
-      <!-- Connector -->
-      <div class="ecosystem-connector">
-        <div class="connector-line"></div>
-        <span class="connector-text">Download & Connect</span>
-        <div class="connector-line"></div>
-      </div>
-
-      <!-- Buyer App -->
-      <div class="ecosystem-card">
-        <div class="ecosystem-visual">
-          <img src="./imgs/buyer/deviceImage1.svg" alt="Padose Buyer App" class="ecosystem-img device-img" />
-        </div>
-        <span class="ecosystem-label buyer-label">Buyer App</span>
-        <h3>Shop & Discover</h3>
-        <p>The full shopping experience — browse products, book services, track orders, chat with sellers, and get deliveries.</p>
-        <ul class="ecosystem-features">
-          <li><span class="check">&#10003;</span> Smart local discovery</li>
-          <li><span class="check">&#10003;</span> Multi-store shopping</li>
-          <li><span class="check">&#10003;</span> Real-time order tracking</li>
-        </ul>
-        <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="ecosystem-cta">
-          <img src="./imgs/google-play.svg" alt="Get it on Google Play" />
-        </a>
-      </div>
-
-      <!-- Seller App -->
-      <div class="ecosystem-card">
-        <div class="ecosystem-visual">
-          <img src="./imgs/seller/deviceImage1.svg" alt="Padose Seller App" class="ecosystem-img device-img" />
-        </div>
-        <span class="ecosystem-label seller-label">Seller App</span>
-        <h3>Manage & Grow</h3>
-        <p>Your complete business toolkit — manage your store, handle orders, track analytics, and communicate with customers.</p>
-        <ul class="ecosystem-features">
-          <li><span class="check">&#10003;</span> Digital storefront</li>
-          <li><span class="check">&#10003;</span> Order & inventory management</li>
-          <li><span class="check">&#10003;</span> Analytics dashboard</li>
-        </ul>
-        <a routerLink="/seller-onboard" class="ecosystem-cta-btn">Register as Seller</a>
-      </div>
-    </div>
-
-    <!-- Visual Flow showing Buyer-Seller interaction -->
-    <div class="interaction-flow">
-      <div class="flow-device">
-        <img src="./imgs/buyer/deviceImage2.svg" alt="Buyer browsing products" />
-        <span class="flow-label">Buyer browses & orders</span>
-      </div>
-      <div class="flow-arrows">
-        <div class="flow-arrow-right">
-          <span>Order placed</span>
-        </div>
-        <div class="flow-arrow-left">
-          <span>Delivery & updates</span>
-        </div>
-      </div>
-      <div class="flow-device">
-        <img src="./imgs/seller/deviceImage2.svg" alt="Seller manages orders" />
-        <span class="flow-label">Seller receives & fulfills</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================ -->
 <!-- FEATURES SHOWCASE -->
 <!-- ============================================ -->
-<section class="features section">
+<section class="features section" *ngIf="persona">
   <div class="container">
-    <h2 class="section-title">Everything You Need, In One App</h2>
-    <p class="section-subtitle">Padose is packed with powerful features for both buyers and sellers to thrive in their local marketplace.</p>
+    <h2 class="section-title" *ngIf="persona === 'buyer'">Everything a Buyer Needs</h2>
+    <h2 class="section-title" *ngIf="persona === 'seller'">Powerful Seller Tools</h2>
+    <p class="section-subtitle" *ngIf="persona === 'buyer'">Padose is packed with features to make local shopping seamless and delightful.</p>
+    <p class="section-subtitle" *ngIf="persona === 'seller'">Go beyond listing products. Get real intelligence and tools to outperform the competition.</p>
 
-    <div class="tab-toggle">
-      <button [class.active]="activeTab === 'buyer'" (click)="switchTab('buyer')">Buyer Features</button>
-      <button [class.active]="activeTab === 'seller'" (click)="switchTab('seller')">Seller Features</button>
-    </div>
-
-    <!-- Buyer features: highlights + compact list -->
-    <div *ngIf="activeTab === 'buyer'">
+    <!-- Buyer features -->
+    <div *ngIf="persona === 'buyer'">
       <div class="features-grid">
         <div class="feature-card" *ngFor="let feature of buyerHighlights">
           <div class="feature-image">
@@ -207,8 +169,8 @@
       </div>
     </div>
 
-    <!-- Seller features: highlights + compact list -->
-    <div *ngIf="activeTab === 'seller'">
+    <!-- Seller features -->
+    <div *ngIf="persona === 'seller'">
       <div class="features-grid">
         <div class="feature-card" *ngFor="let feature of sellerHighlights">
           <div class="feature-image">
@@ -233,20 +195,20 @@
     </div>
 
     <div class="features-cta">
-      <a [routerLink]="activeTab === 'buyer' ? '/for-buyers' : '/for-sellers'" class="btn-see-all">
-        See All {{ activeTab === 'buyer' ? 'Buyer' : 'Seller' }} Features &rarr;
+      <a [routerLink]="persona === 'buyer' ? '/for-buyers' : '/for-sellers'" class="btn-see-all">
+        See All {{ persona === 'buyer' ? 'Buyer' : 'Seller' }} Features &rarr;
       </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SELLER POWER TOOLS -->
+<!-- SELLER POWER TOOLS (seller persona only) -->
 <!-- ============================================ -->
-<section class="power-tools section">
+<section class="power-tools section" *ngIf="persona === 'seller'">
   <div class="container">
     <h2 class="section-title">Seller Power Tools</h2>
-    <p class="section-subtitle">Go beyond listing products. Padose gives sellers real intelligence and a professional web presence to outperform the competition.</p>
+    <p class="section-subtitle">Real intelligence and professional web presence to grow your business faster.</p>
 
     <div class="power-tools-grid">
       <!-- Store DNA Card -->
@@ -315,7 +277,7 @@
         <div class="power-tool-info">
           <span class="power-tool-badge website-badge">Pro</span>
           <h3>Your Own Store Website</h3>
-          <p>Every seller gets a free, professional website at <strong>yourstore.padose.com</strong>. Share it on WhatsApp, Instagram, or print it on your business card. Buyers can browse and order without installing an app.</p>
+          <p>Every seller gets a free, professional website at <strong>yourstore.padose.com</strong>. Share it on WhatsApp, Instagram, or print it on your business card.</p>
           <ul class="power-tool-features">
             <li><span class="check">&#10003;</span> Custom subdomain (yourstore.padose.com)</li>
             <li><span class="check">&#10003;</span> Full product catalog online</li>
@@ -325,11 +287,11 @@
           <a routerLink="/for-sellers" class="btn-learn-more">Learn More &rarr;</a>
         </div>
       </div>
+
       <!-- AI Catalog Creation Card -->
       <div class="power-tool-card catalog-card">
         <div class="power-tool-visual catalog-visual">
           <div class="catalog-channels">
-            <!-- In-App Chatbot -->
             <div class="catalog-channel">
               <div class="catalog-channel-header">
                 <span class="channel-icon chatbot-icon">AI</span>
@@ -340,9 +302,7 @@
                 <div class="mini-msg bot-msg">Created: <strong>Mango Pickle (250g) - &#8377;180</strong></div>
               </div>
             </div>
-            <!-- Connector -->
             <div class="catalog-or"><span>OR</span></div>
-            <!-- Telegram Bot -->
             <div class="catalog-channel">
               <div class="catalog-channel-header">
                 <span class="channel-icon telegram-icon">&#9992;</span>
@@ -361,7 +321,7 @@
         <div class="power-tool-info">
           <span class="power-tool-badge catalog-badge">AI-Powered</span>
           <h3>Create Your Catalog Seamlessly</h3>
-          <p>Two powerful ways to build your product catalog — <strong>zero forms, zero friction</strong>. Use the in-app AI chatbot or our Telegram bot. Just describe what you sell in text, photo, or voice — your listing goes live in seconds.</p>
+          <p>Two powerful ways to build your product catalog — <strong>zero forms, zero friction</strong>. Use the in-app AI chatbot or our Telegram bot.</p>
           <ul class="power-tool-features">
             <li><span class="check">&#10003;</span> In-app chatbot with smart AI</li>
             <li><span class="check">&#10003;</span> Telegram bot — no app needed</li>
@@ -399,7 +359,7 @@
         <div class="power-tool-info">
           <span class="power-tool-badge whatsapp-badge">New</span>
           <h3>Create Store via WhatsApp</h3>
-          <p>Open your store in <strong>30 seconds flat</strong> — no app download, no website. Just send a WhatsApp message to our bot. Search your community, pick a name, choose a category — your store is live.</p>
+          <p>Open your store in <strong>30 seconds flat</strong> — no app download, no website. Just send a WhatsApp message to our bot.</p>
           <ul class="power-tool-features">
             <li><span class="check">&#10003;</span> 30-second store creation</li>
             <li><span class="check">&#10003;</span> No app download needed</li>
@@ -419,16 +379,18 @@
 </section>
 
 <!-- ============================================ -->
-<!-- CATEGORIES -->
+<!-- CATEGORIES (buyer persona only) -->
 <!-- ============================================ -->
-<section class="categories section">
+<section class="categories section" *ngIf="persona === 'buyer'">
   <div class="container">
     <h2 class="section-title">Explore Categories</h2>
     <p class="section-subtitle">From fresh vegetables to home services, discover a wide range of products and services available in your neighborhood.</p>
 
     <div class="categories-grid">
       <div class="category-card" *ngFor="let cat of categories">
-        <span class="category-icon">{{ cat.icon }}</span>
+        <div class="category-icon-wrap" [style.background]="cat.color + '14'">
+          <span class="category-emoji">{{ cat.icon }}</span>
+        </div>
         <span class="category-name">{{ cat.name }}</span>
       </div>
     </div>
@@ -436,9 +398,9 @@
 </section>
 
 <!-- ============================================ -->
-<!-- COMMUNITY SECTION -->
+<!-- COMMUNITY SECTION (both personas) -->
 <!-- ============================================ -->
-<section class="community section">
+<section class="community section" *ngIf="persona">
   <div class="container">
     <div class="community-content">
       <div class="community-text">
@@ -454,54 +416,61 @@
         <a routerLink="/communities" class="btn-community">Learn About Communities &rarr;</a>
       </div>
       <div class="community-visual">
-        <img src="./imgs/seller/deviceImage2.svg" alt="Community marketplace on Padose" />
+        <img [src]="persona === 'buyer' ? './imgs/buyer/deviceImage2.svg' : './imgs/seller/deviceImage2.svg'" alt="Community marketplace on Padose" />
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- TESTIMONIALS -->
+<!-- TESTIMONIALS (seller persona) -->
 <!-- ============================================ -->
-<section class="testimonials section">
+<section class="testimonials section" *ngIf="persona === 'seller'">
   <div class="container">
-    <h2 class="section-title">What Our Users Say</h2>
-    <p class="section-subtitle">Real stories from real people who are transforming their lives with Padose.</p>
+    <h2 class="section-title">What Our Sellers Say</h2>
+    <p class="section-subtitle">Real, unedited messages from sellers on WhatsApp.</p>
 
-    <div class="testimonial-carousel">
-      <button class="carousel-btn prev" (click)="prevTestimonial()" aria-label="Previous testimonial">&lsaquo;</button>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote">"{{ testimonials[currentTestimonial].quote }}"</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">{{ testimonials[currentTestimonial].avatar }}</div>
-          <div class="author-info">
-            <strong>{{ testimonials[currentTestimonial].name }}</strong>
-            <span>{{ testimonials[currentTestimonial].role }}</span>
-          </div>
+    <div class="wa-testimonials-grid">
+      <div class="wa-chat-bubble" *ngFor="let t of testimonials">
+        <div class="wa-bubble-header">
+          <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25D366" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.325-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+          </svg>
+          <span class="wa-sender">{{ t.name }}</span>
+          <span class="wa-badge">via WhatsApp</span>
+        </div>
+        <div class="wa-bubble-text">{{ t.quote }}</div>
+        <div class="wa-bubble-footer">
+          <span class="wa-role">{{ t.role }}</span>
         </div>
       </div>
-
-      <button class="carousel-btn next" (click)="nextTestimonial()" aria-label="Next testimonial">&rsaquo;</button>
-    </div>
-
-    <div class="testimonial-dots">
-      <button *ngFor="let t of testimonials; let i = index"
-              [class.active]="i === currentTestimonial"
-              (click)="setTestimonial(i)"
-              [attr.aria-label]="'Go to testimonial ' + (i + 1)"></button>
     </div>
   </div>
 </section>
 
 <!-- ============================================ -->
-<!-- SELLER ONBOARDING SECTION -->
+<!-- BOTTOM CTA (persona-specific) -->
 <!-- ============================================ -->
-<section class="seller-cta section">
+<section class="download-cta" *ngIf="persona === 'buyer'">
+  <div class="container download-cta-content">
+    <div class="download-text">
+      <h2>Download Padose Today</h2>
+      <p>Your neighborhood marketplace is just one tap away. Start discovering local products and services now.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener">
+        <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="download-play-badge" />
+      </a>
+    </div>
+    <div class="download-visual">
+      <img src="./imgs/buyer/deviceImage2.svg" alt="Padose App" />
+    </div>
+  </div>
+</section>
+
+<section class="seller-cta section" *ngIf="persona === 'seller'">
   <div class="container">
     <div class="seller-cta-content">
       <h2>Ready to Grow Your Business?</h2>
-      <p>Join thousands of sellers who are reaching more customers, managing orders effortlessly, and growing their income with Padose.</p>
+      <p>Join 260+ sellers who are reaching more customers, managing orders effortlessly, and growing their income with Padose.</p>
       <div class="seller-cta-features">
         <div class="scta-feature">
           <span>&#10003;</span>
@@ -526,19 +495,26 @@
 </section>
 
 <!-- ============================================ -->
-<!-- DOWNLOAD APP CTA -->
+<!-- STICKY BOTTOM CTA BAR -->
 <!-- ============================================ -->
-<section class="download-cta">
-  <div class="container download-cta-content">
-    <div class="download-text">
-      <h2>Download Padose Today</h2>
-      <p>Your neighborhood marketplace is just one tap away. Start discovering local products and services now.</p>
-      <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener">
-        <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="download-play-badge" />
-      </a>
+<div class="sticky-cta-bar" *ngIf="persona">
+  <div class="sticky-cta-content container">
+    <div class="sticky-cta-text" *ngIf="persona === 'buyer'">
+      <strong>Padose</strong> — Shop local, delivered fresh
     </div>
-    <div class="download-visual">
-      <img src="./imgs/buyer/deviceImage2.svg" alt="Padose App" />
+    <div class="sticky-cta-text" *ngIf="persona === 'seller'">
+      <strong>Padose</strong> — Free store, zero commission
+    </div>
+    <div class="sticky-cta-actions">
+      <a *ngIf="persona === 'buyer'" href="https://play.google.com/store/apps/details?id=com.padose.app.buyer" target="_blank" rel="noopener" class="sticky-cta-btn buyer-cta-btn">
+        Get the App
+      </a>
+      <a *ngIf="persona === 'seller'" routerLink="/seller-onboard" class="sticky-cta-btn seller-cta-btn-sticky">
+        Start Selling Free
+      </a>
+      <button class="sticky-switch-btn" (click)="switchPersona()">
+        {{ persona === 'buyer' ? 'I\'m a Seller' : 'I\'m a Buyer' }}
+      </button>
     </div>
   </div>
-</section>
+</div>

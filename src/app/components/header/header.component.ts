@@ -57,4 +57,15 @@ export class HeaderComponent implements OnInit {
       document.body.style.overflow = '';
     }
   }
+
+  goHome(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('padose_persona');
+      // Dispatch a custom event so the home component can reset even on same-url nav
+      window.dispatchEvent(new Event('padose-reset-persona'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    this.closeMobileMenu();
+    this.router.navigate(['/']);
+  }
 }
