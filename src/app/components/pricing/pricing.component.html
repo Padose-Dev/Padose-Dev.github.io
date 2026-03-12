@@ -1,0 +1,130 @@
+<section class="pricing-hero">
+  <div class="container">
+    <span class="pricing-badge">Beta - Everything Free</span>
+    <h1>Simple, Transparent Pricing</h1>
+    <p class="pricing-subtitle">Start selling to your neighborhood. No credit card needed. No hidden fees. No commission.</p>
+    <a routerLink="/seller-onboard" class="hero-cta-btn">Start Selling Free</a>
+  </div>
+</section>
+
+<section class="pricing-cards section">
+  <div class="container">
+    <div class="cards-grid">
+
+      <!-- Free Plan -->
+      <div class="plan-card featured">
+        <div class="plan-badge">Current Plan</div>
+        <h2 class="plan-name">Free</h2>
+        <div class="plan-price">
+          <span class="price-amount">&#8377;0</span>
+          <span class="price-period">/ forever during beta</span>
+        </div>
+        <p class="plan-description">Everything you need to start and grow your local business online.</p>
+
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> Your own digital storefront</li>
+          <li><span class="check">&#10003;</span> Free website at yourstore.padose.com</li>
+          <li><span class="check">&#10003;</span> Unlimited products & services</li>
+          <li><span class="check">&#10003;</span> AI-powered product listing (chatbot)</li>
+          <li><span class="check">&#10003;</span> Order management & tracking</li>
+          <li><span class="check">&#10003;</span> Customer messaging</li>
+          <li><span class="check">&#10003;</span> Analytics dashboard</li>
+          <li><span class="check">&#10003;</span> Store DNA performance score</li>
+          <li><span class="check">&#10003;</span> Community marketplace listing</li>
+          <li><span class="check">&#10003;</span> Pulse video feed</li>
+          <li><span class="check">&#10003;</span> UPI & payment gateway setup</li>
+          <li><span class="check">&#10003;</span> WhatsApp store creation</li>
+          <li class="highlight-feature"><span class="check">&#10003;</span> Zero commission on sales</li>
+        </ul>
+
+        <a routerLink="/seller-onboard" class="plan-cta">Start Selling - It's Free</a>
+      </div>
+
+      <!-- Coming Soon Plan -->
+      <div class="plan-card future">
+        <h2 class="plan-name">Pro</h2>
+        <div class="plan-price">
+          <span class="price-amount">Coming Soon</span>
+        </div>
+        <p class="plan-description">Advanced tools for growing businesses. Not available yet.</p>
+
+        <ul class="plan-features muted">
+          <li><span class="check">&#10003;</span> Everything in Free</li>
+          <li><span class="check">&#10003;</span> Custom domain support</li>
+          <li><span class="check">&#10003;</span> Advanced analytics & reports</li>
+          <li><span class="check">&#10003;</span> Priority support</li>
+          <li><span class="check">&#10003;</span> Multi-store management</li>
+          <li><span class="check">&#10003;</span> API access</li>
+        </ul>
+
+        <div class="plan-cta-muted">Launching later this year</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Zero Commission Callout -->
+<section class="zero-commission section">
+  <div class="container">
+    <div class="commission-content">
+      <h2>Zero Commission. Always.</h2>
+      <p>Unlike other platforms that take 5-25% of every sale, Padose charges <strong>zero commission</strong>. You keep every rupee you earn. We believe local sellers deserve better.</p>
+      <a routerLink="/seller-onboard" class="section-cta-btn">Register Now - Zero Commission</a>
+      <div class="commission-compare">
+        <div class="compare-item others">
+          <span class="compare-label">Other Platforms</span>
+          <span class="compare-value">5-25% per sale</span>
+        </div>
+        <div class="compare-vs">vs</div>
+        <div class="compare-item padose">
+          <span class="compare-label">Padose</span>
+          <span class="compare-value">0% commission</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Early Adopter -->
+<section class="early-adopter section">
+  <div class="container">
+    <div class="adopter-content">
+      <h2>Early Sellers Get Special Benefits</h2>
+      <p>Join during beta and lock in free access. As we grow, early sellers will always be remembered.</p>
+      <div class="adopter-perks">
+        <div class="perk">
+          <span class="perk-icon">&#127381;</span>
+          <span>Free access to all future features</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">&#11088;</span>
+          <span>Priority support forever</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">&#128230;</span>
+          <span>Early access to new tools</span>
+        </div>
+      </div>
+      <a routerLink="/seller-onboard" class="btn-adopter">Join 260+ Sellers - Register Free</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing FAQ -->
+<section class="pricing-faq section">
+  <div class="container">
+    <h2 class="section-title">Pricing FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let faq of faqs; let i = index" [class.open]="faq.open">
+        <button class="faq-question" (click)="toggleFaq(i)">
+          {{ faq.q }}
+          <span class="faq-arrow">&#9662;</span>
+        </button>
+        <div class="faq-answer" *ngIf="faq.open">
+          <p>{{ faq.a }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
