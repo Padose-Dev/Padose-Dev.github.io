@@ -37,6 +37,11 @@ export const routes: Routes = [
       import('./components/sections/sections.component').then(m => m.SectionsComponent),
   },
   {
+    path: 'pricing',
+    loadComponent: () =>
+      import('./components/pricing/pricing.component').then(m => m.PricingComponent),
+  },
+  {
     path: 'seller-onboard',
     loadComponent: () =>
       import('./components/seller-onboarding/seller-onboarding.component').then(m => m.SellerOnboardingComponent),
@@ -95,5 +100,10 @@ export const routes: Routes = [
     path: 'seller/:id',
     loadComponent: () =>
       import('./components/redirect/redirect.component').then(m => m.RedirectComponent),
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./components/not-found/not-found.component').then(m => m.NotFoundComponent),
   }
 ];
