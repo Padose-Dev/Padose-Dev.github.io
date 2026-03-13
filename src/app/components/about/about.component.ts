@@ -30,9 +30,9 @@ export class AboutComponent implements OnInit {
   ];
 
   milestones = [
-    { year: '2024', title: 'The Beginning', description: 'Padose was founded with a mission to digitize street vendors and local shops.' },
-    { year: '2024', title: 'App Launch', description: 'Launched buyer and seller apps on Google Play Store with core marketplace features.' },
-    { year: '2025', title: 'Feature Expansion', description: 'Added Pulse video feed, service booking, AI product listing, and auto social posting.' },
-    { year: '2026', title: 'Growing Communities', description: 'Expanding across India with advanced analytics, payment integrations, and community-driven commerce.' }
+    { year: '2024', title: 'Idea & Research', description: 'Identified the gap — millions of local sellers with no affordable digital presence. Started market research and customer discovery.' },
+    { year: 'Early 2025', title: 'Building the Product', description: 'Designed and developed the buyer and seller apps. Bootstrapped the platform with core marketplace, chat, and catalog features.' },
+    { year: 'Dec 2025', title: 'Launch', description: 'Padose went live with real users. First sellers onboarded, first orders placed, first communities formed.' },
+    { year: '2026', title: 'Growing', description: 'Adding features like Pulse video feed, AI product listing, service booking, and auto social posting. Onboarding more communities every week.' }
   ];
 }
