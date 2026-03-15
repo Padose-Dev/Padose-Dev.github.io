@@ -17,8 +17,8 @@ export class ContactUsComponent {
     city: 'Rajahmundry (Urban)',
     state: 'ANDHRA PRADESH',
     pin: '533103',
-    telephone: '9739960092',
-    email: 'phanikumaryadavilli@gmail.com'
+    telephone: '9492543639',
+    email: 'team@padose.com'
   };
 }
 
