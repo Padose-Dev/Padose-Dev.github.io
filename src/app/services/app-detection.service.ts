@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppDetectionService {
-  private readonly PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.padose.app.buyer';
+  private readonly PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.padose.app.buyer&utm_source=website&utm_medium=web&utm_campaign=detection';
   private readonly APP_PACKAGE = 'com.padose.app.buyer';
   private readonly APP_SCHEME = 'padose://';
   private readonly WEB_URL = 'https://padose.com';

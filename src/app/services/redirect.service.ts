@@ -46,7 +46,7 @@ export class RedirectService {
    */
   private generatePlayStoreUrl(referrer: string): string {
     const encodedReferrer = encodeURIComponent(referrer);
-    return `${this.PLAY_STORE_BASE_URL}?id=${this.APP_PACKAGE}&referrer=${encodedReferrer}`;
+    return `${this.PLAY_STORE_BASE_URL}?id=${this.APP_PACKAGE}&referrer=${encodedReferrer}&utm_source=website&utm_medium=deep_link&utm_campaign=redirect`;
   }
 
   /**
