@@ -7,20 +7,20 @@
       <div class="split-illustration">
         <img src="./imgs/buyer/illustration-buyer.svg" alt="Shop from local stores" />
       </div>
-      <h2>I want to Buy</h2>
-      <p>Discover local shops, order products, book services — all delivered to your doorstep.</p>
-      <span class="split-cta buyer-cta">Explore as Buyer &rarr;</span>
+      <h2>{{ 'home.splitBuy' | translate }}</h2>
+      <p>{{ 'home.splitBuyDesc' | translate }}</p>
+      <span class="split-cta buyer-cta">{{ 'home.splitBuyCta' | translate }} &rarr;</span>
     </div>
-    <div class="split-divider">or</div>
+    <div class="split-divider">{{ 'home.splitOr' | translate }}</div>
   </div>
   <div class="split-half split-sell" (click)="selectPersona('seller')">
     <div class="split-content">
       <div class="split-illustration">
         <img src="./imgs/seller/illustration-seller.svg" alt="Grow your business" />
       </div>
-      <h2>I want to Sell</h2>
-      <p>Create your digital store for free, manage orders, and grow your business online.</p>
-      <span class="split-cta seller-cta-label">Explore as Seller &rarr;</span>
+      <h2>{{ 'home.splitSell' | translate }}</h2>
+      <p>{{ 'home.splitSellDesc' | translate }}</p>
+      <span class="split-cta seller-cta-label">{{ 'home.splitSellCta' | translate }} &rarr;</span>
     </div>
   </div>
 </section>
@@ -32,14 +32,14 @@
   <div class="hero-bg"></div>
   <div class="hero-content container">
     <div class="hero-text">
-      <span class="hero-badge buyer-badge">For Buyers</span>
-      <h1>Shop Local. <span class="highlight">Live Fresh.</span></h1>
-      <p class="hero-description">Discover nearby stores, order fresh produce, book home services, and get everything delivered to your doorstep — all from one app.</p>
+      <span class="hero-badge buyer-badge">{{ 'home.buyerBadge' | translate }}</span>
+      <h1>{{ 'home.buyerHeroTitle' | translate }} <span class="highlight">{{ 'home.buyerHeroHighlight' | translate }}</span></h1>
+      <p class="hero-description">{{ 'home.buyerHeroDesc' | translate }}</p>
       <div class="hero-ctas">
         <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer&utm_source=website&utm_medium=web&utm_campaign=home" target="_blank" rel="noopener" class="btn-hero-primary">
           <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="play-badge" />
         </a>
-        <a routerLink="/for-buyers" class="btn-hero-secondary">See All Features</a>
+        <a routerLink="/for-buyers" class="btn-hero-secondary">{{ 'home.seeAllFeatures' | translate }}</a>
       </div>
       <div class="hero-trust">
         <div class="trust-avatars">
@@ -48,7 +48,7 @@
           <span class="avatar a3">L</span>
           <span class="avatar a4">S</span>
         </div>
-        <span class="trust-text"><strong>260+</strong> local stores near you</span>
+        <span class="trust-text"><strong>260+</strong> {{ 'home.buyerTrustText' | translate }}</span>
       </div>
     </div>
     <div class="hero-visual">
@@ -66,17 +66,17 @@
   <div class="hero-bg hero-bg-seller"></div>
   <div class="hero-content container">
     <div class="hero-text">
-      <span class="hero-badge seller-badge">For Sellers</span>
-      <h1>Turn Your Business <span class="highlight">Digital.</span></h1>
-      <p class="hero-description">Create your free digital store in 5 minutes. Manage orders, track analytics, and reach more customers — zero commission, forever free.</p>
+      <span class="hero-badge seller-badge">{{ 'home.sellerBadge' | translate }}</span>
+      <h1>{{ 'home.sellerHeroTitle' | translate }} <span class="highlight">{{ 'home.sellerHeroHighlight' | translate }}</span></h1>
+      <p class="hero-description">{{ 'home.sellerHeroDesc' | translate }}</p>
       <div class="hero-ctas">
-        <a routerLink="/seller-onboard" class="btn-hero-sell">Start Selling — It's Free</a>
+        <a routerLink="/seller-onboard" class="btn-hero-sell">{{ 'home.startSellingFree' | translate }}</a>
         <a href="https://play.google.com/store/apps/details?id=com.padose.app.seller&utm_source=website&utm_medium=web&utm_campaign=home" target="_blank" rel="noopener" class="btn-hero-primary">
           <img src="./imgs/google-play.svg" alt="Get Seller App" class="play-badge" />
         </a>
       </div>
       <div class="hero-trust">
-        <span class="trust-text"><strong>0%</strong> commission &middot; <strong>5 min</strong> setup &middot; <strong>Free</strong> forever</span>
+        <span class="trust-text"><strong>0%</strong> {{ 'home.sellerTrustText' | translate }}</span>
       </div>
     </div>
     <div class="hero-visual">
@@ -95,13 +95,13 @@
     <ng-container *ngIf="persona === 'buyer'">
       <div class="stat-item" *ngFor="let stat of buyerStats">
         <span class="stat-value">{{ stat.value }}</span>
-        <span class="stat-label">{{ stat.label }}</span>
+        <span class="stat-label">{{ stat.label | translate }}</span>
       </div>
     </ng-container>
     <ng-container *ngIf="persona === 'seller'">
       <div class="stat-item" *ngFor="let stat of sellerStats">
         <span class="stat-value">{{ stat.value }}</span>
-        <span class="stat-label">{{ stat.label }}</span>
+        <span class="stat-label">{{ stat.label | translate }}</span>
       </div>
     </ng-container>
   </div>
@@ -117,18 +117,18 @@
 <!-- ============================================ -->
 <section class="how-it-works section" *ngIf="persona">
   <div class="container">
-    <h2 class="section-title">How Padose Works</h2>
-    <p class="section-subtitle" *ngIf="persona === 'buyer'">Three easy steps to start shopping from local sellers near you.</p>
-    <p class="section-subtitle" *ngIf="persona === 'seller'">Three easy steps to get your store online and start selling.</p>
+    <h2 class="section-title">{{ 'home.howItWorksTitle' | translate }}</h2>
+    <p class="section-subtitle" *ngIf="persona === 'buyer'">{{ 'home.howItWorksBuyerSubtitle' | translate }}</p>
+    <p class="section-subtitle" *ngIf="persona === 'seller'">{{ 'home.howItWorksSellerSubtitle' | translate }}</p>
 
     <div class="steps-grid">
       <div class="step-card" *ngFor="let step of currentSteps; let i = index">
         <div class="step-number">{{ i + 1 }}</div>
         <div class="step-device-preview" *ngIf="step.image">
-          <img [src]="step.image" [alt]="step.title" />
+          <img [src]="step.image" [alt]="step.title | translate" />
         </div>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.description }}</p>
+        <h3>{{ step.title | translate }}</h3>
+        <p>{{ step.description | translate }}</p>
       </div>
     </div>
   </div>
@@ -139,20 +139,20 @@
 <!-- ============================================ -->
 <section class="features section" *ngIf="persona">
   <div class="container">
-    <h2 class="section-title" *ngIf="persona === 'buyer'">Everything a Buyer Needs</h2>
-    <h2 class="section-title" *ngIf="persona === 'seller'">Powerful Seller Tools</h2>
-    <p class="section-subtitle" *ngIf="persona === 'buyer'">Padose is packed with features to make local shopping seamless and delightful.</p>
-    <p class="section-subtitle" *ngIf="persona === 'seller'">Go beyond listing products. Get real intelligence and tools to outperform the competition.</p>
+    <h2 class="section-title" *ngIf="persona === 'buyer'">{{ 'home.buyerFeaturesTitle' | translate }}</h2>
+    <h2 class="section-title" *ngIf="persona === 'seller'">{{ 'home.sellerFeaturesTitle' | translate }}</h2>
+    <p class="section-subtitle" *ngIf="persona === 'buyer'">{{ 'home.buyerFeaturesSubtitle' | translate }}</p>
+    <p class="section-subtitle" *ngIf="persona === 'seller'">{{ 'home.sellerFeaturesSubtitle' | translate }}</p>
 
     <!-- Buyer features -->
     <div *ngIf="persona === 'buyer'">
       <div class="features-grid">
         <div class="feature-card" *ngFor="let feature of buyerHighlights">
           <div class="feature-image">
-            <img [src]="feature.image" [alt]="feature.title" />
+            <img [src]="feature.image" [alt]="feature.title | translate" />
           </div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
+          <h3>{{ feature.title | translate }}</h3>
+          <p>{{ feature.description | translate }}</p>
         </div>
       </div>
 
@@ -162,8 +162,8 @@
              [style.background]="feature.accent + '0A'">
           <div class="seller-extra-dot" [style.background]="feature.accent"></div>
           <div class="seller-extra-content">
-            <h4>{{ feature.title }}</h4>
-            <p>{{ feature.description }}</p>
+            <h4>{{ feature.title | translate }}</h4>
+            <p>{{ feature.description | translate }}</p>
           </div>
         </div>
       </div>
@@ -174,10 +174,10 @@
       <div class="features-grid">
         <div class="feature-card" *ngFor="let feature of sellerHighlights">
           <div class="feature-image">
-            <img [src]="feature.image" [alt]="feature.title" />
+            <img [src]="feature.image" [alt]="feature.title | translate" />
           </div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
+          <h3>{{ feature.title | translate }}</h3>
+          <p>{{ feature.description | translate }}</p>
         </div>
       </div>
 
@@ -187,8 +187,8 @@
              [style.background]="feature.accent + '0A'">
           <div class="seller-extra-dot" [style.background]="feature.accent"></div>
           <div class="seller-extra-content">
-            <h4>{{ feature.title }}</h4>
-            <p>{{ feature.description }}</p>
+            <h4>{{ feature.title | translate }}</h4>
+            <p>{{ feature.description | translate }}</p>
           </div>
         </div>
       </div>
@@ -196,7 +196,7 @@
 
     <div class="features-cta">
       <a [routerLink]="persona === 'buyer' ? '/for-buyers' : '/for-sellers'" class="btn-see-all">
-        See All {{ persona === 'buyer' ? 'Buyer' : 'Seller' }} Features &rarr;
+        {{ (persona === 'buyer' ? 'home.seeAllBuyerFeatures' : 'home.seeAllSellerFeatures') | translate }} &rarr;
       </a>
     </div>
   </div>
@@ -207,8 +207,8 @@
 <!-- ============================================ -->
 <section class="power-tools section" *ngIf="persona === 'seller'">
   <div class="container">
-    <h2 class="section-title">Seller Power Tools</h2>
-    <p class="section-subtitle">Real intelligence and professional web presence to grow your business faster.</p>
+    <h2 class="section-title">{{ 'home.powerToolsTitle' | translate }}</h2>
+    <p class="section-subtitle">{{ 'home.powerToolsSubtitle' | translate }}</p>
 
     <div class="power-tools-grid">
       <!-- Store DNA Card -->
@@ -227,23 +227,23 @@
             </div>
           </div>
           <div class="dna-dimensions">
-            <div class="dna-dim green"><span class="dim-bar" style="width: 85%"></span><span class="dim-label">Sales</span><span class="dim-grade">A</span></div>
-            <div class="dna-dim yellow"><span class="dim-bar" style="width: 65%"></span><span class="dim-label">Engagement</span><span class="dim-grade">C+</span></div>
-            <div class="dna-dim yellow"><span class="dim-bar" style="width: 55%"></span><span class="dim-label">Catalog</span><span class="dim-grade">C</span></div>
-            <div class="dna-dim green"><span class="dim-bar" style="width: 78%"></span><span class="dim-label">Reviews</span><span class="dim-grade">B+</span></div>
+            <div class="dna-dim green"><span class="dim-bar" style="width: 85%"></span><span class="dim-label">{{ 'home.dnaSales' | translate }}</span><span class="dim-grade">A</span></div>
+            <div class="dna-dim yellow"><span class="dim-bar" style="width: 65%"></span><span class="dim-label">{{ 'home.dnaEngagement' | translate }}</span><span class="dim-grade">C+</span></div>
+            <div class="dna-dim yellow"><span class="dim-bar" style="width: 55%"></span><span class="dim-label">{{ 'home.dnaCatalog' | translate }}</span><span class="dim-grade">C</span></div>
+            <div class="dna-dim green"><span class="dim-bar" style="width: 78%"></span><span class="dim-label">{{ 'home.dnaReviews' | translate }}</span><span class="dim-grade">B+</span></div>
           </div>
         </div>
         <div class="power-tool-info">
-          <span class="power-tool-badge">New</span>
-          <h3>Store DNA <span class="dna-tagline">— Does Numbers Awesomely</span></h3>
-          <p>Like a fitness score for your store. See how you rank against peers in your community across 7 dimensions — sales, engagement, catalog quality, reviews, conversion, responsiveness, and content.</p>
+          <span class="power-tool-badge">{{ 'home.badgeNew' | translate }}</span>
+          <h3>{{ 'home.storeDnaTitle' | translate }} <span class="dna-tagline">{{ 'home.storeDnaTagline' | translate }}</span></h3>
+          <p>{{ 'home.storeDnaDesc' | translate }}</p>
           <ul class="power-tool-features">
-            <li><span class="check">&#10003;</span> Percentile ranking vs local peers</li>
-            <li><span class="check">&#10003;</span> Color-coded scores (green/yellow/red)</li>
-            <li><span class="check">&#10003;</span> Actionable tips for every weak area</li>
-            <li><span class="check">&#10003;</span> Single glanceable score out of 100</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeDnaFeature1' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeDnaFeature2' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeDnaFeature3' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeDnaFeature4' | translate }}</li>
           </ul>
-          <a routerLink="/for-sellers" fragment="store-dna" class="btn-learn-more">Learn More &rarr;</a>
+          <a routerLink="/for-sellers" fragment="store-dna" class="btn-learn-more">{{ 'home.learnMore' | translate }} &rarr;</a>
         </div>
       </div>
 
@@ -275,16 +275,16 @@
           </div>
         </div>
         <div class="power-tool-info">
-          <span class="power-tool-badge website-badge">Pro</span>
-          <h3>Your Own Store Website</h3>
-          <p>Every seller gets a free, professional website at <strong>yourstore.padose.com</strong>. Share it on WhatsApp, Instagram, or print it on your business card.</p>
+          <span class="power-tool-badge website-badge">{{ 'home.badgePro' | translate }}</span>
+          <h3>{{ 'home.storeWebsiteTitle' | translate }}</h3>
+          <p>{{ 'home.storeWebsiteDesc' | translate }}</p>
           <ul class="power-tool-features">
-            <li><span class="check">&#10003;</span> Custom subdomain (yourstore.padose.com)</li>
-            <li><span class="check">&#10003;</span> Full product catalog online</li>
-            <li><span class="check">&#10003;</span> No app needed for buyers to browse</li>
-            <li><span class="check">&#10003;</span> Shareable link for social media</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeWebsiteFeature1' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeWebsiteFeature2' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeWebsiteFeature3' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.storeWebsiteFeature4' | translate }}</li>
           </ul>
-          <a routerLink="/for-sellers" class="btn-learn-more">Learn More &rarr;</a>
+          <a routerLink="/for-sellers" class="btn-learn-more">{{ 'home.learnMore' | translate }} &rarr;</a>
         </div>
       </div>
 
@@ -295,45 +295,45 @@
             <div class="catalog-channel">
               <div class="catalog-channel-header">
                 <span class="channel-icon chatbot-icon">AI</span>
-                <span class="channel-label">In-App Chatbot</span>
+                <span class="channel-label">{{ 'home.catalogChannelChatbot' | translate }}</span>
               </div>
               <div class="catalog-chat-preview">
-                <div class="mini-msg user-msg">I sell mango pickle, 250g jar, 180 rupees</div>
-                <div class="mini-msg bot-msg">Created: <strong>Mango Pickle (250g) - &#8377;180</strong></div>
+                <div class="mini-msg user-msg">{{ 'home.catalogChatbotUserMsg' | translate }}</div>
+                <div class="mini-msg bot-msg">{{ 'home.catalogChatbotBotMsg' | translate }}</div>
               </div>
             </div>
-            <div class="catalog-or"><span>OR</span></div>
+            <div class="catalog-or"><span>{{ 'home.catalogOr' | translate }}</span></div>
             <div class="catalog-channel">
               <div class="catalog-channel-header">
                 <span class="channel-icon telegram-icon">&#9992;</span>
-                <span class="channel-label">Telegram Bot</span>
+                <span class="channel-label">{{ 'home.catalogChannelTelegram' | translate }}</span>
               </div>
               <div class="catalog-chat-preview">
                 <div class="mini-msg user-msg">
                   <span class="mini-photo-icon"></span>
-                  Clay diyas, set of 10, &#8377;120
+                  {{ 'home.catalogTelegramUserMsg' | translate }}
                 </div>
-                <div class="mini-msg bot-msg">Published to your store!</div>
+                <div class="mini-msg bot-msg">{{ 'home.catalogTelegramBotMsg' | translate }}</div>
               </div>
             </div>
           </div>
         </div>
         <div class="power-tool-info">
-          <span class="power-tool-badge catalog-badge">AI-Powered</span>
-          <h3>Create Your Catalog Seamlessly</h3>
-          <p>Two powerful ways to build your product catalog — <strong>zero forms, zero friction</strong>. Use the in-app AI chatbot or our Telegram bot.</p>
+          <span class="power-tool-badge catalog-badge">{{ 'home.badgeAiPowered' | translate }}</span>
+          <h3>{{ 'home.catalogTitle' | translate }}</h3>
+          <p>{{ 'home.catalogDesc' | translate }}</p>
           <ul class="power-tool-features">
-            <li><span class="check">&#10003;</span> In-app chatbot with smart AI</li>
-            <li><span class="check">&#10003;</span> Telegram bot — no app needed</li>
-            <li><span class="check">&#10003;</span> Send text, photo, or voice</li>
-            <li><span class="check">&#10003;</span> 5 Indian languages supported</li>
-            <li><span class="check">&#10003;</span> Auto title, description & pricing</li>
-            <li><span class="check">&#10003;</span> Instant publish to your store</li>
+            <li><span class="check">&#10003;</span> {{ 'home.catalogFeature1' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.catalogFeature2' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.catalogFeature3' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.catalogFeature4' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.catalogFeature5' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.catalogFeature6' | translate }}</li>
           </ul>
           <div class="catalog-cta-row">
-            <a routerLink="/for-sellers" fragment="ai-chatbot" class="btn-learn-more">Learn More &rarr;</a>
+            <a routerLink="/for-sellers" fragment="ai-chatbot" class="btn-learn-more">{{ 'home.learnMore' | translate }} &rarr;</a>
             <a href="https://t.me/padose_bot" target="_blank" rel="noopener" class="btn-telegram-small">
-              <span>&#9992;</span> Try on Telegram
+              <span>&#9992;</span> {{ 'home.tryOnTelegram' | translate }}
             </a>
           </div>
         </div>
@@ -345,31 +345,31 @@
           <div class="whatsapp-chat-preview">
             <div class="wa-preview-header">
               <span class="wa-preview-icon">&#128172;</span>
-              <span class="wa-preview-name">WhatsApp Bot</span>
+              <span class="wa-preview-name">{{ 'home.whatsappBotName' | translate }}</span>
             </div>
             <div class="wa-preview-msgs">
-              <div class="mini-msg bot-msg">Type your community name</div>
+              <div class="mini-msg bot-msg">{{ 'home.whatsappBotMsg1' | translate }}</div>
               <div class="mini-msg user-msg">Koramangala</div>
-              <div class="mini-msg bot-msg">What's your store name?</div>
+              <div class="mini-msg bot-msg">{{ 'home.whatsappBotMsg2' | translate }}</div>
               <div class="mini-msg user-msg">Lakshmi Pickles</div>
-              <div class="mini-msg bot-msg" style="color: #22C55E; font-weight: 600;">Store Created!</div>
+              <div class="mini-msg bot-msg" style="color: #22C55E; font-weight: 600;">{{ 'home.whatsappBotMsg3' | translate }}</div>
             </div>
           </div>
         </div>
         <div class="power-tool-info">
-          <span class="power-tool-badge whatsapp-badge">New</span>
-          <h3>Create Store via WhatsApp</h3>
-          <p>Open your store in <strong>30 seconds flat</strong> — no app download, no website. Just send a WhatsApp message to our bot.</p>
+          <span class="power-tool-badge whatsapp-badge">{{ 'home.badgeNew' | translate }}</span>
+          <h3>{{ 'home.whatsappStoreTitle' | translate }}</h3>
+          <p>{{ 'home.whatsappStoreDesc' | translate }}</p>
           <ul class="power-tool-features">
-            <li><span class="check">&#10003;</span> 30-second store creation</li>
-            <li><span class="check">&#10003;</span> No app download needed</li>
-            <li><span class="check">&#10003;</span> Community search built in</li>
-            <li><span class="check">&#10003;</span> Instant store activation</li>
+            <li><span class="check">&#10003;</span> {{ 'home.whatsappFeature1' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.whatsappFeature2' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.whatsappFeature3' | translate }}</li>
+            <li><span class="check">&#10003;</span> {{ 'home.whatsappFeature4' | translate }}</li>
           </ul>
           <div class="catalog-cta-row">
-            <a routerLink="/for-sellers" fragment="whatsapp-bot" class="btn-learn-more">Learn More &rarr;</a>
+            <a routerLink="/for-sellers" fragment="whatsapp-bot" class="btn-learn-more">{{ 'home.learnMore' | translate }} &rarr;</a>
             <a href="https://wa.me/919492543639?text=hi" target="_blank" rel="noopener" class="btn-whatsapp-small">
-              <span>&#128172;</span> Try on WhatsApp
+              <span>&#128172;</span> {{ 'home.tryOnWhatsApp' | translate }}
             </a>
           </div>
         </div>
@@ -383,15 +383,15 @@
 <!-- ============================================ -->
 <section class="categories section" *ngIf="persona === 'buyer'">
   <div class="container">
-    <h2 class="section-title">Explore Categories</h2>
-    <p class="section-subtitle">From fresh vegetables to home services, discover a wide range of products and services available in your neighborhood.</p>
+    <h2 class="section-title">{{ 'home.categoriesTitle' | translate }}</h2>
+    <p class="section-subtitle">{{ 'home.categoriesSubtitle' | translate }}</p>
 
     <div class="categories-grid">
       <div class="category-card" *ngFor="let cat of categories">
         <div class="category-icon-wrap" [style.background]="cat.color + '14'">
           <span class="category-emoji">{{ cat.icon }}</span>
         </div>
-        <span class="category-name">{{ cat.name }}</span>
+        <span class="category-name">{{ cat.name | translate }}</span>
       </div>
     </div>
   </div>
@@ -404,16 +404,16 @@
   <div class="container">
     <div class="community-content">
       <div class="community-text">
-        <span class="community-badge">Community-Driven</span>
-        <h2>Empowering Local Communities, One Transaction at a Time</h2>
-        <p>Padose is more than a marketplace. It's a movement to support local vendors, reduce food waste, and strengthen neighborhood bonds. When you shop on Padose, you're investing in your community.</p>
+        <span class="community-badge">{{ 'home.communityBadge' | translate }}</span>
+        <h2>{{ 'home.communityTitle' | translate }}</h2>
+        <p>{{ 'home.communityDesc' | translate }}</p>
         <ul class="community-benefits">
-          <li><span class="check">&#10003;</span> Support local livelihoods and small businesses</li>
-          <li><span class="check">&#10003;</span> Get fresher products with shorter supply chains</li>
-          <li><span class="check">&#10003;</span> Reduce food waste with local, seasonal produce</li>
-          <li><span class="check">&#10003;</span> Build trust with vendors you see every day</li>
+          <li><span class="check">&#10003;</span> {{ 'home.communityBenefit1' | translate }}</li>
+          <li><span class="check">&#10003;</span> {{ 'home.communityBenefit2' | translate }}</li>
+          <li><span class="check">&#10003;</span> {{ 'home.communityBenefit3' | translate }}</li>
+          <li><span class="check">&#10003;</span> {{ 'home.communityBenefit4' | translate }}</li>
         </ul>
-        <a routerLink="/communities" class="btn-community">Learn About Communities &rarr;</a>
+        <a routerLink="/communities" class="btn-community">{{ 'home.communityLearnMore' | translate }} &rarr;</a>
       </div>
       <div class="community-visual">
         <img [src]="persona === 'buyer' ? './imgs/buyer/deviceImage2.svg' : './imgs/seller/deviceImage2.svg'" alt="Community marketplace on Padose" />
@@ -427,8 +427,8 @@
 <!-- ============================================ -->
 <section class="testimonials section" *ngIf="persona === 'seller'">
   <div class="container">
-    <h2 class="section-title">What Our Sellers Say</h2>
-    <p class="section-subtitle">Real, unedited messages from sellers on WhatsApp.</p>
+    <h2 class="section-title">{{ 'home.testimonialsTitle' | translate }}</h2>
+    <p class="section-subtitle">{{ 'home.testimonialsSubtitle' | translate }}</p>
 
     <div class="wa-testimonials-grid">
       <div class="wa-chat-bubble" *ngFor="let t of testimonials">
@@ -437,7 +437,7 @@
             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.325-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
           </svg>
           <span class="wa-sender">{{ t.name }}</span>
-          <span class="wa-badge">via WhatsApp</span>
+          <span class="wa-badge">{{ 'home.viaWhatsApp' | translate }}</span>
         </div>
         <div class="wa-bubble-text">{{ t.quote }}</div>
         <div class="wa-bubble-footer">
@@ -454,8 +454,8 @@
 <section class="download-cta" *ngIf="persona === 'buyer'">
   <div class="container download-cta-content">
     <div class="download-text">
-      <h2>Download Padose Today</h2>
-      <p>Your neighborhood marketplace is just one tap away. Start discovering local products and services now.</p>
+      <h2>{{ 'home.downloadTitle' | translate }}</h2>
+      <p>{{ 'home.downloadDesc' | translate }}</p>
       <a href="https://play.google.com/store/apps/details?id=com.padose.app.buyer&utm_source=website&utm_medium=web&utm_campaign=home" target="_blank" rel="noopener">
         <img src="./imgs/google-play.svg" alt="Get it on Google Play" class="download-play-badge" />
       </a>
@@ -469,27 +469,27 @@
 <section class="seller-cta section" *ngIf="persona === 'seller'">
   <div class="container">
     <div class="seller-cta-content">
-      <h2>Ready to Grow Your Business?</h2>
-      <p>Join 260+ sellers who are reaching more customers, managing orders effortlessly, and growing their income with Padose.</p>
+      <h2>{{ 'home.sellerCtaTitle' | translate }}</h2>
+      <p>{{ 'home.sellerCtaDesc' | translate }}</p>
       <div class="seller-cta-features">
         <div class="scta-feature">
           <span>&#10003;</span>
-          <span>Free to register</span>
+          <span>{{ 'home.sellerCtaFeature1' | translate }}</span>
         </div>
         <div class="scta-feature">
           <span>&#10003;</span>
-          <span>Set up in 5 minutes</span>
+          <span>{{ 'home.sellerCtaFeature2' | translate }}</span>
         </div>
         <div class="scta-feature">
           <span>&#10003;</span>
-          <span>No commission fees</span>
+          <span>{{ 'home.sellerCtaFeature3' | translate }}</span>
         </div>
         <div class="scta-feature">
           <span>&#10003;</span>
-          <span>Full analytics dashboard</span>
+          <span>{{ 'home.sellerCtaFeature4' | translate }}</span>
         </div>
       </div>
-      <a routerLink="/seller-onboard" class="btn-seller-cta">Register as a Seller &rarr;</a>
+      <a routerLink="/seller-onboard" class="btn-seller-cta">{{ 'home.registerAsSeller' | translate }} &rarr;</a>
     </div>
   </div>
 </section>
@@ -500,20 +500,20 @@
 <div class="sticky-cta-bar" *ngIf="persona">
   <div class="sticky-cta-content container">
     <div class="sticky-cta-text" *ngIf="persona === 'buyer'">
-      <strong>Padose</strong> — Shop local, delivered fresh
+      <strong>Padose</strong> — {{ 'home.stickyBuyerText' | translate }}
     </div>
     <div class="sticky-cta-text" *ngIf="persona === 'seller'">
-      <strong>Padose</strong> — Free store, zero commission
+      <strong>Padose</strong> — {{ 'home.stickySellerText' | translate }}
     </div>
     <div class="sticky-cta-actions">
       <a *ngIf="persona === 'buyer'" href="https://play.google.com/store/apps/details?id=com.padose.app.buyer&utm_source=website&utm_medium=web&utm_campaign=home" target="_blank" rel="noopener" class="sticky-cta-btn buyer-cta-btn">
-        Get the App
+        {{ 'home.getTheApp' | translate }}
       </a>
       <a *ngIf="persona === 'seller'" routerLink="/seller-onboard" class="sticky-cta-btn seller-cta-btn-sticky">
-        Start Selling Free
+        {{ 'home.startSellingFreeShort' | translate }}
       </a>
       <button class="sticky-switch-btn" (click)="switchPersona()">
-        {{ persona === 'buyer' ? 'I\'m a Seller' : 'I\'m a Buyer' }}
+        {{ (persona === 'buyer' ? 'home.imASeller' : 'home.imABuyer') | translate }}
       </button>
     </div>
   </div>
