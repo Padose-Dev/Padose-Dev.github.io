@@ -4,8 +4,8 @@ import { provideRouter, withInMemoryScrolling, withRouterConfig } from '@angular
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader, TRANSLATE_HTTP_LOADER_CONFIG } from '@ngx-translate/http-loader';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,13 +17,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
-    { provide: TRANSLATE_HTTP_LOADER_CONFIG, useValue: { prefix: './i18n/', suffix: '.json' } },
-    provideTranslateService({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useClass: TranslateHttpLoader,
-      },
-    }),
+    provideTranslateService({ defaultLanguage: 'en' }),
+    provideTranslateHttpLoader({ prefix: './i18n/', suffix: '.json' }),
   ]
 };
