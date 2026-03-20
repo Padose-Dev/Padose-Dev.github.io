@@ -19,7 +19,7 @@
 
     <div class="nav-actions" *ngIf="!isMobileView">
       <!-- Language Switcher -->
-      <div class="lang-switcher" (click)="toggleLangMenu()" (clickOutside)="showLangMenu = false">
+      <div class="lang-switcher" (click)="toggleLangMenu(); $event.stopPropagation()">
         <button class="lang-btn" [attr.aria-label]="'Switch language'">
           <span class="lang-icon">🌐</span>
           <span class="lang-current">{{ currentLang === 'te' ? 'తెలుగు' : 'EN' }}</span>

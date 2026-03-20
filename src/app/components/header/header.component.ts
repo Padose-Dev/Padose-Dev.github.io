@@ -37,6 +37,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  @HostListener('document:click')
+  onDocumentClick() {
+    this.showLangMenu = false;
+  }
+
   @HostListener('window:scroll')
   onScroll() {
     if (isPlatformBrowser(this.platformId)) {
