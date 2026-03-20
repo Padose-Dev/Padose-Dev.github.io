@@ -440,6 +440,9 @@
           <span class="wa-badge">{{ 'home.viaWhatsApp' | translate }}</span>
         </div>
         <div class="wa-bubble-text">{{ t.quote }}</div>
+        <div class="wa-bubble-image" *ngIf="t.image">
+          <img [src]="t.image" [alt]="t.name + ' testimonial screenshot'" loading="lazy" />
+        </div>
         <div class="wa-bubble-footer">
           <span class="wa-role">{{ t.role }}</span>
         </div>

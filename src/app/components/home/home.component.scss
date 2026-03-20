@@ -1120,6 +1120,20 @@ $shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
     line-height: 1.6;
   }
 
+  .wa-bubble-image {
+    margin-top: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+  }
+
   .wa-bubble-footer {
     margin-top: 14px;
     display: flex;

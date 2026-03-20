@@ -129,6 +129,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       quote: 'This app is very useful, sir.',
       avatar: 'S',
       source: 'whatsapp'
+    },
+    {
+      name: 'RRK Collection',
+      role: 'Store Owner',
+      quote: 'Ee roju start chesanu nenu ....3 orders vachayandi website nundi. Thank you so much for giving this amazing platform to us.',
+      avatar: 'R',
+      source: 'whatsapp',
+      image: './imgs/seller/testimonial-rrk-collection.png'
     }
   ];
 
