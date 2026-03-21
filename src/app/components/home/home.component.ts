@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { SeoService } from '../../services/seo.service';
 import { StoreGlobeComponent } from '../store-globe/store-globe.component';
@@ -10,7 +9,7 @@ import { StoreGlobeComponent } from '../store-globe/store-globe.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, TranslateModule, StoreGlobeComponent],
+  imports: [CommonModule, RouterModule, FormsModule, StoreGlobeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -21,84 +20,84 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscribedSuccess = false;
 
   stats: { value: string; label: string; icon?: string }[] = [
-    { value: '260+', label: 'homeStats.activeSellers' },
-    { value: '50+', label: 'homeStats.communities' },
-    { value: '4.5', label: 'homeStats.appRating', icon: 'star' },
-    { value: '...', label: 'homeStats.sellerEnquiries' }
+    { value: '260+', label: 'Active Sellers' },
+    { value: '50+', label: 'Communities' },
+    { value: '4.5', label: 'App Rating', icon: 'star' },
+    { value: '...', label: 'Seller Enquiries' }
   ];
 
   buyerStats: { value: string; label: string }[] = [
-    { value: '260+', label: 'homeStats.localStores' },
-    { value: '50+', label: 'homeStats.communities' },
-    { value: '12+', label: 'homeStats.categories' },
-    { value: '4.5★', label: 'homeStats.appRating' }
+    { value: '260+', label: 'Local Stores' },
+    { value: '50+', label: 'Communities' },
+    { value: '12+', label: 'Categories' },
+    { value: '4.5★', label: 'App Rating' }
   ];
 
   sellerStats: { value: string; label: string }[] = [
-    { value: '0%', label: 'homeStats.commission' },
-    { value: '5 min', label: 'homeStats.setupTime' },
-    { value: '260+', label: 'homeStats.sellersJoined' },
-    { value: 'Free', label: 'homeStats.forever' }
+    { value: '0%', label: 'Commission' },
+    { value: '5 min', label: 'Setup Time' },
+    { value: '260+', label: 'Sellers Joined' },
+    { value: 'Free', label: 'Forever' }
   ];
 
   buyerSteps = [
-    { title: 'homeSteps.buyerStep1Title', description: 'homeSteps.buyerStep1Desc', image: './imgs/buyer/buyerModuleImage1.svg' },
-    { title: 'homeSteps.buyerStep2Title', description: 'homeSteps.buyerStep2Desc', image: './imgs/buyer/buyerModuleImage2.svg' },
-    { title: 'homeSteps.buyerStep3Title', description: 'homeSteps.buyerStep3Desc', image: './imgs/buyer/buyerModuleImage3.svg' }
+    { title: 'Discover Nearby', description: 'Find local vendors, shops, and service providers right in your neighborhood', image: './imgs/buyer/buyerModuleImage1.svg' },
+    { title: 'Shop & Book', description: 'Browse products, book services, and add to cart from multiple stores', image: './imgs/buyer/buyerModuleImage2.svg' },
+    { title: 'Get Delivered', description: 'Track your order in real-time and receive it at your doorstep', image: './imgs/buyer/buyerModuleImage3.svg' }
   ];
 
   sellerSteps = [
-    { title: 'homeSteps.sellerStep1Title', description: 'homeSteps.sellerStep1Desc', image: './imgs/seller/sellerModuleImage1.svg' },
-    { title: 'homeSteps.sellerStep2Title', description: 'homeSteps.sellerStep2Desc', image: './imgs/seller/sellerModuleImage2.svg' },
-    { title: 'homeSteps.sellerStep3Title', description: 'homeSteps.sellerStep3Desc', image: './imgs/seller/sellerModuleImage3.svg' }
+    { title: 'Create Your Store', description: 'Set up your digital storefront with products, services, and custom branding', image: './imgs/seller/sellerModuleImage1.svg' },
+    { title: 'Manage & Sell', description: 'Handle orders, inventory, scheduling, and customer conversations', image: './imgs/seller/sellerModuleImage2.svg' },
+    { title: 'Grow Your Business', description: 'Track analytics, boost visibility, and reach more customers daily', image: './imgs/seller/sellerModuleImage3.svg' }
   ];
 
   buyerHighlights = [
-    { title: 'homeHighlights.smartDiscovery', description: 'homeHighlights.smartDiscoveryDesc', image: './imgs/buyer/buyerModuleImage1.svg' },
-    { title: 'homeHighlights.serviceBooking', description: 'homeHighlights.serviceBookingDesc', image: './imgs/buyer/buyerModuleImage2.svg' },
-    { title: 'homeHighlights.multiStoreCart', description: 'homeHighlights.multiStoreCartDesc', image: './imgs/buyer/buyerModuleImage3.svg' },
-    { title: 'homeHighlights.orderTracking', description: 'homeHighlights.orderTrackingDesc', image: './imgs/buyer/buyerModuleImage4.svg' },
-    { title: 'homeHighlights.chatWithSellers', description: 'homeHighlights.chatWithSellersDesc', image: './imgs/buyer/buyerModuleImage5.svg' },
-    { title: 'homeHighlights.pulseVideoFeed', description: 'homeHighlights.pulseVideoFeedDesc', image: './imgs/buyer/buyerModuleImage6.svg' }
+    { title: 'Smart Discovery', description: 'Find products and services by category, location, or keyword search', image: './imgs/buyer/buyerModuleImage1.svg' },
+    { title: 'Service Booking', description: 'Book appointments with time slot selection and availability tracking', image: './imgs/buyer/buyerModuleImage2.svg' },
+    { title: 'Multi-Store Cart', description: 'Shop from multiple sellers in a single checkout experience', image: './imgs/buyer/buyerModuleImage3.svg' },
+    { title: 'Order Tracking', description: 'Real-time status updates from placement to delivery', image: './imgs/buyer/buyerModuleImage4.svg' },
+    { title: 'Chat with Sellers', description: 'Direct messaging for queries, negotiations, and custom orders', image: './imgs/buyer/buyerModuleImage5.svg' },
+    { title: 'Pulse Video Feed', description: 'Watch short videos from sellers showcasing their products', image: './imgs/buyer/buyerModuleImage6.svg' }
   ];
 
   buyerFeatures = [
-    { title: 'homeHighlights.wishlistFollows', description: 'homeHighlights.wishlistFollowsDesc', accent: '#EC4899' },
-    { title: 'homeHighlights.reviewsRatings', description: 'homeHighlights.reviewsRatingsDesc', accent: '#EAB308' }
+    { title: 'Wishlist & Follows', description: 'Save favorite items and follow your preferred stores', accent: '#EC4899' },
+    { title: 'Reviews & Ratings', description: 'Read and write honest reviews to help the community', accent: '#EAB308' }
   ];
 
   sellerHighlights = [
-    { title: 'homeHighlights.storeCustomization', description: 'homeHighlights.storeCustomizationDesc', image: './imgs/seller/sellerModuleImage1.svg' },
-    { title: 'homeHighlights.catalogManagement', description: 'homeHighlights.catalogManagementDesc', image: './imgs/seller/sellerModuleImage2.svg' },
-    { title: 'homeHighlights.aiProductListing', description: 'homeHighlights.aiProductListingDesc', image: './imgs/seller/sellerModuleImage3.svg' },
-    { title: 'homeHighlights.analyticsDashboard', description: 'homeHighlights.analyticsDashboardDesc', image: './imgs/seller/sellerModuleImage4.svg' }
+    { title: 'Store Customization', description: 'Logo, banner, colors, business hours, policies — make it yours', image: './imgs/seller/sellerModuleImage1.svg' },
+    { title: 'Catalog Management', description: 'Products and services with variants, images, videos, and discounts', image: './imgs/seller/sellerModuleImage2.svg' },
+    { title: 'AI Product Listing', description: 'Describe your product in chat and AI creates the full listing for you', image: './imgs/seller/sellerModuleImage3.svg' },
+    { title: 'Analytics Dashboard', description: 'Revenue, engagement, popular items, and customer insights at a glance', image: './imgs/seller/sellerModuleImage4.svg' }
   ];
 
   sellerFeatures = [
-    { title: 'homeSellerFeatures.orderManagement', description: 'homeSellerFeatures.orderManagementDesc', accent: '#14B8A6' },
-    { title: 'homeSellerFeatures.scheduling', description: 'homeSellerFeatures.schedulingDesc', accent: '#6366F1' },
-    { title: 'homeSellerFeatures.paymentSetup', description: 'homeSellerFeatures.paymentSetupDesc', accent: '#22C55E' },
-    { title: 'homeSellerFeatures.customerInbox', description: 'homeSellerFeatures.customerInboxDesc', accent: '#EC4899' },
-    { title: 'homeSellerFeatures.pulseVideo', description: 'homeSellerFeatures.pulseVideoDesc', accent: '#EF4444' },
-    { title: 'homeSellerFeatures.reviewsReputation', description: 'homeSellerFeatures.reviewsReputationDesc', accent: '#EAB308' },
-    { title: 'homeSellerFeatures.offersPromotions', description: 'homeSellerFeatures.offersPromotionsDesc', accent: '#A855F7' },
-    { title: 'homeSellerFeatures.storeDna', description: 'homeSellerFeatures.storeDnaDesc', accent: '#06B6D4' },
-    { title: 'homeSellerFeatures.storeWebsite', description: 'homeSellerFeatures.storeWebsiteDesc', accent: '#F97316' }
+    { title: 'Order Management', description: 'Track, update, and fulfill orders with invoice generation', accent: '#14B8A6' },
+    { title: 'Scheduling & Availability', description: 'Weekly hours, blocked dates, and course/workshop curriculum', accent: '#6366F1' },
+    { title: 'Payment Setup', description: 'UPI, payment gateways, and ad-hoc payment links', accent: '#22C55E' },
+    { title: 'Customer Inbox', description: 'Respond to inquiries, negotiate deals, and build relationships', accent: '#EC4899' },
+    { title: 'Pulse Video Feed', description: 'Short-form videos to showcase products and reach new customers', accent: '#EF4444' },
+    { title: 'Reviews & Reputation', description: 'Customer reviews, star ratings, and reputation analytics', accent: '#EAB308' },
+    { title: 'Offers & Promotions', description: 'Time-limited discounts, featured products, and seasonal deals', accent: '#A855F7' },
+    { title: 'Store DNA', description: 'Your performance score vs peers — 7 dimensions, color-coded grades, and tips', accent: '#06B6D4' },
+    { title: 'Store Website', description: 'Free website at yourstore.padose.com — buyers browse without installing an app', accent: '#F97316' }
   ];
 
   categories = [
-    { name: 'homeCategories.freshProduce', icon: '🥬', color: '#22C55E' },
-    { name: 'homeCategories.streetFood', icon: '🍜', color: '#F59E0B' },
-    { name: 'homeCategories.groceries', icon: '🛒', color: '#3B82F6' },
-    { name: 'homeCategories.homeServices', icon: '🔧', color: '#6366F1' },
-    { name: 'homeCategories.beautyWellness', icon: '💆', color: '#EC4899' },
-    { name: 'homeCategories.tutoring', icon: '📚', color: '#8B5CF6' },
-    { name: 'homeCategories.handmadeCrafts', icon: '🎨', color: '#F97316' },
-    { name: 'homeCategories.clothing', icon: '👗', color: '#14B8A6' },
-    { name: 'homeCategories.electronicsRepair', icon: '📱', color: '#0EA5E9' },
-    { name: 'homeCategories.fitnessYoga', icon: '🧘', color: '#EF4444' },
-    { name: 'homeCategories.petServices', icon: '🐾', color: '#A855F7' },
-    { name: 'homeCategories.photography', icon: '📸', color: '#D946EF' }
+    { name: 'Fresh Produce', icon: '🥬', color: '#22C55E' },
+    { name: 'Street Food', icon: '🍜', color: '#F59E0B' },
+    { name: 'Groceries', icon: '🛒', color: '#3B82F6' },
+    { name: 'Home Services', icon: '🔧', color: '#6366F1' },
+    { name: 'Beauty & Wellness', icon: '💆', color: '#EC4899' },
+    { name: 'Tutoring', icon: '📚', color: '#8B5CF6' },
+    { name: 'Handmade Crafts', icon: '🎨', color: '#F97316' },
+    { name: 'Clothing', icon: '👗', color: '#14B8A6' },
+    { name: 'Electronics Repair', icon: '📱', color: '#0EA5E9' },
+    { name: 'Fitness & Yoga', icon: '🧘', color: '#EF4444' },
+    { name: 'Pet Services', icon: '🐾', color: '#A855F7' },
+    { name: 'Photography', icon: '📸', color: '#D946EF' }
   ];
 
   testimonials = [
@@ -165,8 +164,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private firebaseService: FirebaseService,
-    private seo: SeoService,
-    private translate: TranslateService
+    private seo: SeoService
   ) {}
 
   ngOnInit(): void {
@@ -218,12 +216,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   private async loadEnquiryCount(): Promise<void> {
     try {
       const count = await this.firebaseService.getEnquiryCount();
-      const enquiryStat = this.stats.find(s => s.label === 'homeStats.sellerEnquiries');
+      const enquiryStat = this.stats.find(s => s.label === 'Seller Enquiries');
       if (enquiryStat) {
         enquiryStat.value = count.toLocaleString();
       }
     } catch {
-      const enquiryStat = this.stats.find(s => s.label === 'homeStats.sellerEnquiries');
+      const enquiryStat = this.stats.find(s => s.label === 'Seller Enquiries');
       if (enquiryStat) {
         enquiryStat.value = '0';
       }
@@ -252,15 +250,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   private showNextActivity(): void {
     const msg = this.activityMessages[this.activityIndex];
     const timeAgo = Math.floor(Math.random() * 5) + 1;
-    if (msg.type === 'buyer') {
-      this.translate.get('home.activityBuyer', { city: msg.city, time: timeAgo }).subscribe(text => {
-        this.activityNotification = text;
-      });
-    } else {
-      this.translate.get('home.activitySeller', { city: msg.city, time: timeAgo }).subscribe(text => {
-        this.activityNotification = text;
-      });
-    }
+    this.activityNotification = msg.type === 'buyer'
+      ? `Someone in ${msg.city} just installed the Padose app - ${timeAgo}m ago`
+      : `A new seller in ${msg.city} just joined Padose - ${timeAgo}m ago`;
     this.showActivity = true;
 
     setTimeout(() => {

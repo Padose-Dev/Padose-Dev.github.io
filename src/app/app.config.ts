@@ -3,9 +3,7 @@ import { provideRouter, withInMemoryScrolling, withRouterConfig } from '@angular
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideTranslateService } from '@ngx-translate/core';
-import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,8 +14,6 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({ onSameUrlNavigation: 'reload' })
     ),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch()),
-    provideTranslateService({ defaultLanguage: 'en' }),
-    provideTranslateHttpLoader({ prefix: './i18n/', suffix: '.json' }),
+    provideHttpClient(),
   ]
 };

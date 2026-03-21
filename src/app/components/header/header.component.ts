@@ -1,29 +1,23 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  imports: [CommonModule, RouterModule, TranslateModule]
+  imports: [CommonModule, RouterModule]
 })
 export class HeaderComponent implements OnInit {
   isScrolled = false;
   isMobileView = false;
   mobileMenuOpen = false;
-  currentLang = 'en';
-  showLangMenu = false;
 
   constructor(
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private translate: TranslateService
-  ) {
-    this.currentLang = this.translate.currentLang || this.translate.defaultLang || 'en';
-  }
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     this.checkScreenSize();
@@ -35,11 +29,6 @@ export class HeaderComponent implements OnInit {
     if (!this.isMobileView) {
       this.mobileMenuOpen = false;
     }
-  }
-
-  @HostListener('document:click')
-  onDocumentClick() {
-    this.showLangMenu = false;
   }
 
   @HostListener('window:scroll')
@@ -67,19 +56,6 @@ export class HeaderComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       document.body.style.overflow = '';
     }
-  }
-
-  switchLang(lang: string): void {
-    this.currentLang = lang;
-    this.translate.use(lang);
-    this.showLangMenu = false;
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('padose_lang', lang);
-    }
-  }
-
-  toggleLangMenu(): void {
-    this.showLangMenu = !this.showLangMenu;
   }
 
   goHome(): void {
