@@ -23,6 +23,22 @@
     ],
     "rewrites": [
       {
+        "source": "/brand/create/ingredients{,/**}",
+        "destination": "/brand/create/ingredients/index.html"
+      },
+      {
+        "source": "/brand/create{,/**}",
+        "destination": "/brand/create/index.html"
+      },
+      {
+        "source": "/brand/view{,/**}",
+        "destination": "/brand/view/index.html"
+      },
+      {
+        "source": "/brand{,/**}",
+        "destination": "/brand/index.html"
+      },
+      {
         "source": "**",
         "destination": "/index.csr.html"
       }
