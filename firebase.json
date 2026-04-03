@@ -32,19 +32,19 @@
     ],
     "rewrites": [
       {
-        "source": "/brand/create/ingredients{,/**}",
+        "source": "/brand/create/ingredients",
         "destination": "/brand/create/ingredients/index.html"
       },
       {
-        "source": "/brand/create{,/**}",
+        "source": "/brand/create",
         "destination": "/brand/create/index.html"
       },
       {
-        "source": "/brand/view{,/**}",
+        "source": "/brand/view",
         "destination": "/brand/view/index.html"
       },
       {
-        "source": "/brand{,/**}",
+        "source": "/brand",
         "destination": "/brand/index.html"
       },
       {
