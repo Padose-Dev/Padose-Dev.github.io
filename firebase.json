@@ -19,6 +19,15 @@
             "value": "application/json"
           }
         ]
+      },
+      {
+        "source": "/brand/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
       }
     ],
     "rewrites": [
